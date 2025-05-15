@@ -6,7 +6,7 @@ import {
   styled,
 } from "@mui/material";
 import persona_midiendo_calibre from "@videos/persona_midiendo_calibre_hd_1920_1080_25fps.mp4";
-import { P, TitleXL } from "../../../theme/textStyles";
+import { P, TitleXL } from "@theme/textStyles";
 
 
 export const Hero: React.FC = () => {
@@ -54,70 +54,68 @@ export const Hero: React.FC = () => {
     },
   }));
   return (
-    <Box>
-      <HeroSection>
-        {/* Video de fondo */}
-        <VideoBackground
-          src={persona_midiendo_calibre}
-          autoPlay
-          loop
-          muted
-          playsInline // Importante para iOS
-        >
-          Tu navegador no admite el elemento <code>video</code>.
-        </VideoBackground>
+    <HeroSection>
+      {/* Video de fondo */}
+      <VideoBackground
+        src={persona_midiendo_calibre}
+        autoPlay
+        loop
+        muted
+        playsInline // Importante para iOS
+      >
+        Tu navegador no admite el elemento <code>video</code>.
+      </VideoBackground>
 
-        {/* Overlay oscuro para mejorar la legibilidad del texto */}
-        <Overlay />
+      {/* Overlay oscuro para mejorar la legibilidad del texto */}
+      <Overlay />
 
-        {/* Contenido del hero superpuesto al video */}
-        <Box
+      {/* Contenido del hero superpuesto al video */}
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "2rem",
+          position: "relative",
+          zIndex: 2,
+          textAlign: "center",
+        }}
+      >
+        <TitleXL sx={{ color: "primary.light" }}>
+          MECANIZADOS Y MANTENIMIENTO INDUSTRIAL
+        </TitleXL>
+        <Box>
+        <P
           sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: "2rem",
-            position: "relative",
-            zIndex: 2,
-            textAlign: "center",
+            fontSize: {xl: '1.5rem', lg: '1.375rem', md: '1.25rem', sm: '1.125rem', xs: '1rem'},
+            color: "primary.light",
+            maxWidth: "600px",
+            margin: "0 auto",
           }}
         >
-          <TitleXL sx={{ color: "primary.light" }}>
-            MECANIZADOS Y MANTENIMIENTO INDUSTRIAL
-          </TitleXL>
-          <Box>
-          <P
-            sx={{
-              fontSize: {xl: '1.5rem', lg: '1.375rem', md: '1.25rem', sm: '1.125rem', xs: '1rem'},
-              color: "primary.light",
-              maxWidth: "600px",
-              margin: "0 auto",
-            }}
-          >
-            Fabricación y reparación de piezas y equipos para la industria,
-            según planos, muestras o ingeniería propia.
-          </P>
-          <P
-            sx={{
-              fontSize: {xl: '1.5rem', lg: '1.375rem', md: '1.25rem', sm: '1.125rem', xs: '1rem'},
-              color: "primary.light",
-              maxWidth: "800px",
-              margin: "0 auto",
-            }}
-          >
-            Calidad y precisión garantizada.
-          </P>
+          Fabricación y reparación de piezas y equipos para la industria,
+          según planos, muestras o ingeniería propia.
+        </P>
+        <P
+          sx={{
+            fontSize: {xl: '1.5rem', lg: '1.375rem', md: '1.25rem', sm: '1.125rem', xs: '1rem'},
+            color: "primary.light",
+            maxWidth: "800px",
+            margin: "0 auto",
+          }}
+        >
+          Calidad y precisión garantizada.
+        </P>
 
-          </Box>
-          <CtaButton
-            variant="contained"
-            color="warning"
-            href="#contacto"
-          >
-            SOLICITAR PRESUPUESTO
-          </CtaButton>
         </Box>
-      </HeroSection>
-    </Box>
+        <CtaButton
+          variant="contained"
+          color="warning"
+          href="#contacto"
+        >
+          SOLICITAR PRESUPUESTO
+        </CtaButton>
+      </Box>
+    </HeroSection>
   );
 };
