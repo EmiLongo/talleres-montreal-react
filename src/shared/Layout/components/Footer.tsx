@@ -1,35 +1,40 @@
 import React from 'react';
-import { Box, Typography, List, ListItem, Container, Link } from '@mui/material';
+import { Box, Typography, List, ListItem, Container, Link, useTheme } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { Instagram, Facebook, WhatsApp, Telegram, Share } from '@mui/icons-material';
 
-// Estilos personalizados
-const StyledFooter = styled('footer')({
-  backgroundColor: '#6A1C1C',
-  color: '#FCDADA',
-  fontFamily: "'Homenaje', sans-serif",
-});
-
-const FooterList = styled(List)({
-  display: 'flex',
-  listStyleType: 'none',
-  margin: 0,
-});
-
-const FooterLink = styled(Link)({
-  textDecoration: 'none',
-  color: '#FCDADA',
-  '&:hover': {
-    color: '#FCDADA',
-  },
-});
 
 export const Footer: React.FC = () => {
+  const theme = useTheme();
+  const { palette } = theme;
+  // Estilos personalizados
+  const StyledFooter = styled('footer')({
+    backgroundColor: palette.primary[950],
+    color: palette.primary.light,
+    backdropFilter: "blur(10px) saturate(180%)",
+    WebkitBackdropFilter: "blur(10px) saturate(180%)",
+
+  });
+  
+  const FooterList = styled(List)({
+    display: 'flex',
+    listStyleType: 'none',
+    margin: 0,
+  });
+  
+  const FooterLink = styled(Link)({
+    textDecoration: 'none',
+    color: palette.primary.light,
+    '&:hover': {
+      color: palette.primary[400],
+    },
+  });
+
   // Función para compartir URL
   const shareURL = () => {
     if (navigator.share) {
       navigator.share({
-        title: 'Mundo Adaptógenos',
+        title: 'Talleres Montreal',
         url: window.location.href
       }).catch(console.error);
     } else {
