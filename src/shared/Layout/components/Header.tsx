@@ -11,14 +11,14 @@ import {
   List, 
   ListItem, 
   ListItemText, 
-  Badge,
   Container,
   useMediaQuery,
   useTheme
 } from '@mui/material';
-import logoText from '@img/mundo_adaptogenos.svg';
-import { Menu as MenuIcon, ShoppingCart as ShoppingCartIcon } from '@mui/icons-material';
+import logoText from '@img/talleres-montreal.svg';
+import { Menu as MenuIcon, Close as CloseIcon } from '@mui/icons-material';
 import { Link as RouterLink } from 'react-router-dom';
+import { P } from '../../../theme/textStyles';
 
 // Importar contexto del carrito (deberás crearlo)
 // import { useCart } from '../contexts/CartContext';
@@ -34,35 +34,46 @@ export const Header: React.FC = () => {
     setMobileOpen(!mobileOpen);
   };
   
-  const menuItems = [
-    { text: 'Melena de León', path: '/melena' },
-    { text: 'Cordyceps Militaris', path: '/cordyceps' },
-    { text: 'Reishi', path: '/reishi' },
-    { text: 'Cola de Pavo', path: '/cola-pavo' },
-  ];
+  // const menuItems = [
+
+  // ];
   
   const infoItems = [
-    { text: 'Preguntas Frecuentes', path: '/preguntas-frecuentes' },
-    { text: 'Contacto', path: '/contacto' },
+    { text: 'Inicio', path: '#home' },
+    { text: 'Servicios', path: '#services' },
+    { text: 'Quiénes Somos', path: '#about-us' },
+    { text: 'Equipamiento', path: '#equipment' },
+    { text: 'Clientes', path: '#trust-us' },
+    { text: 'Contacto', path: '#contact' },
   ];
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Box sx={{ p: 2 }}>
-        <img src={logoText} alt="Logo Mundo Adaptógenos" height="40" />
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', position: 'relative' }}>
+      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mt: "3rem", mb: 2 }}>
+        <img src={logoText} alt="Logo Talleres Montreal" height="60px" />
       </Box>
+      <Box
+        sx={{ position: 'absolute', top: "1rem", right: "1rem" }}
+        onClick={handleDrawerToggle}
+      >
+        <CloseIcon />
+      </Box>
+      <Box
+        sx={{ position: 'absolute', top: "1rem", left: "1rem" }}
+        onClick={handleDrawerToggle}
+      />
       <List>
         <ListItem component={RouterLink} to="/">
-          <ListItemText primary="Home / Productos" />
+          <ListItemText primary="Home / Productos" /><P>Home / Productos</P>
         </ListItem>
-        {menuItems.map((item) => (
+        {/* {menuItems.map((item) => (
           <ListItem key={item.text} component={RouterLink} to={item.path} sx={{ pl: 4 }}>
             <ListItemText primary={item.text} />
           </ListItem>
-        ))}
+        ))} */}
         {infoItems.map((item) => (
           <ListItem key={item.text} component={RouterLink} to={item.path}>
-            <ListItemText primary={item.text} />
+            <P>{item.text}</P>
           </ListItem>
         ))}
       </List>
@@ -71,10 +82,11 @@ export const Header: React.FC = () => {
 
   return (
     <>
-      <AppBar position="static" color="default" elevation={1} sx={{ backgroundColor:"primary.light" }}>
+      <AppBar position="static" color="default" elevation={1} sx={{ backgroundColor:"background.paper" }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             {isMobile ? (
+              // versión móvil
               <>
                 <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center' }}>
                   <IconButton
@@ -86,23 +98,18 @@ export const Header: React.FC = () => {
                   >
                     <MenuIcon />
                   </IconButton>
-                  <RouterLink to="/">
-                    <img src={logoText} alt="Logo Mundo Adaptógenos" height="40" />
+                  <RouterLink to="/" style={{ paddingTop: 'auto', paddingBottom: 'auto' }}>
+                    <img src={logoText} alt="Logo Talleres Montreal" height="60" />
                   </RouterLink>
                 </Box>
-                <IconButton component={RouterLink} to="/cart" color="inherit">
-                  {/* <Badge badgeContent={cartItems.length} color="primary"> */}
-                  <Badge badgeContent={"1"} color="primary">
-                    <ShoppingCartIcon />
-                  </Badge>
-                </IconButton>
               </>
             ) : (
-              <>
-                <RouterLink to="/" style={{ flexGrow: 0, marginRight: '24px' }}>
-                  <img src={logoText} alt="Logo Mundo Adaptógenos" height="60" />
+              // versión escritorio
+              <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingX: { xs: '1rem', lg: '3rem'} }}>
+                <RouterLink to="/" style={{ paddingTop: 'auto', paddingBottom: 'auto'  }}>
+                  <img src={logoText} alt="Logo Talleres Montreal" height="60" />
                 </RouterLink>
-                <Box sx={{ flexGrow: 1, display: 'flex' }}>
+                {/* <Box sx={{ flexGrow: 1, display: 'flex' }}>
                   {menuItems.map((item) => (
                     <Button
                       key={item.text}
@@ -113,31 +120,26 @@ export const Header: React.FC = () => {
                       {item.text}
                     </Button>
                   ))}
-                </Box>
-                <IconButton component={RouterLink} to="/cart" sx={{ mx: 2 }}>
-                  {/* <Badge badgeContent={cartItems.length} color="primary"> */}
-                  <Badge badgeContent={"1"} color="primary">
-                    <ShoppingCartIcon />
-                  </Badge>
-                </IconButton>
+                </Box> */}
                 <Box sx={{ display: 'flex' }}>
                   {infoItems.map((item) => (
                     <Button
                       key={item.text}
                       component={RouterLink}
                       to={item.path}
-                      sx={{ color: 'text.primary', mx: 1 }}
+                      sx={{ mx: 1 }}
                     >
-                      {item.text}
+                      <P sx={{ color: 'text.primary'}}>{item.text}</P>
                     </Button>
                   ))}
                 </Box>
-              </>
+              </Box>
             )}
           </Toolbar>
         </Container>
       </AppBar>
       <Box component="nav">
+        {/* Menú lateral en versión móvil */}
         <Drawer
           variant="temporary"
           open={mobileOpen}
@@ -153,6 +155,7 @@ export const Header: React.FC = () => {
           {drawer}
         </Drawer>
       </Box>
+      {/* titulo para el SEO, no se muestra */}
       <Typography 
         variant="h1" 
         component="h1" 
