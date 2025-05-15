@@ -10,18 +10,13 @@ import {
   Drawer, 
   List, 
   ListItem, 
-  ListItemText, 
   Container,
   useMediaQuery,
   useTheme
 } from '@mui/material';
 import logoText from '@img/talleres-montreal.svg';
 import { Menu as MenuIcon, Close as CloseIcon } from '@mui/icons-material';
-import { Link as RouterLink } from 'react-router-dom';
-import { P } from '../../../theme/textStyles';
-
-// Importar contexto del carrito (deberás crearlo)
-// import { useCart } from '../contexts/CartContext';
+import { P } from '@theme/textStyles';
 
 export const Header: React.FC = () => {
   const theme = useTheme();
@@ -34,12 +29,8 @@ export const Header: React.FC = () => {
     setMobileOpen(!mobileOpen);
   };
   
-  // const menuItems = [
-
-  // ];
-  
   const infoItems = [
-    { text: 'Inicio', path: '#home' },
+    // { text: 'Inicio', path: '#home' },
     { text: 'Servicios', path: '#services' },
     { text: 'Quiénes Somos', path: '#about-us' },
     { text: 'Equipamiento', path: '#equipment' },
@@ -63,16 +54,8 @@ export const Header: React.FC = () => {
         onClick={handleDrawerToggle}
       />
       <List>
-        <ListItem component={RouterLink} to="/">
-          <ListItemText primary="Home / Productos" /><P>Home / Productos</P>
-        </ListItem>
-        {/* {menuItems.map((item) => (
-          <ListItem key={item.text} component={RouterLink} to={item.path} sx={{ pl: 4 }}>
-            <ListItemText primary={item.text} />
-          </ListItem>
-        ))} */}
         {infoItems.map((item) => (
-          <ListItem key={item.text} component={RouterLink} to={item.path}>
+          <ListItem key={item.text} component={"a"} href={item.path}>
             <P>{item.text}</P>
           </ListItem>
         ))}
@@ -98,35 +81,23 @@ export const Header: React.FC = () => {
                   >
                     <MenuIcon />
                   </IconButton>
-                  <RouterLink to="/" style={{ paddingTop: 'auto', paddingBottom: 'auto' }}>
+                  <Box sx={{ paddingTop: 'auto', paddingBottom: 'auto' }}>
                     <img src={logoText} alt="Logo Talleres Montreal" height="60" />
-                  </RouterLink>
+                  </Box>
                 </Box>
               </>
             ) : (
               // versión escritorio
               <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingX: { xs: '1rem', lg: '3rem'} }}>
-                <RouterLink to="/" style={{ paddingTop: 'auto', paddingBottom: 'auto'  }}>
+                <Box sx={{ paddingTop: 'auto', paddingBottom: 'auto'  }}>
                   <img src={logoText} alt="Logo Talleres Montreal" height="60" />
-                </RouterLink>
-                {/* <Box sx={{ flexGrow: 1, display: 'flex' }}>
-                  {menuItems.map((item) => (
-                    <Button
-                      key={item.text}
-                      component={RouterLink}
-                      to={item.path}
-                      sx={{ color: 'text.primary', mx: 1 }}
-                    >
-                      {item.text}
-                    </Button>
-                  ))}
-                </Box> */}
+                </Box>
                 <Box sx={{ display: 'flex' }}>
                   {infoItems.map((item) => (
                     <Button
                       key={item.text}
-                      component={RouterLink}
-                      to={item.path}
+                      component={"a"}
+                      href={item.path}
                       sx={{ mx: 1 }}
                     >
                       <P sx={{ color: 'text.primary'}}>{item.text}</P>
