@@ -2,5 +2,9 @@
   margin: 0;
   padding: 0;
   width: 100dvw;
+  min-height: 100dvh;
   overflow-x: hidden;
+  background-color: "#FFFFFF";
+  display: flex;
+  flex-direction: column;
 }
