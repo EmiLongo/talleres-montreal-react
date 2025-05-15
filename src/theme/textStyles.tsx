@@ -15,7 +15,7 @@ const responsiveFontSize = (fontSizes: { xl?: string; lg?: string; md?: string; 
 // TITLES
 export const TitleXL = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
   ...defaultTitle(theme),
-  ...responsiveFontSize({ xl: '2.25rem', lg: '2rem', md: '1.75rem', sm: '1.5rem', xs: '1.25rem' })(theme), // 36px
+  ...responsiveFontSize({ xl: '2.25rem', lg: '2rem', md: '1.75rem', sm: '1.75rem', xs: '1.75rem' })(theme), // 36px
 }));
 
 export const TitleH1 = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
