@@ -1,0 +1,33 @@
+// src/shared/Layout/components/WhatsApp.tsx
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import { Box, Fab } from '@mui/material';
+
+export const WhatsApp: React.FC = () => {
+  return (
+    <Box 
+    component={"a"}
+    href="https://wa.me/5493476619576?text=Hola,%20me%20gustar%C3%ADa%20saber%20m%C3%A1s%20sobre%20los%20servicios%20de%20Talleres%20Montreal."
+    target="_blank"
+    rel="noopener noreferrer"
+    sx={{ 
+      position: "fixed", 
+      bottom: {xs: "1rem", md: "2rem", lg: "3rem"},
+      right: {xs: "1rem", md: "2rem", lg: "3rem"}, 
+      zIndex: 100 
+    }}
+    >
+      <Fab aria-label="whatsapp"
+        sx={{ 
+          width: { xs: "4rem", md: "5rem", lg: "6rem" },
+          height: { xs: "4rem", md: "5rem", lg: "6rem" },
+          padding: "1rem",
+          backgroundColor: "#075E54", 
+          color: "white", 
+          "&:hover": { backgroundColor: "#128C7E" } 
+        }}
+      >
+        <WhatsAppIcon sx={{ fontSize: { xs: "2rem", md: "3rem", lg: "4rem" } }}/>
+      </Fab>
+    </Box>
+  )
+}
