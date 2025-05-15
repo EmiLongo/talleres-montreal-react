@@ -1,5 +1,5 @@
 import { Box, CircularProgress } from "@mui/material";
-import logo from "@img/logo.svg";
+import logo from "@img/talleres-montreal.svg";
 const Loading = () => {
   return (
     <Box
@@ -14,7 +14,7 @@ const Loading = () => {
       }}
     >
 			<CircularProgress />
-      <img src={logo} alt="Logo Mundo Adaptogenos" width={200} />
+      <img src={logo} alt="Logo Talleres Montreal" width={200} />
     </Box>
   );
 };
