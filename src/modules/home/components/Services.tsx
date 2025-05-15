@@ -1,3 +1,4 @@
+// src/modules/home/components/Services.tsx
 import { Box } from "@mui/material";
 import React from "react";
 import truckIcon from "@img/services/container-truck.svg";
@@ -34,8 +35,8 @@ export const Services: React.FC = () => {
       component="section"
       id="services-container"
       sx={{
+      padding: {xs:"2rem", lg:"3rem", xl:"4rem"},
       position: "relative",
-      height: "80vh",
       width: "100%",
       display: "flex",
       flexDirection: "column",
@@ -44,11 +45,11 @@ export const Services: React.FC = () => {
       backgroundColor: "background.paper",
       }}
     >
-      <TitleXL sx={{ color: "primary.main" }}>
+      <TitleXL id="services" sx={{ color: "primary.main", marginTop: {xs:"2rem", lg:"3rem", xl:"4rem"}, marginBottom: "1rem" }}>
         Servicios Destacados
       </TitleXL>
       <P sx={{
-        fontSize: {xl: '1.5rem', lg: '1.375rem', md: '1.25rem', sm: '1.125rem', xs: '1rem'},
+        fontSize: {xl: '1.5rem', lg: '1.375rem', md: '1.25rem', sm: '1.2rem', xs: '1.2rem'},
         color: "primary.main",
         maxWidth: "600px",
         margin: "0 auto",

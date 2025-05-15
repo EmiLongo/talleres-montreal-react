@@ -79,6 +79,7 @@ export const Hero: React.FC = () => {
           position: "relative",
           zIndex: 2,
           textAlign: "center",
+          paddingX: {xs:"2rem", lg:"3rem", xl:"4rem"},
         }}
       >
         <TitleXL sx={{ color: "primary.light" }}>
