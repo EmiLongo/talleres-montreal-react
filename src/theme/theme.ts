@@ -22,18 +22,19 @@ export const grayColor = {
 
 export const primaryColor = {
   // contraste con texto negro
-  50: "#faeaec",
-  100: "#f2c9cd",
-  200: "#da9593",
-  300: "#c96e6b",
-  400: "#cf514a",
-  500: "#cf4332",
-  600: "#c13b30",
-  700: "#b0322b",
+  50: "#f3f6fc",
+  100: "#e5edf9",
+  200: "#c6d9f1",
+  300: "#93b9e6",
+  400: "#5995d7",
+  500: "#3478c3",
+  600: "#245da5",
+  700: "#1e4b86",
+  800: "#1d406f",
+  900: "#1d375d",
+  950: "#13243e",
   // a partir de aca contraste con texto blanco
-  800: "#a32d25",
-  900: "#93261c",  // elegido
-  950: "#701D15",
+  // elegido
 };
 
 export const secondaryColor = {
@@ -85,14 +86,17 @@ export const theme = createTheme({
   palette: {
     primary: {
       main: primaryColor[900],
-      light: primaryColor[100],
+      light: primaryColor[200],
+      ...primaryColor,
     },
     secondary: {
       main: secondaryColor[700], // Color verde para el texto "Disponibilidad"
+      light: secondaryColor[200],
+      ...secondaryColor,
     },
     background: {
-      default: secondaryColor[700],
-      paper: accentColor[100],
+      default: "#18222986",
+      paper: "#f8f8ff",
     },
     text: {
       primary: primaryColor[950],
@@ -101,6 +105,8 @@ export const theme = createTheme({
     },
     error: {
       main: errorColor[600],
+      light: errorColor[200],
+      ...errorColor,
     },
   },
   typography: {
@@ -137,7 +143,7 @@ export const defaultCTA = (theme: Theme) => ({
 export const defaultTitle = (theme: Theme) => ({
   fontFamily: customFonts.family.oswald,
   letterSpacing: customFonts.letter.normal,
-  fontWeight: 600,
+  fontWeight: 500,
   color: theme.palette.text.secondary,
 });
 
