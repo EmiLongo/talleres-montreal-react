@@ -82,6 +82,17 @@ export const errorColor = {
   900: "#b90008",
 };
 
+export const customFonts = {
+  letter: {
+    wide: 1.3,
+    normal: 0.3,
+  },
+  family: {
+    oswald: "Oswald, impact, arial, calibri, sans-serif",
+    catamaran: "Catamaran, open-sans, arial, calibri, sans-serif",
+  },
+};
+
 export const theme = createTheme({
   palette: {
     primary: {
@@ -95,7 +106,7 @@ export const theme = createTheme({
       ...secondaryColor,
     },
     background: {
-      default: "#18222986",
+      // default: "#18222986",
       paper: "#f8f8ff",
     },
     text: {
@@ -112,19 +123,70 @@ export const theme = createTheme({
   typography: {
     htmlFontSize: 16, // base 1rem = 16px
   },
+  components: {
+    MuiButton: {
+      defaultProps: {
+        // Establece el estilo predeterminado del botón
+        variant: "contained",
+        size: "small",
+      },
+      styleOverrides: {
+        // sobreescribe estilos de botones
+        root: {
+          minHeight: '30px',
+          borderRadius: '8px',
+          // padding: ".5rem .7rem",
+          letterSpacing: customFonts.letter.wide,
+          width: "fit-content",
+          fontFamily: customFonts.family.catamaran,
+          fontWeight: 500,
+          textTransform: "uppercase",
+        },
+      },
+    },
+    MuiTextField: {
+      defaultProps: {
+        variant: "outlined",
+      },
+    },
+    MuiOutlinedInput: {
+      styleOverrides: {
+        root: {
+          fontFamily: customFonts.family.catamaran,
+          color: grayColor[950],
+          "& .MuiOutlinedInput-notchedOutline": {
+            borderColor: grayColor[600], // Color del borde
+          },
+          "&:hover .MuiOutlinedInput-notchedOutline": {
+            borderColor: grayColor[700], // Color del borde al hacer hover
+          },
+          "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+            borderColor: grayColor[800], // Color del borde cuando está enfocado
+          },
+        },
+      },
+    },
+    MuiInputLabel: {
+      styleOverrides: {
+        root: {
+          fontFamily: customFonts.family.catamaran,
+          color: grayColor[800],
+          "&.Mui-focused": {
+            color: grayColor[800],
+          },
+          "&.MuiInputLabel-shrink": {
+            color: grayColor[800],
+          },
+          "&.MuiFormLabel-filled": {
+            color: grayColor[800],
+          },
+        },
+      },
+    },
+  }
 });
 
 
-export const customFonts = {
-  letter: {
-    wide: 1.3,
-    normal: 0.3,
-  },
-  family: {
-    oswald: "Oswald, impact, arial, calibri, sans-serif",
-    catamaran: "Catamaran, open-sans, arial, calibri, sans-serif",
-  },
-};
 
 export const defaultParagraph = (theme: Theme) => ({
   fontFamily: customFonts.family.catamaran,
