@@ -25,7 +25,7 @@ export const TitleH1 = styled((props: TypographyProps) => <Typography {...props}
 
 export const TitleH2 = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
   ...defaultTitle(theme),
-  ...responsiveFontSize({ xl: '1.25rem', lg: '1.125rem', md: '1rem', sm: '0.875rem', xs: '0.75rem' })(theme), // 20px
+  ...responsiveFontSize({ xl: '1.25rem', lg: '1.125rem', md: '1.05rem', sm: '1rem', xs: '1rem' })(theme), // 20px
 }));
 
 export const TitleH3 = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
