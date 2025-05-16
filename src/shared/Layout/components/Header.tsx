@@ -64,9 +64,10 @@ export const Header: React.FC = () => {
 
   return (
     <>
-      <AppBar position="static" color="default" elevation={1} sx={{ backgroundColor:"background.paper" }}>
-        <Container maxWidth="xl">
-          <Toolbar disableGutters>
+      <Box sx={{ height: "70px" }}/>
+      <AppBar position="fixed" color="default" elevation={1} sx={{ height: "70px" }}>
+        <Container maxWidth="xl" sx={{ height: '100%' }}>
+          <Toolbar disableGutters sx={{ height: '100%' }}>
             {isMobile ? (
               // versión móvil
               <>
@@ -80,17 +81,23 @@ export const Header: React.FC = () => {
                   >
                     <MenuIcon />
                   </IconButton>
-                  <Box sx={{ paddingTop: 'auto', paddingBottom: 'auto' }}>
-                    <img src={logoText} alt="Logo Talleres Montreal" height="60" />
-                  </Box>
+                  <Box 
+                  component={"img"}
+                  src={logoText}
+                  alt="Logo Talleres Montreal"
+                  height="60px"
+                  />
                 </Box>
               </>
             ) : (
               // versión escritorio
               <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingX: { xs: '1rem', lg: '3rem'} }}>
-                <Box sx={{ paddingTop: 'auto', paddingBottom: 'auto'  }}>
-                  <img src={logoText} alt="Logo Talleres Montreal" height="60" />
-                </Box>
+                <Box 
+                  component={"img"}
+                  src={logoText}
+                  alt="Logo Talleres Montreal"
+                  height="60px"
+                />
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: {xs: '3rem', lg: '4rem', xl: '5rem'} }}>
                   {infoItems.map((item) => (
                     <Box
