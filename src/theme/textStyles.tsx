@@ -48,6 +48,11 @@ export const SubtitleBold = styled((props: TypographyProps) => <Typography {...p
   ...responsiveFontSize({ xl: '0.875rem', lg: '0.8125rem', md: '0.75rem', sm: '0.6875rem', xs: '0.625rem' })(theme), // 14px
 }));
 
+export const SubtitleXL = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
+  ...defaultParagraph(theme),
+  ...responsiveFontSize({ xl: "1.5rem", lg: "1.375rem", md: "1.25rem", sm: "1.2rem", xs: "1.2rem"})(theme), // 18px
+}));
+
 export const Subtitle = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
   ...defaultParagraph(theme),
   ...responsiveFontSize({ xl: '0.875rem', lg: '0.8125rem', md: '0.75rem', sm: '0.6875rem', xs: '0.625rem' })(theme), // 14px
@@ -62,13 +67,13 @@ export const ButtonMini = styled((props: TypographyProps) => <Typography {...pro
 }));
 
 // PARAGRAPHS
-export const P = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
+export const Text1 = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
   ...defaultParagraph(theme),
 }));
 
 export const Text2 = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
   ...defaultParagraph(theme),
-  fontSize: "0.75rem", // 12px
+  ...responsiveFontSize({ xs: '0.8rem', md: '1rem', lg: '1.1rem', xl: '1.2rem' })(theme),
 }));
 
 export const ParagraphLight = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
