@@ -1,7 +1,9 @@
 // src/modules/home/components/Services.tsx
 import { Box } from "@mui/material";
 import React from "react";
+// icono de camión sacado de https://thenounproject.com/icon/container-truck-5201423/ y editado a mano
 import truckIcon from "@img/services/container-truck.svg";
+// iconos sacados de https://thenounproject.com/browse/collection-icon/technical-support-66195/
 import csrIcon from "@img/services/csr.svg";
 import managerIcon from "@img/services/manager.svg";
 import technicalSupportIcon from "@img/services/technical-support.svg";
@@ -35,7 +37,7 @@ export const Services: React.FC = () => {
       component="section"
       id="services-container"
       sx={{
-      padding: {xs:"2rem", lg:"3rem", xl:"4rem"},
+      paddingX: {xs:"2rem", lg:"3rem", xl:"4rem"},
       position: "relative",
       width: "100%",
       display: "flex",
@@ -51,7 +53,7 @@ export const Services: React.FC = () => {
       <P sx={{
         fontSize: {xl: '1.5rem', lg: '1.375rem', md: '1.25rem', sm: '1.2rem', xs: '1.2rem'},
         color: "primary.main",
-        maxWidth: "600px",
+        maxWidth: "1100px",
         margin: "0 auto",
       }}>
       Nos especializamos en brindar soluciones industriales de calidad con personal altamente calificado.
