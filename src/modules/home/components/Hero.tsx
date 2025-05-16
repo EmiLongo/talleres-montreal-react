@@ -6,7 +6,7 @@ import {
   styled,
 } from "@mui/material";
 import persona_midiendo_calibre from "@videos/persona_midiendo_calibre_hd_1920_1080_25fps.mp4";
-import { P, TitleXL } from "@theme/textStyles";
+import { SubtitleXL, TitleXL } from "@theme/textStyles";
 
 
 export const Hero: React.FC = () => {
@@ -86,7 +86,7 @@ export const Hero: React.FC = () => {
           MECANIZADOS Y MANTENIMIENTO INDUSTRIAL
         </TitleXL>
         <Box>
-        <P
+        <SubtitleXL
           sx={{
             fontSize: {xl: '1.5rem', lg: '1.375rem', md: '1.25rem', sm: '1.125rem', xs: '1rem'},
             color: "primary.light",
@@ -96,8 +96,8 @@ export const Hero: React.FC = () => {
         >
           Fabricación y reparación de piezas y equipos para la industria,
           según planos, muestras o ingeniería propia.
-        </P>
-        <P
+        </SubtitleXL>
+        <SubtitleXL
           sx={{
             fontSize: {xl: '1.5rem', lg: '1.375rem', md: '1.25rem', sm: '1.125rem', xs: '1rem'},
             color: "primary.light",
@@ -106,7 +106,7 @@ export const Hero: React.FC = () => {
           }}
         >
           Calidad y precisión garantizada.
-        </P>
+        </SubtitleXL>
 
         </Box>
         <CtaButton
