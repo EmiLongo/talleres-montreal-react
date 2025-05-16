@@ -11,3 +11,12 @@
 html {
   scroll-behavior: smooth;
 }
+body {
+  background-color: "#FFFFFF";
+}
+a, a:active, a:visited{
+    text-decoration: none;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+}
