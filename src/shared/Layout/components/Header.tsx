@@ -14,7 +14,7 @@ import {
 } from '@mui/material';
 import logoText from '@img/talleres-montreal.svg';
 import { Menu as MenuIcon, Close as CloseIcon } from '@mui/icons-material';
-import { P } from '@theme/textStyles';
+import { Text1, Text2 } from '@theme/textStyles';
 
 export const Header: React.FC = () => {
   const theme = useTheme();
@@ -55,7 +55,7 @@ export const Header: React.FC = () => {
       <List sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
         {infoItems.map((item) => (
           <Box key={item.text} component={"a"} href={item.path}>
-            <P sx={{ fontSize: '1.2rem', color: palette.text.primary}}>{item.text}</P>
+            <Text1 sx={{ fontSize: '1.2rem', color: palette.text.primary}}>{item.text}</Text1>
           </Box>
         ))}
       </List>
@@ -98,15 +98,14 @@ export const Header: React.FC = () => {
                       component={"a"}
                       href={item.path}
                     >
-                      <P sx={{
-                        fontSize: { xs: '0.8rem', md: '1rem', lg: '1.1rem', xl: '1.2rem' },
+                      <Text2 sx={{
                         fontWeight: 500,
                         color: 'text.primary',
                         '&:hover': {
                           color: palette.primary[600],
                         },
 
-                      }}>{item.text}</P>
+                      }}>{item.text}</Text2>
                     </Box>
                   ))}
                 </Box>

@@ -7,7 +7,7 @@ import truckIcon from "@img/services/container-truck.svg";
 import csrIcon from "@img/services/csr.svg";
 import managerIcon from "@img/services/manager.svg";
 import technicalSupportIcon from "@img/services/technical-support.svg";
-import { P, TitleH2, TitleXL } from "@theme/textStyles";
+import { SubtitleXL, Text1, TitleH2, TitleXL } from "@theme/textStyles";
 
 export const Services: React.FC = () => {
   const services = [
@@ -50,14 +50,13 @@ export const Services: React.FC = () => {
       <TitleXL id="services" sx={{ color: "primary.main", marginTop: {xs:"2rem", lg:"3rem", xl:"4rem"}, marginBottom: "1rem" }}>
         Servicios Destacados
       </TitleXL>
-      <P sx={{
-        fontSize: {xl: '1.5rem', lg: '1.375rem', md: '1.25rem', sm: '1.2rem', xs: '1.2rem'},
+      <SubtitleXL sx={{
         color: "primary.main",
         maxWidth: "1100px",
         margin: "0 auto",
       }}>
       Nos especializamos en brindar soluciones industriales de calidad con personal altamente calificado.
-      </P>
+      </SubtitleXL>
       <Box
         sx={{
           display: "grid",
@@ -91,9 +90,9 @@ export const Services: React.FC = () => {
               <TitleH2 sx={{ textAlign: "center", color: "primary.main", mb: "1rem", textWrap: "wrap" }}>
                 {service.title}
               </TitleH2>
-              <P sx={{ textAlign: "center", color: "primary.main", textWrap: "wrap" }}>
+              <Text1 sx={{ textAlign: "center", color: "primary.main", textWrap: "wrap" }}>
                 {service.description}
-              </P>
+              </Text1>
             </Box>
           </Box>
           ))

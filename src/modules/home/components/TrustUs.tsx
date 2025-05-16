@@ -1,7 +1,7 @@
 // src/modules/home/components/TrustUs.tsx
 import { Box, useMediaQuery, useTheme } from "@mui/material";
 import React from "react";
-import { P, TitleXL } from "@theme/textStyles";
+import { SubtitleXL, TitleXL } from "@theme/textStyles";
 import { Carousel } from "./Carousel";
 import CartoneraPuertoLogo from "@img/trust-us/cartonera-puerto.png";
 import CelulosaArgentinaLogo from "@img/trust-us/celulosa-argentina.png";
@@ -129,15 +129,8 @@ export const TrustUs: React.FC = () => {
       >
         Empresas que Confían en Nosotros
       </TitleXL>
-      <P
+      <SubtitleXL
         sx={{
-          fontSize: {
-            xl: "1.5rem",
-            lg: "1.375rem",
-            md: "1.25rem",
-            sm: "1.2rem",
-            xs: "1.2rem",
-          },
           color: "primary.main",
           maxWidth: "1100px",
           marginX: "auto",
@@ -145,7 +138,7 @@ export const TrustUs: React.FC = () => {
         }}
       >
         Brindamos servicios a las principales industrias de la región.
-      </P>
+      </SubtitleXL>
       <Carousel logos={clients} speed={isMobile ? 600 : isTablet ? 350 : 120} />
     </Box>
   );
