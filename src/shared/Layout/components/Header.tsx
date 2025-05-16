@@ -5,11 +5,9 @@ import {
   Toolbar, 
   Typography, 
   Box, 
-  Button, 
   IconButton, 
   Drawer, 
   List, 
-  ListItem, 
   Container,
   useMediaQuery,
   useTheme
@@ -20,6 +18,7 @@ import { P } from '@theme/textStyles';
 
 export const Header: React.FC = () => {
   const theme = useTheme();
+  const { palette } = theme;
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const [mobileOpen, setMobileOpen] = useState(false);
   // const { cartItems } = useCart();
@@ -40,7 +39,7 @@ export const Header: React.FC = () => {
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', position: 'relative' }}>
-      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mt: "3rem", mb: 2 }}>
+      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mt: "3rem", mb: "2rem" }}>
         <img src={logoText} alt="Logo Talleres Montreal" height="60px" />
       </Box>
       <Box
@@ -53,11 +52,11 @@ export const Header: React.FC = () => {
         sx={{ position: 'absolute', top: "1rem", left: "1rem" }}
         onClick={handleDrawerToggle}
       />
-      <List>
+      <List sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
         {infoItems.map((item) => (
-          <ListItem key={item.text} component={"a"} href={item.path}>
-            <P>{item.text}</P>
-          </ListItem>
+          <Box key={item.text} component={"a"} href={item.path}>
+            <P sx={{ fontSize: '1.2rem', color: palette.text.primary}}>{item.text}</P>
+          </Box>
         ))}
       </List>
     </Box>
@@ -92,16 +91,23 @@ export const Header: React.FC = () => {
                 <Box sx={{ paddingTop: 'auto', paddingBottom: 'auto'  }}>
                   <img src={logoText} alt="Logo Talleres Montreal" height="60" />
                 </Box>
-                <Box sx={{ display: 'flex' }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: {xs: '3rem', lg: '4rem', xl: '5rem'} }}>
                   {infoItems.map((item) => (
-                    <Button
+                    <Box
                       key={item.text}
                       component={"a"}
                       href={item.path}
-                      sx={{ mx: 1 }}
                     >
-                      <P sx={{ color: 'text.primary'}}>{item.text}</P>
-                    </Button>
+                      <P sx={{
+                        fontSize: { xs: '0.8rem', md: '1rem', lg: '1.1rem', xl: '1.2rem' },
+                        fontWeight: 500,
+                        color: 'text.primary',
+                        '&:hover': {
+                          color: palette.primary[600],
+                        },
+
+                      }}>{item.text}</P>
+                    </Box>
                   ))}
                 </Box>
               </Box>
@@ -137,7 +143,7 @@ export const Header: React.FC = () => {
           left: '-100%',
         }}
       >
-        Venta de Extracción Hongos Adaptógenos, Melena de León, Cordyceps Militaris, Reishi, Cola de Pavo, Màxima Pureza
+        Fabricación y reparación de piezas y equipos para la industria, según planos, muestras o ingeniería propia. Calidad y precisión garantizada.
       </Typography>
     </>
   );
