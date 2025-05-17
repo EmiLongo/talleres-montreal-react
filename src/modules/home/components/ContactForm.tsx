@@ -49,6 +49,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ sx = {} }) => {
         })
         .catch(() => {
           toast.error('Error al enviar el mensaje')
+          console.log('Error al enviar el mensaje', values);
         })
         .finally(() => setSubmitting(false));
     },
