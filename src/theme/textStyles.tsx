@@ -69,6 +69,7 @@ export const ButtonMini = styled((props: TypographyProps) => <Typography {...pro
 // PARAGRAPHS
 export const Text1 = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
   ...defaultParagraph(theme),
+  ...responsiveFontSize({ xs: '1.1rem', md: '1.1rem', lg: '1.2rem', xl: '1.3rem' })(theme),
 }));
 
 export const Text2 = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
