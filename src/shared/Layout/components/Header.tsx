@@ -12,7 +12,8 @@ import {
   useMediaQuery,
   useTheme
 } from '@mui/material';
-import logoText from '@img/talleres-montreal.svg';
+import logoTextHorizontal from '@img/talleres-montreal-logo-horizontal.svg';
+import logoTextVertical from '@img/talleres-montreal-logo-vertical.svg';
 import { Menu as MenuIcon, Close as CloseIcon } from '@mui/icons-material';
 import { Text1, Text2 } from '@theme/textStyles';
 
@@ -40,7 +41,7 @@ export const Header: React.FC = () => {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', position: 'relative' }}>
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mt: "3rem", mb: "2rem" }}>
-        <img src={logoText} alt="Logo Talleres Montreal" height="60px" />
+        <img src={logoTextVertical} alt="Logo Talleres Montreal" height="100px" />
       </Box>
       <Box
         sx={{ position: 'absolute', top: "1rem", right: "1rem" }}
@@ -65,7 +66,18 @@ export const Header: React.FC = () => {
   return (
     <>
       <Box sx={{ height: "70px" }}/>
-      <AppBar position="fixed" color="default" elevation={1} sx={{ height: "70px" }}>
+      <AppBar 
+      position="fixed" 
+      color="default" 
+      elevation={1} 
+      sx={{
+        height: "70px",
+        backgroundColor: "#f3f6fc82",
+        backdropFilter: "blur(10px) saturate(180%)",
+        WebkitBackdropFilter: "blur(10px) saturate(180%)",
+
+      }}
+      >
         <Container maxWidth="xl" sx={{ height: '100%' }}>
           <Toolbar disableGutters sx={{ height: '100%' }}>
             {isMobile ? (
@@ -83,7 +95,7 @@ export const Header: React.FC = () => {
                   </IconButton>
                   <Box 
                   component={"img"}
-                  src={logoText}
+                  src={logoTextHorizontal}
                   alt="Logo Talleres Montreal"
                   height="60px"
                   />
@@ -94,7 +106,7 @@ export const Header: React.FC = () => {
               <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingX: { xs: '1rem', lg: '3rem'} }}>
                 <Box 
                   component={"img"}
-                  src={logoText}
+                  src={logoTextHorizontal}
                   alt="Logo Talleres Montreal"
                   height="60px"
                 />
