@@ -56,7 +56,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ sx = {} }) => {
   });
 
   return (
-    <Box id="contact-form" sx={{ px: {xs: 0, md: 6, lg: 10}, paddingBottom: {xs: 6, md: 10}, color: 'white', ...sx }}>
+    <Box id="contact-form" sx={{ px: {xs: 0, lg: 10}, paddingTop: {xs: 0, md: 6},paddingBottom: {xs: 6, md: 6}, color: 'white', ...sx }}>
       <SubtitleXL sx={{ color: palette.primary[100], marginBottom: "1rem" }}>
         Envíenos un Mensaje
       </SubtitleXL>
@@ -150,6 +150,14 @@ export const ContactForm: React.FC<ContactFormProps> = ({ sx = {} }) => {
           variant="contained" 
           color="secondary"
           disabled={formik.isSubmitting}
+          sx={{
+            backgroundColor: theme.palette.warning.main,
+            "&:hover": {
+              backgroundColor: theme.palette.warning.dark,
+              transform: "translateY(-3px)",
+              transition: "all 0.3s",
+            },
+          }}
         >
           Enviar Mensaje
         </Button>
