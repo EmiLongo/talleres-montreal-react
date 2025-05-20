@@ -1,5 +1,5 @@
 import { Box, CircularProgress } from "@mui/material";
-import logo from "@img/talleres-montreal.svg";
+import logo from "@img/talleres-montreal-logo-simple.svg";
 const Loading = () => {
   return (
     <Box
