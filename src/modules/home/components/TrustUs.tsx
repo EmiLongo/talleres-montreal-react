@@ -6,7 +6,7 @@ import { Carousel } from "./Carousel";
 import CartoneraPuertoLogo from "@img/trust-us/cartonera-puerto.png";
 import CelulosaArgentinaLogo from "@img/trust-us/celulosa-argentina.png";
 import FaiartArgentinaVerbanoLogo from "@img/trust-us/faiart-argentina-verbano.png";
-import MaqorLogo from "@img/trust-us/maqor.jpg";
+import MaqorLogo from "@img/trust-us/maqor.svg";
 import MolinoCaniuelasLogo from "@img/trust-us/molino-caniuelas.png";
 import NouryonChemicalsArgentinaLogo from "@img/trust-us/nouryon-chemicals-argentina.svg";
 import PeitelLogo from "@img/trust-us/peitel.png";
