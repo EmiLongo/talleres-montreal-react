@@ -119,6 +119,9 @@ export const theme = createTheme({
       light: errorColor[200],
       ...errorColor,
     },
+    grey: {
+      ...grayColor,
+    },
   },
   typography: {
     htmlFontSize: 16, // base 1rem = 16px
