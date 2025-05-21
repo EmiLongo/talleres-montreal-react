@@ -1,7 +1,7 @@
 // src/modules/home/components/Equipment.tsx
 import { Box } from "@mui/material";
 import React from "react";
-import { SubtitleXL, TitleH2, TitleXL } from "@theme/textStyles";
+import { SubtitleXL, Title2, TitleXL } from "@theme/textStyles";
 
 export const Equipment: React.FC = () => {
   const equipment = [
@@ -19,7 +19,7 @@ export const Equipment: React.FC = () => {
   return (
     <Box
       component="section"
-      id="services-container"
+      id="equipment"
       sx={{
       paddingX: {xs:"2rem", lg:"3rem", xl:"4rem"},
       position: "relative",
@@ -31,7 +31,7 @@ export const Equipment: React.FC = () => {
       backgroundColor: "background.paper",
       }}
     >
-      <TitleXL id="services" sx={{ color: "primary.main", marginTop: {xs:"2rem", lg:"3rem", xl:"4rem"}, marginBottom: "1rem" }}>
+      <TitleXL id="equipment-title" sx={{ color: "primary.main", marginTop: {xs:"2rem", lg:"3rem", xl:"4rem"}, marginBottom: "1rem" }}>
         Nuestro Equipamiento
       </TitleXL>
       <SubtitleXL sx={{
@@ -69,9 +69,9 @@ export const Equipment: React.FC = () => {
               border: "1px solid rgba( 255, 255, 255, 0.18 )",
             }}
           >
-            <TitleH2 sx={{ textAlign: "center", color: "primary.main", textWrap: "wrap" }}>
+            <Title2 sx={{ textAlign: "center", color: "primary.main", textWrap: "wrap" }}>
               {equip.title}
-            </TitleH2>
+            </Title2>
           </Box>
           ))
         }
