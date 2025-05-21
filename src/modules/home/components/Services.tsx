@@ -7,7 +7,8 @@ import truckIcon from "@img/services/container-truck.svg";
 import csrIcon from "@img/services/csr.svg";
 import managerIcon from "@img/services/manager.svg";
 import technicalSupportIcon from "@img/services/technical-support.svg";
-import { SubtitleXL, Text1, Title2, TitleXL } from "@theme/textStyles";
+import modeladoIcon from "@img/services/modelado.svg";
+import { SubtitleXL, Text1, Title1, TitleXL } from "@theme/textStyles";
 
 const services = [
   {
@@ -28,7 +29,7 @@ const services = [
   {
     title: "Modelado Complejo",
     description: "Fabricacion de modelos para crear piezas en fundicion con formas irregulares o detalles complejos.",
-    icon: managerIcon,
+    icon: modeladoIcon,
   },
   {
     title: "Servicio de Transporte",
@@ -95,9 +96,9 @@ export const Services: React.FC = () => {
           >
             <img src={service.icon} alt={service.title} />
             <Box>
-              <Title2 sx={{ textAlign: "center", color: "primary.main", mb: "1rem", textWrap: "wrap" }}>
+              <Title1 sx={{ textAlign: "center", color: "primary.main", mb: "1rem", textWrap: "wrap" }}>
                 {service.title}
-              </Title2>
+              </Title1>
               <Text1 sx={{ textAlign: "center", color: "primary.main", textWrap: "wrap" }}>
                 {service.description}
               </Text1>
