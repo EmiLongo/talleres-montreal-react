@@ -20,7 +20,6 @@ import {
   ParagraphLight,
   Text1,
   Text2,
-  Title1,
   Title2,
 } from "@/theme/textStyles";
 
@@ -49,7 +48,7 @@ export const Footer: React.FC = () => {
     display: "flex",
     listStyleType: "none",
     margin: 0,
-    gap: "2rem",
+    gap: {xs: "1.5rem", md: "2rem"},
     flexWrap: "wrap",
   });
 
@@ -63,7 +62,7 @@ export const Footer: React.FC = () => {
 
   const FooterListItem = styled(ListItem)({
     flex: 1,
-    padding: 0,
+    paddingRight: {xs: "0.5rem", md: "1rem"},
   });
 
   // Función para compartir URL
@@ -86,7 +85,8 @@ export const Footer: React.FC = () => {
 
   return (
     <StyledFooter id="footer">
-      <Container maxWidth="lg">
+      <Container maxWidth="lg"
+      >
         <Box
           id="footerContainer"
           sx={{
@@ -96,7 +96,7 @@ export const Footer: React.FC = () => {
             gap: { xs: 4 },
           }}
         >
-          <Box
+          {/* <Box
             id="footerLeft"
             sx={{
               display: "flex",
@@ -127,10 +127,11 @@ export const Footer: React.FC = () => {
                 </Text2>
               ))}
             </Box>
-          </Box>
+          </Box> */}
+          
 
           <Box
-            id="footerRight"
+            id="footerLeft"
             sx={{
               maxWidth: "100%",
               display: "flex",
@@ -171,8 +172,9 @@ export const Footer: React.FC = () => {
                 />
               </Box>
             </Box>
-            <Box sx={{ paddingX: {xs:"3rem", sm: 0} }}>
-              <Title1 sx={{ color: palette.primary[100] }}>NUESTRA WEB:</Title1>
+          </Box>
+            <Box id="footerRight">
+              <Title2 sx={{ color: palette.primary[100], textAlign: "center" }}>NUESTRA WEB:</Title2>
               <FooterList>
                 <FooterListItem id="footerListItem-home">
                   <FooterLink href="#home">
@@ -191,7 +193,6 @@ export const Footer: React.FC = () => {
                 ))}
               </FooterList>
             </Box>
-          </Box>
         </Box>
         <Box
           id="footerBottom"
