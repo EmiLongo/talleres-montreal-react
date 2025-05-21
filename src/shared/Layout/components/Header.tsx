@@ -20,10 +20,9 @@ import { Text1, Text2 } from '@theme/textStyles';
 export const infoItems = [
   // { text: 'Inicio', path: '#home' },
   { text: 'Servicios', path: '#services' },
-  { text: 'Clientes', path: '#trust-us' },
-  { text: 'Contacto', path: '#contact' },
   { text: 'Procesos', path: '#procedures' },
   { text: 'Equipamiento', path: '#equipment' },
+  { text: 'Contacto', path: '#contact' },
 ];
 
 export const Header: React.FC = () => {
@@ -42,7 +41,7 @@ export const Header: React.FC = () => {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', position: 'relative' }}>
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mt: "3rem", mb: "2rem" }}>
-        <img src={logoTextVertical} alt="Logo Talleres Montreal" height="100px" />
+        <Box component={"img"} src={logoTextVertical} alt="Logo Talleres Montreal" height="100px" />
       </Box>
       <Box
         sx={{ position: 'absolute', top: "1rem", right: "1rem" }}
