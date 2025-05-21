@@ -88,8 +88,8 @@ export const customFonts = {
     normal: 0.3,
   },
   family: {
-    oswald: "Oswald, impact, arial, calibri, sans-serif",
-    catamaran: "Catamaran, open-sans, arial, calibri, sans-serif",
+    oswald: "Alata, impact, arial, calibri, sans-serif",
+    catamaran: "Hind Madurai, open-sans, arial, calibri, sans-serif",
   },
 };
 
