@@ -17,6 +17,15 @@ import logoTextVertical from '@img/talleres-montreal-logo-vertical.svg';
 import { Menu as MenuIcon, Close as CloseIcon } from '@mui/icons-material';
 import { Text1, Text2 } from '@theme/textStyles';
 
+export const infoItems = [
+  // { text: 'Inicio', path: '#home' },
+  { text: 'Servicios', path: '#services' },
+  { text: 'Clientes', path: '#trust-us' },
+  { text: 'Contacto', path: '#contact' },
+  { text: 'Procesos', path: '#procedures' },
+  { text: 'Equipamiento', path: '#equipment' },
+];
+
 export const Header: React.FC = () => {
   const theme = useTheme();
   const { palette } = theme;
@@ -29,14 +38,6 @@ export const Header: React.FC = () => {
     setMobileOpen(!mobileOpen);
   };
   
-  const infoItems = [
-    // { text: 'Inicio', path: '#home' },
-    { text: 'Servicios', path: '#services' },
-    { text: 'Quiénes Somos', path: '#about-us' },
-    { text: 'Equipamiento', path: '#equipment' },
-    { text: 'Clientes', path: '#trust-us' },
-    { text: 'Contacto', path: '#contact' },
-  ];
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', position: 'relative' }}>
@@ -65,7 +66,7 @@ export const Header: React.FC = () => {
 
   return (
     <>
-      <Box sx={{ height: "70px" }}/>
+      <Box sx={{ height: "70px" }} id="home"/>
       <AppBar 
       position="fixed" 
       color="default" 
