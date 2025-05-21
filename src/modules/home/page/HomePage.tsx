@@ -12,11 +12,11 @@ export const HomePage: React.FC = () => {
   return (
     <>
       <Hero />
-      <Services />
       <TrustUs />
-      <Contact />
+      <Services />
       <Procedures />
       <Equipment />
+      <Contact />
     </>
   );
 };
