@@ -11,7 +11,6 @@ export const WhatsApp: React.FC = () => {
   useEffect(() => {
     const handleScroll = () => {
       const footer = document.getElementById('footer');
-      console.log('footer', footer);
       const icon = iconRef.current;
       if (!footer || !icon) return;
 
