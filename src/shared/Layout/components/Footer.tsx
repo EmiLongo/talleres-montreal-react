@@ -1,129 +1,234 @@
-import React from 'react';
-import { Box, Typography, List, ListItem, Container, Link, useTheme } from '@mui/material';
-import { styled } from '@mui/material/styles';
-import { Instagram, Facebook, WhatsApp, Telegram, Share } from '@mui/icons-material';
+import React from "react";
+import {
+  Box,
+  List,
+  ListItem,
+  Container,
+  Link,
+  useTheme,
+} from "@mui/material";
+import { styled } from "@mui/material/styles";
+import WhatsApp from "@mui/icons-material/WhatsApp";
+import PhoneIcon from "@mui/icons-material/Phone";
+import EmailIcon from "@mui/icons-material/Email";
+import LocationPinIcon from "@mui/icons-material/LocationPin";
+import ShareIcon from "@mui/icons-material/Share";
+import inpulseLogo from "@img/inpulse_design_logo.svg";
+import talleresMontrealLogoByN from "@img/talleres-montreal-logo-simple-ByN.svg";
+import { infoItems } from "./Header";
+import {
+  ParagraphLight,
+  Text1,
+  Text2,
+  Title1,
+  Title2,
+} from "@/theme/textStyles";
 
-
+export const contactInfo = [
+  { icon: <WhatsApp />, text: "Dpto Técnico: 341-3389977" },
+  { icon: <WhatsApp />, text: "Administración: 3476-619576" },
+  { icon: <PhoneIcon />, text: "Fijo: 3476-224447" },
+  { icon: <EmailIcon />, text: " talleresmontrealsrl@gmail.com" },
+  {
+    icon: <LocationPinIcon />,
+    text: " Av José Márquez 856, San Lorenzo, Santa Fe",
+  },
+];
 export const Footer: React.FC = () => {
   const theme = useTheme();
   const { palette } = theme;
   // Estilos personalizados
-  const StyledFooter = styled('footer')({
+  const StyledFooter = styled("footer")({
     backgroundColor: palette.primary[950],
     color: palette.primary.light,
-    backdropFilter: "blur(10px) saturate(180%)",
-    WebkitBackdropFilter: "blur(10px) saturate(180%)",
+    paddingTop: "2rem",
+    paddingBottom: "1rem",
+  });
 
-  });
-  
   const FooterList = styled(List)({
-    display: 'flex',
-    listStyleType: 'none',
+    display: "flex",
+    listStyleType: "none",
     margin: 0,
+    gap: "2rem",
+    flexWrap: "wrap",
   });
-  
+
   const FooterLink = styled(Link)({
-    textDecoration: 'none',
+    textDecoration: "none",
     color: palette.primary.light,
-    '&:hover': {
+    "&:hover": {
       color: palette.primary[400],
     },
+  });
+
+  const FooterListItem = styled(ListItem)({
+    flex: 1,
+    padding: 0,
   });
 
   // Función para compartir URL
   const shareURL = () => {
     if (navigator.share) {
-      navigator.share({
-        title: 'Talleres Montreal',
-        url: window.location.href
-      }).catch(console.error);
+      navigator
+        .share({
+          title: "Talleres Montreal",
+          url: window.location.href,
+        })
+        .catch(console.error);
     } else {
       // Fallback para navegadores que no soportan Web Share API
-      navigator.clipboard.writeText(window.location.href)
-        .then(() => alert('¡URL copiada al portapapeles!'))
-        .catch(() => alert('No se pudo copiar la URL'));
+      navigator.clipboard
+        .writeText(window.location.href)
+        .then(() => alert("¡URL copiada al portapapeles!"))
+        .catch(() => alert("No se pudo copiar la URL"));
     }
   };
 
   return (
-    <StyledFooter>
+    <StyledFooter id="footer">
       <Container maxWidth="lg">
-        <Box id="footerContainer" sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <Box id="footerLeft">
-            <Typography component="p">NUESTRAS REDES:</Typography>
-            <FooterList>
-              <ListItem component="li">
-                <FooterLink href="https://www.instagram.com/mundoadaptogenos/" target="_blank">
-                  <Instagram width={24} height={24} />
-                </FooterLink>
-              </ListItem>
-              
-              <ListItem component="li">
-                <FooterLink href="https://www.facebook.com/mundoadaptogenos" target="_blank">
-                  <Facebook width={24} height={24}/>
-                </FooterLink>
-              </ListItem>
-              
-              <ListItem component="li">
-                <FooterLink href="https://wa.link/hw4q1x" target="_blank">
-                  <WhatsApp width={24} height={24} />
-                </FooterLink>
-              </ListItem>
-              
-              <ListItem component="li">
-                <FooterLink href="http://t.me/mundoadaptogenos" target="_blank">
-                  <Telegram width={24} height={24} />
-                </FooterLink>
-              </ListItem>
-              
-            </FooterList>
-            <Box 
-              id="shareURL" 
-              onClick={shareURL} 
-              sx={{ cursor: 'pointer' }}
+        <Box
+          id="footerContainer"
+          sx={{
+            display: "flex",
+            justifyContent: {xs: "center", md: "space-between"},
+            flexWrap: "wrap",
+            gap: { xs: 4 },
+          }}
+        >
+          <Box
+            id="footerLeft"
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 2,
+            }}
+          >
+            <Title2
+              sx={{ color: palette.primary[100], textTransform: "uppercase" }}
             >
-              Compartir página{' '}
-              <Share 
-                width={24} 
-                height={24} 
-                sx={{ verticalAlign: 'middle', marginLeft: 1 }}
-              />
+              Información de Contacto
+            </Title2>
+            <Box
+              sx={{ mb: 2, display: "flex", flexDirection: "column", gap: 1 }}
+            >
+              {contactInfo.map((item, index) => (
+                <Text2
+                  key={index}
+                  sx={{
+                    color: palette.primary[100],
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 1,
+                  }}
+                >
+                  {item.icon}
+                  {item.text}
+                </Text2>
+              ))}
             </Box>
           </Box>
-          
-          <Box id="footerRight">
-            <Typography component="p" variant='h6'>NUESTRA WEB:</Typography>
-            <FooterList>
-              <ListItem component="li">Home / Productos</ListItem>
 
-              <ListItem component="li">
-                <FooterLink href="./preguntas_frecuentes.html">Preguntas Frecuentes</FooterLink>
-              </ListItem>
-              <ListItem component="li">
-                <FooterLink href="./contacto.html">Contacto</FooterLink>
-              </ListItem>
-            </FooterList>
-            <Typography component="p">NUESTROS PRODUCTOS:</Typography>
-            <FooterList>
-              <ListItem component="li">
-                <FooterLink href="./melena.html">Melena de León</FooterLink>
-              </ListItem>
-              <ListItem component="li">
-                <FooterLink href="./cordyceps.html">Cordyceps Militaris</FooterLink>
-              </ListItem>
-              <ListItem component="li">
-                <FooterLink href="./reishi.html">Reishi</FooterLink>
-              </ListItem>
-              <ListItem component="li">
-                <FooterLink href="./cola_pavo.html">Cola de Pavo</FooterLink>
-              </ListItem>
-            </FooterList>
+          <Box
+            id="footerRight"
+            sx={{
+              maxWidth: "100%",
+              display: "flex",
+              flexDirection: "column",
+              gap: "2rem",
+            }}
+          >
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <Box
+                component={"img"}
+                src={talleresMontrealLogoByN}
+                alt="Talleres Montreal Blanco y Negro"
+                width={120}
+              />
+              <Box
+                id="shareURL"
+                onClick={shareURL}
+                sx={{
+                  cursor: "pointer",
+                  userSelect: "none",
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              >
+                <Text1 sx={{ color: palette.primary[100] }}>
+                  Compartir página{" "}
+                </Text1>
+                <ShareIcon
+                  width={24}
+                  height={24}
+                  sx={{ verticalAlign: "middle", marginLeft: 1 }}
+                />
+              </Box>
+            </Box>
+            <Box sx={{ paddingX: {xs:"3rem", sm: 0} }}>
+              <Title1 sx={{ color: palette.primary[100] }}>NUESTRA WEB:</Title1>
+              <FooterList>
+                <FooterListItem id="footerListItem-home">
+                  <FooterLink href="#home">
+                    <Text2 sx={{ color: "inherit" }}>Home</Text2>
+                  </FooterLink>
+                </FooterListItem>
+                {infoItems.map((item) => (
+                  <FooterListItem
+                    key={item.text}
+                    id={`footerListItem-${item.text}`}
+                  >
+                    <FooterLink href={item.path}>
+                      <Text2 sx={{ color: "inherit" }}>{item.text}</Text2>
+                    </FooterLink>
+                  </FooterListItem>
+                ))}
+              </FooterList>
+            </Box>
           </Box>
         </Box>
-        
-        <Typography component="p" sx={{ textAlign: 'center', padding: '1em 0' }}>
-          Derechos reservados © {new Date().getFullYear()}. INPULSE DESIGN.
-        </Typography>
+        <Box
+          id="footerBottom"
+          sx={{
+            display: "flex",
+            flexDirection: { xs: "column", md: "row" },
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "0.5rem",
+            marginTop: "2rem",
+          }}
+        >
+          <ParagraphLight sx={{ textAlign: "center" }}>
+            Derechos reservados © {new Date().getFullYear()}.
+          </ParagraphLight>
+          <Box
+            component={"a"}
+            href="https://inpulse.design"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0.75rem",
+            }}
+          >
+            <ParagraphLight sx={{ textAlign: "center" }}>
+              Desarrollado por
+            </ParagraphLight>
+            <Box
+              component={"img"}
+              src={inpulseLogo}
+              alt="Logo Inpulse Design"
+              width={100}
+            />
+          </Box>
+        </Box>
       </Container>
     </StyledFooter>
   );
