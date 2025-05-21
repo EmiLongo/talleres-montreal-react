@@ -18,20 +18,23 @@ export const TitleXL = styled((props: TypographyProps) => <Typography {...props}
   ...responsiveFontSize({ xl: '2.25rem', lg: '2rem', md: '1.75rem', sm: '1.75rem', xs: '1.75rem' })(theme), // 36px
 }));
 
-export const TitleH1 = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
+export const Title1 = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
   ...defaultTitle(theme),
   ...responsiveFontSize({ xl: '1.5rem', lg: '1.375rem', md: '1.25rem', sm: '1.125rem', xs: '1rem' })(theme), // 24px
+  textWrap: "wrap",
 }));
 
-export const TitleH2 = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
+export const Title2 = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
   ...defaultTitle(theme),
   ...responsiveFontSize({ xl: '1.25rem', lg: '1.125rem', md: '1.05rem', sm: '1rem', xs: '1rem' })(theme), // 20px
+  textWrap: "wrap",
 }));
 
-export const TitleH3 = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
+export const Title3 = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
   ...defaultTitle(theme),
-  fontWeight: 'normal',
   ...responsiveFontSize({ xl: '1rem', lg: '0.9375rem', md: '0.875rem', sm: '0.8125rem', xs: '0.75rem' })(theme), // 16px
+  fontWeight: 'normal',
+  textWrap: "wrap",
 }));
 
 // CTA
@@ -51,11 +54,13 @@ export const SubtitleBold = styled((props: TypographyProps) => <Typography {...p
 export const SubtitleXL = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
   ...defaultParagraph(theme),
   ...responsiveFontSize({ xl: "1.5rem", lg: "1.375rem", md: "1.25rem", sm: "1.2rem", xs: "1.2rem"})(theme), // 18px
+  textWrap: "wrap",
 }));
 
 export const Subtitle = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
   ...defaultParagraph(theme),
   ...responsiveFontSize({ xl: '0.875rem', lg: '0.8125rem', md: '0.75rem', sm: '0.6875rem', xs: '0.625rem' })(theme), // 14px
+  textWrap: "wrap",
 }));
 
 // BUTTON MINI
@@ -70,21 +75,25 @@ export const ButtonMini = styled((props: TypographyProps) => <Typography {...pro
 export const Text1 = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
   ...defaultParagraph(theme),
   ...responsiveFontSize({ xs: '1.1rem', md: '1.1rem', lg: '1.2rem', xl: '1.3rem' })(theme),
+  textWrap: "wrap",
 }));
 
 export const Text2 = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
   ...defaultParagraph(theme),
   ...responsiveFontSize({ xs: '0.8rem', md: '1rem', lg: '1.1rem', xl: '1.2rem' })(theme),
+  textWrap: "wrap",
 }));
 
 export const ParagraphLight = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
   ...defaultParagraph(theme),
   color: theme.palette.background.paper,
+  textWrap: "wrap",
 }));
 
 export const ParagraphDetails = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
   ...defaultParagraph(theme),
   fontSize: "0.625rem", // 10px
+  textWrap: "wrap",
 }));
 
 export const TextBoxFill = styled((props: TypographyProps) => <Typography {...props} />)(({ theme }) => ({
