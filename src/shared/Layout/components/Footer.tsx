@@ -44,13 +44,24 @@ export const Footer: React.FC = () => {
     paddingBottom: "1rem",
   });
 
-  const FooterList = styled(List)({
-    display: "flex",
-    listStyleType: "none",
-    margin: 0,
-    gap: {xs: "1.5rem", md: "2rem"},
-    flexWrap: "wrap",
-  });
+  const FooterList = styled(List)(({ theme }) => ({
+  display: "flex",
+  listStyleType: "none",
+  margin: 0,
+  gap: "1.5rem",
+  flexWrap: "wrap",
+  [theme.breakpoints.up('md')]: {
+    gap: "2rem",
+  },
+  }));
+
+  const FooterListItem = styled(ListItem)(({ theme }) => ({
+    flex: 1,
+    paddingRight: "0.5rem",
+    [theme.breakpoints.up('md')]: {
+      paddingRight: "1rem",
+    },
+  }));
 
   const FooterLink = styled(Link)({
     textDecoration: "none",
@@ -58,11 +69,6 @@ export const Footer: React.FC = () => {
     "&:hover": {
       color: palette.primary[400],
     },
-  });
-
-  const FooterListItem = styled(ListItem)({
-    flex: 1,
-    paddingRight: {xs: "0.5rem", md: "1rem"},
   });
 
   // Función para compartir URL
@@ -175,23 +181,25 @@ export const Footer: React.FC = () => {
           </Box>
             <Box id="footerRight">
               <Title2 sx={{ color: palette.primary[100], textAlign: "center" }}>NUESTRA WEB:</Title2>
-              <FooterList>
-                <FooterListItem id="footerListItem-home">
-                  <FooterLink href="#home">
-                    <Text2 sx={{ color: "inherit" }}>Home</Text2>
-                  </FooterLink>
-                </FooterListItem>
-                {infoItems.map((item) => (
-                  <FooterListItem
-                    key={item.text}
-                    id={`footerListItem-${item.text}`}
-                  >
-                    <FooterLink href={item.path}>
-                      <Text2 sx={{ color: "inherit" }}>{item.text}</Text2>
+              <Box>
+                <FooterList>
+                  <FooterListItem id="footerListItem-home">
+                    <FooterLink href="#home">
+                      <Text2 sx={{ color: "inherit" }}>Home</Text2>
                     </FooterLink>
                   </FooterListItem>
-                ))}
-              </FooterList>
+                  {infoItems.map((item) => (
+                    <FooterListItem
+                      key={item.text}
+                      id={`footerListItem-${item.text}`}
+                    >
+                      <FooterLink href={item.path}>
+                        <Text2 sx={{ color: "inherit" }}>{item.text}</Text2>
+                      </FooterLink>
+                    </FooterListItem>
+                  ))}
+                </FooterList>
+              </Box>
             </Box>
         </Box>
         <Box
