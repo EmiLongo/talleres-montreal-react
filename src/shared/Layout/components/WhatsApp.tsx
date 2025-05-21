@@ -22,7 +22,7 @@ export const WhatsApp: React.FC = () => {
 
       if (distanceToBottom > 0) {
         // Se está solapando, ajustar hacia arriba
-        setBottomOffset(distanceToBottom - iconHeight - 32); // 32px extra como margen
+        setBottomOffset(distanceToBottom + 32); // 32px extra como margen
       } else {
         setBottomOffset(32); // posición normal
       }
