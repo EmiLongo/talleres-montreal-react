@@ -15,7 +15,7 @@ export const WhatsApp: React.FC = () => {
       if (!footer || !icon) return;
 
       const footerRect = footer.getBoundingClientRect();
-      const iconHeight = icon.offsetHeight;
+      // const iconHeight = icon.offsetHeight;
 
       const viewportHeight = window.innerHeight;
       const distanceToBottom = viewportHeight - footerRect.top;
