@@ -107,8 +107,9 @@ export const TrustUs: React.FC = () => {
   return (
     <Box
       component="section"
-      id="trust-us-container"
+      id="trust-us"
       sx={{
+        paddingX: {xs:"2rem", lg:"3rem", xl:"4rem"},
         position: "relative",
         width: "100%",
         display: "flex",
@@ -120,11 +121,12 @@ export const TrustUs: React.FC = () => {
       }}
     >
       <TitleXL
-        id="trust-us"
+        id="trust-us-title"
         sx={{
           color: "primary.main",
           marginTop: { xs: "2rem", lg: "3rem", xl: "4rem" },
           marginBottom: "1rem",
+          textAlign: "center",
         }}
       >
         Empresas que Confían en Nosotros
@@ -132,6 +134,8 @@ export const TrustUs: React.FC = () => {
       <SubtitleXL
         sx={{
           color: "primary.main",
+          textAlign: "center",
+          width: "100%",
           maxWidth: "1100px",
           marginX: "auto",
           marginBottom: "2rem",
