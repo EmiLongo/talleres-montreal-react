@@ -1,7 +1,7 @@
 // src/modules/home/components/Procedures.tsx
-import { Box } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 import React, { useState } from "react";
-import { SubtitleXL, Text1, TitleH1, TitleXL } from "@theme/textStyles";
+import { SubtitleXL, Text1, Title1, TitleXL } from "@theme/textStyles";
 import alesado from "@img/procedures/alesado.webp";
 import fresado from "@img/procedures/fresado.webp";
 import reparacion from "@img/procedures/reparacion.webp";
@@ -37,8 +37,12 @@ const procedures: Procedure[] = [
 ]
 
 export const Procedures: React.FC = () => {
+  const theme = useTheme();
+  const { palette } = theme;
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const toogleActiveIndex = (index: number) => setActiveIndex(index === activeIndex ? null : index);
+  const toogleActiveIndex = (index: number) => {
+    setActiveIndex(index === activeIndex ? null : index)
+  };
 
   return (
     <Box
@@ -68,7 +72,7 @@ export const Procedures: React.FC = () => {
       <Box
         sx={{
           display: "grid",
-          gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", lg: "1fr 1fr 1fr 1fr" },
+          gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", lg: "1fr 1fr 1fr" },
           gap: {xs: "1rem", sm: "2rem", md: "2rem", lg: "3rem", xl: "4rem"},
           paddingX: {xs: "1rem", sm: "2rem", md: "2rem", lg: "3rem", xl: "4rem"},
           paddingY: {xs: "2rem", lg: "3rem", xl: "4rem"},
@@ -85,9 +89,9 @@ export const Procedures: React.FC = () => {
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-              height: "200px",
+              height: {xs: "220px", md: "250px", lg: "280px", xl: "300px"},
               gap: "2rem",
-              backgroundColor: activeIndex === index ? "rgba(0, 0, 0, 0.5)" : "rgba( 163, 164, 236, 0.25 )",
+              // backgroundColor: activeIndex === index ? "rgba(0, 0, 0, 0.5)" : "rgba( 163, 164, 236, 0.25 )",
               backgroundImage: activeIndex === index ? `url(${procedure.image})` : "none",
               backgroundPosition: "center",
               backgroundRepeat: "no-repeat",
@@ -96,11 +100,11 @@ export const Procedures: React.FC = () => {
               borderRadius: "10px",
               border: "1px solid rgba( 255, 255, 255, 0.18 )",
               overflow: "hidden",
-              transition: "background-image 0.5s ease, background-color 0.5s ease",
+              transition: "all 0.5s ease",
               color: activeIndex === index ? "background.paper" : "primary.main",
               '&:hover': {
                 backgroundImage: `url(${procedure.image})`,
-                backgroundColor: "rgba(0, 0, 0, 0.5)", // opcional para oscurecer
+                // backgroundColor: "rgba(0, 0, 0, 0.5)", // opcional para oscurecer
                 color: "background.paper",
               }
             }}
@@ -111,7 +115,7 @@ export const Procedures: React.FC = () => {
                 width: "100%",
                 backdropFilter: "blur( 1px )",
                 WebkitBackdropFilter: "blur( 1px )",
-                backgroundColor: "rgba(0, 0, 0, 0.25)",
+                backgroundColor: activeIndex === index ? "rgba(0, 0, 0, 0.25)" : palette.primary[100],
                 paddingX: "1rem",
                 display: "flex",
                 flexDirection: "column",
@@ -119,12 +123,15 @@ export const Procedures: React.FC = () => {
                 justifyContent: "center",
                 gap: "1rem",
                 transition: "all 0.5s ease",
+                '&:hover': {
+                  backgroundColor: "rgba(0, 0, 0, 0.25)",
+                }
               }}
             >
-              <TitleH1 sx={{ textAlign: "center", color: "inherit" }}>
+              <Title1 sx={{ textAlign: "center", color: "inherit", userSelect: "none" }}>
                 {procedure.title}
-              </TitleH1>
-              <Text1 sx={{ textAlign: "center", color: "inherit" }}>
+              </Title1>
+              <Text1 sx={{ textAlign: "center", color: "inherit", userSelect: "none" }}>
                 {procedure.description}
               </Text1>
             </Box>
