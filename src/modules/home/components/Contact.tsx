@@ -1,13 +1,11 @@
 // src/modules/home/components/Contact.tsx
 import React from "react";
 import { Box, useTheme } from "@mui/material";
-import WhatsApp from "@mui/icons-material/WhatsApp";
-import PhoneIcon from '@mui/icons-material/Phone';
-import EmailIcon from '@mui/icons-material/Email';
-import LocationPinIcon from '@mui/icons-material/LocationPin';
-import { SubtitleXL, Text2, TitleH1, TitleXL } from "@/theme/textStyles";
+import { SubtitleXL, Text1, Title1, TitleXL } from "@/theme/textStyles";
 import { GoogleMapCard } from "./GoogleMap";
 import { ContactForm } from "./ContactForm";
+import { contactInfo } from "@/shared/Layout/components/Footer";
+
 
 export const Contact: React.FC = () => {
   const theme = useTheme();
@@ -16,7 +14,7 @@ export const Contact: React.FC = () => {
   return (
     <Box
       component="section"
-      id="contacto"
+      id="contact"
       sx={{ 
         paddingY: "4rem", 
         paddingX: { xs: "2rem", md: "4rem" },
@@ -25,7 +23,7 @@ export const Contact: React.FC = () => {
       }}
     >
       <TitleXL
-        id="contact"
+        id="contact-title"
         sx={{
           color: palette.primary[100],
           marginBottom: "1rem",
@@ -67,17 +65,16 @@ export const Contact: React.FC = () => {
               aspectRatio: { xs: "1", md: "16/9" },
             }}
           />
-          <TitleH1 sx={{ color: palette.primary[100], marginTop: "2rem", marginBottom: "1rem" }}>
+          <Title1 sx={{ color: palette.primary[100], marginTop: "2rem", marginBottom: "1rem" }}>
             Información de Contacto
-          </TitleH1>
+          </Title1>
           <Box sx={{ mb: 2, display: "flex", flexDirection: "column", gap: 1 }}>
-            <Text2 sx={{ color: palette.primary[100], display: "flex", alignItems: "center", gap: 1 }}><WhatsApp />Dpto Técnico: 341-3389977</Text2>
-            <Text2 sx={{ color: palette.primary[100], display: "flex", alignItems: "center", gap: 1 }}><WhatsApp />Administración: 3476-619576</Text2>
-            <Text2 sx={{ color: palette.primary[100], display: "flex", alignItems: "center", gap: 1 }}><PhoneIcon />Fijo: 3476-224447</Text2>
-            <Text2 sx={{ color: palette.primary[100], display: "flex", alignItems: "center", gap: 1 }}><EmailIcon /> talleresmontrealsrl@gmail.com</Text2>
-            <Text2 sx={{ color: palette.primary[100], display: "flex", alignItems: "center", gap: 1 }}><LocationPinIcon /> Av José Márquez 856, San Lorenzo, Santa Fe</Text2>
-            
-
+            {contactInfo.map((item, index) => (
+              <Text1 key={index} sx={{ color: palette.primary[100], display: "flex", alignItems: "center", gap: 1 }}>
+                {item.icon}
+                {item.text}
+              </Text1>
+            ))}
           </Box>
         </Box>
       </Box>
