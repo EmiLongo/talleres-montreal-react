@@ -26,22 +26,6 @@ const mobileVideos = [
   import("@videos/vert_torno_manivela_hd_1080_1920_25fps.mp4"),
   import("@videos/vert_torno-hd_1080_1920_25fps.mp4"),
 ];
-// const desktopVideos = [
-//   () => import("@videos/persona_midiendo_calibre_hd_1920_1080_25fps.mp4"),
-//   () => import("@videos/persona_midiendo_tornillo_uhd_3840_2160_30fps.mp4"),
-//   () => import("@videos/plano-calibre-hd_1920_1080_25fps.mp4"),
-//   () => import("@videos/soldadura_2560_1440_30fps.mp4"),
-//   () => import("@videos/torno_iluminado_2560_1440_30fps.mp4"),
-//   () => import("@videos/torno_manivela_hd_1920_1080_25fps.mp4"),
-// ];
-
-// const mobileVideos = [
-//   () => import("@videos/vert_persona_midiendo_calibre_hd_1080_1920_25fps.mp4"),
-//   () => import("@videos/vert_torno_encender-hd_1080_1920_25fps.mp4"),
-//   () => import("@videos/vert_torno_manivela_hd_1080_1920_25fps.mp4"),
-//   () => import("@videos/vert_torno-hd_1080_1920_25fps.mp4"),
-// ];
-
 
 // Estilos personalizados usando styled de MUI
 const HeroSection = styled(Box)(() => ({
@@ -91,84 +75,128 @@ export const Hero: React.FC = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
-  const [currentVideoIndex, setCurrentVideoIndex] = useState<number>(-1);
   const [currentVideoSrc, setCurrentVideoSrc] = useState<string>("");
-  const [nextVideoIndex, setNextVideoIndex] = useState<number>(-1);
   const [nextVideoSrc, setNextVideoSrc] = useState<string>("");
-  const [isVideoLoaded, setIsVideoLoaded] = useState<boolean>(false);
+  const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
+  
   const videoRef = useRef<HTMLVideoElement>(null);
   const preloadVideoRef = useRef<HTMLVideoElement>(null);
+  const currentVideoIndex = useRef<number>(-1);
+  const nextVideoIndex = useRef<number>(-1);
   const lastPlayedIndex = useRef<number>(-1);
 
-const playVideo = async (videoRef: React.RefObject<HTMLVideoElement> | null): Promise<void> => {
-  if (!videoRef?.current) return;
+  const playVideo = async (video: HTMLVideoElement): Promise<void> => {
+    try {
+      await video.play();
+      // console.log("Video reproduciéndose correctamente");
+    } catch (error) {
+      console.error("Error al reproducir el video:", error);
+    }
+  };
 
-  try {
-    await videoRef.current.play();
-    console.log("Video reproduciéndose correctamente");
-  } catch (error) {
-    console.error("Error al reproducir el video:", error);
-  }
-};
 
   
   // Función para seleccionar un índice de video que no haya sido reproducido recientemente
-  const getNextVideoIndex = (totalVideos: number): number => {
+  const getNextVideoIndex = (): number => {
+    const totalVideos = isMobile ? mobileVideos.length : desktopVideos.length;
     if (totalVideos <= 1) return 0;   
     // elegimos uno aleatorio distinto al último
     let newIndex;
     do {
       newIndex = Math.floor(Math.random() * totalVideos);
-    } while (newIndex === lastPlayedIndex.current || newIndex === currentVideoIndex);
+    } while (newIndex === lastPlayedIndex.current || newIndex === currentVideoIndex.current);
     return newIndex;
   };
 
-  // Inicializar el video cuando el componente se monta
+    // Función para cargar un video de forma segura
+  const loadVideoSafely = async (videoPromise: Promise<any>): Promise<string | null> => {
+    try {
+      const module = await videoPromise;
+      return module.default;
+    } catch (error) {
+      console.error("Error cargando video:", error);
+      return null;
+    }
+  };
+  const preloadNextVideo = async (videos: Promise<any>[]) => {
+    const nextIndex = getNextVideoIndex();
+    // console.log(`Precargando video ${nextIndex}, actual: ${currentIndex}, último: ${lastPlayedIndex.current}`);
+    
+    const videoSrc = await loadVideoSafely(videos[nextIndex]);
+    if (videoSrc) {
+      nextVideoIndex.current = nextIndex;
+      setNextVideoSrc(videoSrc);
+    }
+  };
+
+  // Inicializar el primer video
   useEffect(() => {
     const videos = isMobile ? mobileVideos : desktopVideos;
-    const initialIndex = getNextVideoIndex(videos.length);
+    const initialIndex = Math.floor(Math.random() * videos.length);
+    // console.log("Iniciando con video:", initialIndex);
     
-    // Cargamos el primer video
-    videos[initialIndex].then(module => {
-      setCurrentVideoIndex(initialIndex);
-      setCurrentVideoSrc(module.default);
-      lastPlayedIndex.current = initialIndex;
-      
-      // Precargamos el siguiente video
-      const nextIndex = getNextVideoIndex(videos.length);
-      videos[nextIndex].then(nextModule => {
-        setNextVideoSrc(nextModule.default);
-      });
-      setNextVideoIndex(nextIndex);
+    loadVideoSafely(videos[initialIndex]).then(videoSrc => {
+      if (videoSrc) {
+        currentVideoIndex.current = initialIndex;
+        setCurrentVideoSrc(videoSrc);
+        // Precargar el siguiente
+        preloadNextVideo(videos);
+      }
     });
   }, [isMobile]);
 
   // Manejar el fin de la reproducción del video
-  const handleVideoEnded = () => {
-    if (nextVideoSrc && preloadVideoRef.current && preloadVideoRef.current?.readyState >= 3) {
-      
-      // Preparamos el siguiente video
-      const videos = isMobile ? mobileVideos : desktopVideos;
-      const nextIndex = getNextVideoIndex(videos.length);
+  const handleVideoEnded = async () => {
+    if (isTransitioning) {
+      // console.log("Ya hay una transición en curso, ignorando...");
+      return;
+    }
+    // console.log("Video terminó, cambiando...");
+    setIsTransitioning(true);
 
-      // Actualizamos el índice del video actual y registramos que se ha reproducido
-      lastPlayedIndex.current = currentVideoIndex;
-
-      // El siguiente video está listo, hacemos el cambio
-      setCurrentVideoSrc(nextVideoSrc);
-      setCurrentVideoIndex(nextVideoIndex);
-      setIsVideoLoaded(true);
-      
-      // Actualizamos el índice del video siguiente
-      setNextVideoIndex(nextIndex);      
-      videos[nextIndex].then(module => {
-        setNextVideoSrc(module.default);
-      });
-    } else {
-      // Si el siguiente video no está listo, reproducimos el actual nuevamente
-      if (videoRef.current) {
-        videoRef.current.play();
+    try {
+      // Verificar que el siguiente video esté listo
+      if (nextVideoSrc && preloadVideoRef.current) {
+        const preloadVideo = preloadVideoRef.current;
+        
+        // Verificar estado de carga
+        if (preloadVideo.readyState >= 3) { // HAVE_FUTURE_DATA o mejor
+          // console.log(`Cambiando de video ${currentVideoIndex.current} a ${nextVideoIndex.current}`);
+          
+          // Actualizar el historial
+          lastPlayedIndex.current = currentVideoIndex.current;
+          
+          // Cambiar al siguiente video
+          setCurrentVideoSrc(nextVideoSrc);
+          currentVideoIndex.current = nextVideoIndex.current;
+          
+          // Precargar el próximo video
+          const videos = isMobile ? mobileVideos : desktopVideos;
+          await preloadNextVideo(videos);
+        } else {
+          // console.log("El siguiente video no está listo, reintentando reproducción actual");
+          if (videoRef.current) {
+            await playVideo(videoRef.current);
+          }
+        }
+      } else {
+        // console.log("No hay siguiente video disponible, reintentando actual");
+        if (videoRef.current) {
+          await playVideo(videoRef.current);
+        }
       }
+    } catch (error) {
+      console.error("Error en transición de video:", error);
+      // Fallback: reintentar reproducir el video actual
+      if (videoRef.current) {
+        try {
+          await playVideo(videoRef.current);
+        } catch (playError) {
+          console.error("Error al reproducir video de fallback:", playError);
+        }
+      }
+    } finally {
+      setIsTransitioning(false);
     }
   };
 
@@ -177,19 +205,27 @@ const playVideo = async (videoRef: React.RefObject<HTMLVideoElement> | null): Pr
     const video = videoRef.current;
 
     if (currentVideoSrc && video) {
+      // console.log("Cargando nuevo video:", currentVideoIndex);
       video.load();
 
       const handleCanPlay = () => {
-        playVideo(videoRef);
+        // console.log("Video listo para reproducir:", currentVideoIndex);
+        playVideo(video);
+      };
+
+      const handleError = (e: Event) => {
+        console.error("Error cargando video:", e);
       };
 
       video.addEventListener("canplay", handleCanPlay);
+      video.addEventListener("error", handleError);
 
       return () => {
         video.removeEventListener("canplay", handleCanPlay);
+        video.removeEventListener("error", handleError);
       };
     }
-  }, [currentVideoSrc]);
+  }, [currentVideoSrc, currentVideoIndex]);
 
   return (
     <HeroSection>
@@ -203,7 +239,7 @@ const playVideo = async (videoRef: React.RefObject<HTMLVideoElement> | null): Pr
         muted
         playsInline // Importante para iOS
         onEnded={handleVideoEnded}
-        onLoadedData={() => setIsVideoLoaded(true)}
+        // onLoadedData={() => setIsVideoLoaded(true)}
       >
         Tu navegador no admite el elemento <code>video</code>.
       </VideoBackground>
