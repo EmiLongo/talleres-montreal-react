@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { SubtitleXL, Text1, Title1, TitleXL } from "@theme/textStyles";
 import alesado from "@img/procedures/alesado.webp";
 import fresado from "@img/procedures/fresado.webp";
-import reparacion from "@img/procedures/reparacion.webp";
+// import reparacion from "@img/procedures/reparacion.webp";
 import roscado from "@img/procedures/roscado.webp";
 import soldadura from "@img/procedures/soldadura.webp";
 import torno from "@img/procedures/torno.webp";
@@ -16,12 +16,12 @@ interface Procedure {
 }
 
 const procedures: Procedure[] = [
-  {title: "Mecanizado",
+  {title: "Torneado",
   description: "Transformación de materiales mediante remoción precisa para obtener piezas con las dimensiones y acabados requeridos.",
   image: torno,},
-  {title: "Reparación",
-  description: "Restauración de equipos y componentes industriales para devolverles su funcionalidad óptima.",
-  image: reparacion,},
+  // {title: "Reparación",
+  // description: "Restauración de equipos y componentes industriales para devolverles su funcionalidad óptima.",
+  // image: reparacion,},
   {title: "Roscado",
   description: "Creación de roscas internas y externas con precisión para asegurar ajustes perfectos.",
   image: roscado,},
