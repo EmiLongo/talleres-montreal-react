@@ -56,7 +56,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ sx = {} }) => {
   });
 
   return (
-    <Box id="contact-form" sx={{ px: {xs: 0, lg: 10}, paddingTop: {xs: 0, md: 6},paddingBottom: {xs: 6, md: 6}, color: 'white', ...sx }}>
+    <Box id="contact-form" sx={{ paddingTop: {xs: 0, md: 6},paddingBottom: {xs: 6, md: 6}, color: 'white', ...sx }}>
       <SubtitleXL sx={{ color: palette.primary[100], marginBottom: "1rem" }}>
         Envíenos un Mensaje
       </SubtitleXL>
