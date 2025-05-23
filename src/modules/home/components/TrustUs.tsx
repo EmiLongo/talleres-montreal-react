@@ -109,9 +109,9 @@ export const TrustUs: React.FC = () => {
       component="section"
       id="trust-us"
       sx={{
-        paddingX: {xs:"2rem", lg:"3rem", xl:"4rem"},
         position: "relative",
         width: "100%",
+        overflow: "hidden",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -123,6 +123,7 @@ export const TrustUs: React.FC = () => {
       <TitleXL
         id="trust-us-title"
         sx={{
+          paddingX: {xs:"2rem", sm:"unset"},
           color: "primary.main",
           marginTop: { xs: "2rem", lg: "3rem", xl: "4rem" },
           marginBottom: "1rem",
@@ -137,7 +138,7 @@ export const TrustUs: React.FC = () => {
           textAlign: "center",
           width: "100%",
           maxWidth: "1100px",
-          marginX: "auto",
+          paddingX: {xs:"2rem", sm:"unset"},
           marginBottom: "2rem",
         }}
       >
