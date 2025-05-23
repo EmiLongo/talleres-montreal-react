@@ -1,6 +1,6 @@
 // src/modules/home/components/Contact.tsx
 import React from "react";
-import { Box, useTheme } from "@mui/material";
+import { Box, Container, useTheme } from "@mui/material";
 import { SubtitleXL, Text1, Title1, TitleXL } from "@/theme/textStyles";
 import { GoogleMapCard } from "./GoogleMap";
 import { ContactForm } from "./ContactForm";
@@ -17,9 +17,12 @@ export const Contact: React.FC = () => {
       id="contact"
       sx={{ 
         paddingY: "4rem", 
-        paddingX: { xs: "2rem", md: "4rem" },
         backgroundColor: "primary.main", 
-        color: "white" 
+        color: "white",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
       }}
     >
       <TitleXL
@@ -32,36 +35,40 @@ export const Contact: React.FC = () => {
       >
         Contacto
       </TitleXL>
-      <SubtitleXL sx={{ color: palette.primary[100], textAlign: "center", marginBottom: "2rem" }}>
+      <SubtitleXL sx={{ color: palette.primary[100], textAlign: "center", marginBottom: "2rem", paddingX: {xs: "2rem", md: "unset"} }}>
         ¿Tienes alguna pregunta específica? Contáctanos, estamos para ayudarte.
       </SubtitleXL>
-      <Box
+      <Container maxWidth="lg"
         sx={{
           display: "flex",
           alignItems: "center",
+          justifyContent: "center",
           flexDirection: { xs: "column", md: "row" },
+          width: "100vw",
+          overflow: "hidden",
+          gap: {xs: "2rem", md: "3rem", lg: "4rem", xl: "5rem"},
         }}
       >
         <ContactForm
           sx={{
+            maxWidth: { xs: "unset", md: "40vw" },
+            width: { xs: "min(90vw, 400px)", md: "unset" },
             flex: 1,
-            maxWidth: { xs: "100vw", md: "50vw" },
-            width: { xs: "min(90vw, 400px)", sm: "400px", md: "600px" },
           }}
         />
         {/* Contenido: info + formulario */}
 
-        <Box
-          sx={{
-            flex: 1,
-          }}
-        >
+        <Box sx={{
+          flex: 1,
+          maxWidth: { xs: "unset", md: "40vw" },
+          width: { xs: "min(90vw, 400px)", md: "unset" },
+        }}>
           <GoogleMapCard
             srcMap="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3354.9621951281188!2d-60.7383915333192!3d-32.76673763876167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95b65b1be6d77371%3A0xddf8f20133c12343!2sTalleres%20Montreal%20SRL!5e0!3m2!1ses!2sar!4v1747424640892!5m2!1ses!2sar"
             titleMap="Ubicación de Talleres Montreal SRL"
             titleCard="Nuestra ubicación"
             sx={{
-              maxWidth: {xs: "90vw", md: "45dvw"},
+              maxWidth: {xs: "90vw", sm: "unset"},
               aspectRatio: { xs: "1", md: "16/9" },
             }}
           />
@@ -77,7 +84,7 @@ export const Contact: React.FC = () => {
             ))}
           </Box>
         </Box>
-      </Box>
+      </Container>
     </Box>
   );
 };
