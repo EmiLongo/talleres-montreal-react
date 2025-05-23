@@ -1,8 +1,8 @@
 #root {
   margin: 0;
   padding: 0;
-  width: 100dvw;
-  min-height: 100dvh;
+  width: 100vw;
+  min-height: 100vh;
   overflow-x: hidden;
   background-color: "#FFFFFF";
   display: flex;
@@ -12,6 +12,8 @@ html {
   scroll-behavior: smooth;
 }
 body {
+  overflow-x: hidden;
+  max-width: 100%;
   background-color: "#FFFFFF";
 }
 a, a:active, a:visited{
