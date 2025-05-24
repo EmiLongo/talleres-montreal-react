@@ -6,6 +6,7 @@ import {
   Container,
   Link,
   useTheme,
+  Divider,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import WhatsApp from "@mui/icons-material/WhatsApp";
@@ -13,24 +14,24 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 import LocationPinIcon from "@mui/icons-material/LocationPin";
 import ShareIcon from "@mui/icons-material/Share";
-import inpulseLogo from "@img/inpulse_design_logo.svg";
-import talleresMontrealLogoByN from "@img/talleres-montreal-logo-simple-ByN.svg";
+import inpulseLogo from "@img/inpulse_design_logo_blanco.svg";
+import talleresMontrealLogoContraste from "@img/talleres-montreal-logo-horizontal-contraste.svg";
 import { infoItems } from "./Header";
 import {
-  ParagraphLight,
-  Text1,
   Text2,
   Title2,
 } from "@/theme/textStyles";
 
 export const contactInfo = [
-  { icon: <WhatsApp />, text: "Dpto Técnico: 341-3389977" },
-  { icon: <WhatsApp />, text: "Administración: 3476-619576" },
-  { icon: <PhoneIcon />, text: "Fijo: 3476-224447" },
-  { icon: <EmailIcon />, text: " talleresmontrealsrl@gmail.com" },
+  { icon: <WhatsApp sx={{ fontSize: "2rem" }}/>, title: "Dpto Técnico:", text: "341-3389977", type: "phone" },
+  { icon: <WhatsApp sx={{ fontSize: "2rem" }}/>, title: "Administración:", text: "3476-619576", type: "phone" },
+  { icon: <PhoneIcon sx={{ fontSize: "2rem" }}/>, title: "Teléfono Fijo:", text: "3476-224447", type: "phone" },
+  { icon: <EmailIcon sx={{ fontSize: "2rem" }}/>, title: "", text: " talleresmontrealsrl@gmail.com", type: "email" },
   {
-    icon: <LocationPinIcon />,
+    icon: <LocationPinIcon sx={{ fontSize: "2rem" }}/>,
+    title: "",
     text: " Av José Márquez 856, San Lorenzo, Santa Fe",
+    type: "address",
   },
 ];
 export const Footer: React.FC = () => {
@@ -38,7 +39,7 @@ export const Footer: React.FC = () => {
   const { palette } = theme;
   // Estilos personalizados
   const StyledFooter = styled("footer")({
-    backgroundColor: palette.primary[950],
+    backgroundColor: palette.primary[800],
     color: palette.primary.light,
     paddingTop: "2rem",
     paddingBottom: "1rem",
@@ -48,6 +49,7 @@ export const Footer: React.FC = () => {
   display: "flex",
   listStyleType: "none",
   margin: 0,
+  padding: 0,
   gap: "1.5rem",
   flexWrap: "wrap",
   [theme.breakpoints.up('md')]: {
@@ -57,6 +59,7 @@ export const Footer: React.FC = () => {
 
   const FooterListItem = styled(ListItem)(({ theme }) => ({
     flex: 1,
+      margin: 0,
     paddingRight: "0.5rem",
     [theme.breakpoints.up('md')]: {
       paddingRight: "1rem",
@@ -149,14 +152,14 @@ export const Footer: React.FC = () => {
               sx={{
                 display: "flex",
                 flexDirection: "column",
-                alignItems: "center",
+                gap: "1rem",
               }}
             >
               <Box
                 component={"img"}
-                src={talleresMontrealLogoByN}
+                src={talleresMontrealLogoContraste}
                 alt="Talleres Montreal Blanco y Negro"
-                width={120}
+                height={70}
               />
               <Box
                 id="shareURL"
@@ -168,19 +171,19 @@ export const Footer: React.FC = () => {
                   alignItems: "center",
                 }}
               >
-                <Text1 sx={{ color: palette.primary[100] }}>
-                  Compartir página{" "}
-                </Text1>
                 <ShareIcon
                   width={24}
                   height={24}
-                  sx={{ verticalAlign: "middle", marginLeft: 1 }}
+                  sx={{ verticalAlign: "middle", marginRight: 1 }}
                 />
+                <Text2 sx={{ color: palette.primary[100], fontWeight: 400 }}>
+                  Compartir página
+                </Text2>
               </Box>
             </Box>
           </Box>
-            <Box id="footerRight">
-              <Title2 sx={{ color: palette.primary[100], textAlign: "center" }}>NUESTRA WEB:</Title2>
+            <Box id="footerRight" sx={{ display: "flex", flexDirection: "column", justifyContent: "center"}}>
+              <Title2 sx={{ color: palette.primary[100], textAlign: "center", textTransform: "none" }}>Nuestra Web:</Title2>
               <Box>
                 <FooterList>
                   <FooterListItem id="footerListItem-home">
@@ -202,6 +205,16 @@ export const Footer: React.FC = () => {
               </Box>
             </Box>
         </Box>
+        <Divider
+        component="hr"
+        variant="fullWidth"
+        aria-hidden="true"
+        sx={{ 
+          marginTop: "2rem", 
+          marginBottom: "1rem", 
+          backgroundColor: palette.primary[100] 
+        }} 
+        />
         <Box
           id="footerBottom"
           sx={{
@@ -213,9 +226,9 @@ export const Footer: React.FC = () => {
             marginTop: "2rem",
           }}
         >
-          <ParagraphLight sx={{ textAlign: "center" }}>
+          <Text2 sx={{ color: "inherit",textAlign: "center" }}>
             Derechos reservados © {new Date().getFullYear()}.
-          </ParagraphLight>
+          </Text2>
           <Box
             component={"a"}
             href="https://inpulse.design"
@@ -227,9 +240,9 @@ export const Footer: React.FC = () => {
               gap: "0.75rem",
             }}
           >
-            <ParagraphLight sx={{ textAlign: "center" }}>
+            <Text2 sx={{ color: "inherit",textAlign: "center" }}>
               Desarrollado por
-            </ParagraphLight>
+            </Text2>
             <Box
               component={"img"}
               src={inpulseLogo}
