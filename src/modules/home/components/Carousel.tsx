@@ -36,7 +36,7 @@ export const Carousel: React.FC<CarouselProps> = ({
       sx={{
         overflow: "hidden",
         width: "100%",
-        backgroundColor: "#fff",
+        backgroundColor: "background.paper",
         py: 2,
         ...sx,
       }}
