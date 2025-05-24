@@ -15,7 +15,7 @@ import {
 import logoTextHorizontal from '@img/talleres-montreal-logo-horizontal.svg';
 import logoTextVertical from '@img/talleres-montreal-logo-vertical.svg';
 import { Menu as MenuIcon, Close as CloseIcon } from '@mui/icons-material';
-import { Text1, Text2 } from '@theme/textStyles';
+import { Title1 } from '@theme/textStyles';
 
 export const infoItems = [
   // { text: 'Inicio', path: '#home' },
@@ -56,7 +56,7 @@ export const Header: React.FC = () => {
       <List sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1.5rem' }}>
         {infoItems.map((item) => (
           <Box key={item.text} component={"a"} href={item.path}>
-            <Text1 sx={{ fontSize: '1.2rem', color: palette.text.primary}}>{item.text}</Text1>
+            <Title1 sx={{ fontSize: '1.2rem', color: palette.text.primary, textTransform: 'none', }}>{item.text}</Title1>
           </Box>
         ))}
       </List>
@@ -65,8 +65,9 @@ export const Header: React.FC = () => {
 
   return (
     <>
-      <Box sx={{ height: "70px" }} id="home"/>
+      {/* <Box sx={{ height: "70px" }} id="home"/> */}
       <AppBar 
+      id="home"
       position="fixed" 
       color="default" 
       elevation={1} 
@@ -103,7 +104,7 @@ export const Header: React.FC = () => {
               </>
             ) : (
               // versión escritorio
-              <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingX: { xs: '1rem', lg: '3rem'} }}>
+              <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingX: { xs: '1rem', sm: '3rem', md: '4rem', lg: '5rem', xl: 'unset'} }}>
                 <Box 
                   component={"img"}
                   src={logoTextHorizontal}
@@ -117,14 +118,14 @@ export const Header: React.FC = () => {
                       component={"a"}
                       href={item.path}
                     >
-                      <Text2 sx={{
+                      <Title1 sx={{
                         fontWeight: 500,
                         color: 'text.primary',
                         '&:hover': {
                           color: palette.primary[600],
                         },
-
-                      }}>{item.text}</Text2>
+                        textTransform: 'none',
+                      }}>{item.text}</Title1>
                     </Box>
                   ))}
                 </Box>
