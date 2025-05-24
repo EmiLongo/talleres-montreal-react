@@ -1,40 +1,39 @@
 // src/modules/home/components/Services.tsx
 import { Box, useTheme } from "@mui/material";
 import React from "react";
-// icono de camión sacado de https://thenounproject.com/icon/container-truck-5201423/ y editado a mano
-import truckIcon from "@img/services/container-truck.svg";
-// iconos sacados de https://thenounproject.com/browse/collection-icon/technical-support-66195/
-import csrIcon from "@img/services/csr.svg";
-import managerIcon from "@img/services/manager.svg";
-import technicalSupportIcon from "@img/services/technical-support.svg";
-import modeladoIcon from "@img/services/modelado.svg";
-import { SubtitleXL, Text1, Title1, TitleXL } from "@theme/textStyles";
+import { Text1, Title1 } from "@theme/textStyles";
+import { SectionSubTitle, SectionTitle } from "./Styled";
+import asesoramientoTecnico from "@img/services/asesoramiento_tecnico.gif";
+import mecanizadoPrecision from "@img/services/mecanizado_precision.gif";
+import modeladoComplejo from "@img/services/modelado_complejo.gif";
+import reparacionFabricacion from "@img/services/reparacion_fabricacion.gif";
+import transporte from "@img/services/transporte.gif";
 
 const services = [
   {
     title: "Mecanizado de Precisión",
     description: "Mecanizado de piezas de alta precisión y calidad en amplia variedad de materiales.",
-    icon: managerIcon,
+    icon: mecanizadoPrecision,
   },
   {
     title: "Reparación y Fabricación",
     description: "Reparación y fabricación de equipos y repuestos industriales según sus necesidades.",
-    icon: technicalSupportIcon,
+    icon: reparacionFabricacion,
   },
   {
     title: "Asesoramiento Técnico",
     description: "Determinación de materiales, calidad de ajuste y tratamiento térmico para sus proyectos.",
-    icon: csrIcon,
+    icon: asesoramientoTecnico,
   },
   {
     title: "Modelado Complejo",
     description: "Fabricacion de modelos para crear piezas en fundicion con formas irregulares o detalles complejos.",
-    icon: modeladoIcon,
+    icon: modeladoComplejo,
   },
   {
     title: "Servicio de Transporte",
     description: "Ofrecemos entrega de trabajos y retiro de muestras o piezas a reparar.",
-    icon: truckIcon,
+    icon: transporte,
   },
 ]
 export const Services: React.FC = () => {
@@ -46,32 +45,30 @@ export const Services: React.FC = () => {
       id="services"
       sx={{
       paddingX: {xs:"2rem", lg:"3rem", xl:"4rem"},
+      paddingBottom: {xs:"3rem", lg:"5rem", xl:"6rem"},
       position: "relative",
       width: "100%",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
       justifyContent: "center",
-      backgroundColor: "background.paper",
+      backgroundColor: palette.primary[100],
       }}
     >
-      <TitleXL id="services-title" sx={{ color: "primary.main", marginTop: {xs:"2rem", lg:"3rem", xl:"4rem"}, marginBottom: "1rem" }}>
+      <SectionTitle id="services-title" sx={{ marginTop: {xs:"2rem", lg:"3rem", xl:"4rem"}}}>
         Servicios Destacados
-      </TitleXL>
-      <SubtitleXL sx={{
-        color: "primary.main",
-        maxWidth: "1100px",
-        margin: "0 auto",
-      }}>
+      </SectionTitle>
+      <SectionSubTitle>
       Nos especializamos en brindar soluciones industriales de calidad con personal altamente calificado.
-      </SubtitleXL>
+      </SectionSubTitle>
       <Box
         sx={{
-          display: "grid",
-          gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", md: "1fr 1fr 1fr", xl: "1fr 1fr 1fr" },
-          gap: {xs: "1rem", sm: "2rem", md: "2rem", lg: "3rem", xl: "4rem"},
-          paddingX: {xs: "1rem", sm: "2rem", md: "2rem", lg: "3rem", xl: "4rem"},
-          paddingY: {xs: "2rem", lg: "3rem", xl: "4rem"},
+          display: "flex",
+          // gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", md: "1fr 1fr 1fr", xl: "1fr 1fr 1fr" },
+          gap: {xs: "1rem", sm: "2rem", md: "2rem"},
+          justifyContent: "center",
+          flexWrap: "wrap",
+          maxWidth: "1200px", 
         }}
       >
         {services.map((service, index) => (
@@ -81,25 +78,32 @@ export const Services: React.FC = () => {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              justifyContent: "center",
               gap: "2rem",
-              marginBottom: "2rem",
-              padding: {xs: "1rem", sm: "2rem", md: "2rem"},
-              backgroundColor: palette.primary[100],
-              // backgroundColor: "rgba( 163, 164, 236, 0.25 )",
-              boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
-              backdropFilter: "blur( 6px )",
-              WebkitBackdropFilter: "blur( 6px )",
-              borderRadius: "10px",
-              border: "1px solid rgba( 255, 255, 255, 0.18 )",
+              width: {xs: "100%", sm: "45%", md: "30%"},
+              maxWidth: {xs: "400px", md: "unset"},
+              marginTop: {xs: "unset", sm: "2rem"},
+              // padding: {xs: "1rem", sm: "2rem", md: "2rem"},
             }}
           >
-            <img src={service.icon} alt={service.title} />
+            <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "162px",
+              aspectRatio: "1/1",
+              borderRadius: "50%",
+              backgroundColor: "background.paper",
+            }}
+            >
+              <img src={service.icon} alt={service.title} width={"96px"} height={"96px"} />
+            </Box>
             <Box>
-              <Title1 sx={{ textAlign: "center", color: "primary.main", mb: "1rem", textWrap: "wrap" }}>
+              <Title1 sx={{ textAlign: "center", mb: "1rem", textWrap: "wrap", textTransform: "capitalize" }}>
                 {service.title}
               </Title1>
-              <Text1 sx={{ textAlign: "center", color: "primary.main", textWrap: "wrap" }}>
+              <Text1 sx={{ textAlign: "center", textWrap: "wrap" }}>
                 {service.description}
               </Text1>
             </Box>
