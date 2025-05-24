@@ -1,37 +1,45 @@
 // src/modules/home/components/Procedures.tsx
 import { Box, useTheme } from "@mui/material";
 import React, { useState } from "react";
-import { SubtitleXL, Text1, Title1, TitleXL } from "@theme/textStyles";
+import { Text1, Title1 } from "@theme/textStyles";
 import alesado from "@img/procedures/alesado.webp";
 import fresado from "@img/procedures/fresado.webp";
 // import reparacion from "@img/procedures/reparacion.webp";
 import roscado from "@img/procedures/roscado.webp";
 import soldadura from "@img/procedures/soldadura.webp";
 import torno from "@img/procedures/torno.webp";
+import { SectionSubTitle, SectionTitle } from "./Styled";
+import HorizontalAccordion from "./HorizontalAccordion";
 
 interface Procedure {
+  id: string;
   title: string;
   description: string;
   image?: string;
 }
 
 const procedures: Procedure[] = [
-  {title: "Torneado",
+  {id: "1",
+  title: "Torneado",
   description: "Transformación de materiales mediante remoción precisa para obtener piezas con las dimensiones y acabados requeridos.",
   image: torno,},
   // {title: "Reparación",
   // description: "Restauración de equipos y componentes industriales para devolverles su funcionalidad óptima.",
   // image: reparacion,},
-  {title: "Roscado",
+  {id: "2",
+  title: "Roscado",
   description: "Creación de roscas internas y externas con precisión para asegurar ajustes perfectos.",
   image: roscado,},
-  {title: "Soldadura",
+  {id: "3",
+  title: "Soldadura",
   description: "Unión de materiales metálicos mediante diferentes técnicas para garantizar resistencia y durabilidad.",
   image: soldadura,},
-  {title: "Alesado",
+  {id: "4",
+  title: "Alesado",
   description: "Mecanizado de precisión para agujeros cilíndricos con excelente acabado superficial.",
   image: alesado,},
-  {title: "Fresado",
+  {id: "5",
+  title: "Fresado",
   description: "Fabricación de piezas con formas complejas mediante herramientas rotativas de corte.",
   image: fresado,},
 ]
@@ -39,9 +47,9 @@ const procedures: Procedure[] = [
 export const Procedures: React.FC = () => {
   const theme = useTheme();
   const { palette } = theme;
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const toogleActiveIndex = (index: number) => {
-    setActiveIndex(index === activeIndex ? null : index)
+  const [expanded, setExpanded] = useState<string | null>(procedures[0].id || null);
+  const handleExpanse = (id: string) => {
+    setExpanded(id);
   };
 
   return (
@@ -49,9 +57,12 @@ export const Procedures: React.FC = () => {
       component="section"
       id="procedures"
       sx={{
-      paddingX: {xs:"2rem", lg:"3rem", xl:"4rem"},
+      paddingX: {xs:"2rem", sm: "unset"},
+      paddingY: {xs:"2rem", lg:"4rem", xl:"5rem"},
+      marginX: "auto",
       position: "relative",
       width: "100%",
+      maxWidth: "1200px",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
@@ -59,86 +70,24 @@ export const Procedures: React.FC = () => {
       backgroundColor: "background.paper",
       }}
     >
-      <TitleXL id="procedures-title" sx={{ color: "primary.main", marginTop: {xs:"2rem", lg:"3rem", xl:"4rem"}, marginBottom: "1rem" }}>
+      <SectionTitle id="procedures-title">
         Nuestros Procesos
-      </TitleXL>
-      <SubtitleXL sx={{
-        color: "primary.main",
-        maxWidth: "1100px",
-        margin: "0 auto",
-      }}>
+      </SectionTitle>
+      <SectionSubTitle sx={{ marginBottom: {xs: "2rem", lg: "3rem", xl: "4rem" }}}>
       Nos especializamos en brindar soluciones industriales de calidad con personal altamente calificado.
-      </SubtitleXL>
-      <Box
-        sx={{
-          display: "grid",
-          gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", lg: "1fr 1fr 1fr" },
-          gap: {xs: "1rem", sm: "2rem", md: "2rem", lg: "3rem", xl: "4rem"},
-          paddingX: {xs: "1rem", sm: "2rem", md: "2rem", lg: "3rem", xl: "4rem"},
-          paddingY: {xs: "2rem", lg: "3rem", xl: "4rem"},
-        }}
-      >
-        {procedures.map((procedure, index) => (
-          <Box
-            id={`procedure-${index}`}
-            key={`procedure-${index}`}
-            onClick={() => toogleActiveIndex(index)}
-            sx={{
-              position: "relative",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-              height: {xs: "220px", md: "250px", lg: "280px", xl: "300px"},
-              gap: "2rem",
-              // backgroundColor: activeIndex === index ? "rgba(0, 0, 0, 0.5)" : "rgba( 163, 164, 236, 0.25 )",
-              backgroundImage: activeIndex === index ? `url(${procedure.image})` : "none",
-              backgroundPosition: "center",
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-              boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
-              borderRadius: "10px",
-              border: "1px solid rgba( 255, 255, 255, 0.18 )",
-              overflow: "hidden",
-              transition: "all 0.5s ease",
-              color: activeIndex === index ? "background.paper" : "primary.main",
-              '&:hover': {
-                backgroundImage: `url(${procedure.image})`,
-                // backgroundColor: "rgba(0, 0, 0, 0.5)", // opcional para oscurecer
-                color: "background.paper",
-              }
-            }}
-          >
-            <Box
-              sx={{
-                height: "100%",
-                width: "100%",
-                backdropFilter: "blur( 1px )",
-                WebkitBackdropFilter: "blur( 1px )",
-                backgroundColor: activeIndex === index ? "rgba(0, 0, 0, 0.25)" : palette.primary[100],
-                paddingX: "1rem",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: "1rem",
-                transition: "all 0.5s ease",
-                '&:hover': {
-                  backgroundColor: "rgba(0, 0, 0, 0.25)",
-                }
-              }}
-            >
-              <Title1 sx={{ textAlign: "center", color: "inherit", userSelect: "none" }}>
-                {procedure.title}
-              </Title1>
-              <Text1 sx={{ textAlign: "center", color: "inherit", userSelect: "none" }}>
-                {procedure.description}
-              </Text1>
-            </Box>
-          </Box>
-
-          ))
-        }
+      </SectionSubTitle>
+      <Box sx={{ display: "flex", flexDirection: { xs: "column", sm: "row" }, gap: "2rem"}}>
+        <HorizontalAccordion panels={procedures} expanded={expanded} setExpanded={handleExpanse} />
+        <Box sx={{ width: {xs:"100%", sm:"30%"}, display: "flex", flexDirection: "column", justifyContent: "center"}}>
+          {expanded && <>
+          <Title1 sx={{ mb: "1rem", textWrap: "wrap", textTransform: "capitalize",}}>
+            {procedures.find(procedure => procedure.id === expanded)?.title}
+          </Title1>
+          <Text1 sx={{ textWrap: "wrap" }}>
+            {procedures.find(procedure => procedure.id === expanded)?.description}
+          </Text1>
+          </>}
+        </Box>
       </Box>
     </Box>
   );
