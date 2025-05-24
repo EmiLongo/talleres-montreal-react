@@ -56,7 +56,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ sx = {} }) => {
   });
 
   return (
-    <Box id="contact-form" sx={{ paddingTop: {xs: 0, md: 6}, paddingBottom: {xs: 6, md: 6}, color: 'white', ...sx }}>
+    <Box id="contact-form" sx={{ color: 'white', ...sx }}>
       <Box 
         ref={formRef}
         component="form" 

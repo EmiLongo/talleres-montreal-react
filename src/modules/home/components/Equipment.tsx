@@ -24,6 +24,7 @@ export const Equipment: React.FC = () => {
       id="equipment"
       sx={{
       paddingX: {xs:"2rem", lg:"3rem", xl:"4rem"},
+      paddingBottom: {xs:"2rem", lg:"4rem", xl:"5rem"},
       position: "relative",
       width: "100%",
       display: "flex",
@@ -33,7 +34,7 @@ export const Equipment: React.FC = () => {
       backgroundColor: palette.primary[100],
       }}
     >
-      <SectionTitle id="equipment-title" sx={{marginTop: {xs:"2rem", lg:"3rem", xl:"4rem"}}}>
+      <SectionTitle id="equipment-title">
         Nuestro Equipamiento
       </SectionTitle>
       <SectionSubTitle>
@@ -45,7 +46,7 @@ export const Equipment: React.FC = () => {
           gridTemplateColumns: { xs: "1fr 1fr", md: "1fr 1fr 1fr", lg: "1fr 1fr 1fr 1fr" },
           gap: {xs: "1rem", sm: "2rem", md: "2rem", lg: "3rem", xl: "4rem"},
           paddingX: {xs: "1rem", sm: "2rem", md: "2rem", lg: "3rem", xl: "4rem"},
-          paddingY: {xs: "2rem", lg: "3rem", xl: "4rem"},
+          paddingY: {xs: "2rem", lg: "2rem"},
         }}
       >
         {equipment.map((equip, index) => (

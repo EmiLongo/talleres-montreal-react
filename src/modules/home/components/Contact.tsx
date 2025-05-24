@@ -1,7 +1,7 @@
 // src/modules/home/components/Contact.tsx
 import React from "react";
 import { Box, Container } from "@mui/material";
-import { Text1, Title1 } from "@/theme/textStyles";
+import { Text2, Title2 } from "@/theme/textStyles";
 import { GoogleMapCard } from "./GoogleMap";
 import { ContactForm } from "./ContactForm";
 import { contactInfo } from "@/shared/Layout/components/Footer";
@@ -15,7 +15,7 @@ export const Contact: React.FC = () => {
       component="section"
       id="contact"
       sx={{ 
-        paddingY: "4rem", 
+        paddingBottom: {xs: "4rem", xl:"5rem"},
         backgroundColor: "background.paper", 
         color: "white",
         display: "flex",
@@ -35,10 +35,10 @@ export const Contact: React.FC = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          flexDirection: { xs: "column", md: "row" },
+          flexDirection: { xs: "column-reverse", md: "row" },
           width: "100vw",
           overflow: "hidden",
-          gap: {xs: "2rem", md: "3rem", lg: "4rem", xl: "5rem"},
+          gap: {xs: "4rem", xl: "5rem"},
         }}
       >
         <Box sx={{
@@ -46,32 +46,32 @@ export const Contact: React.FC = () => {
           maxWidth: { xs: "unset", md: "40vw" },
           width: { xs: "min(90vw, 400px)", md: "unset" },
         }}>
-          <Title1 sx={{marginBottom: "1rem" }}>
+          <Title2 sx={{marginBottom: "1rem" }}>
             Información de Contacto
-          </Title1>
+          </Title2>
           <Box sx={{ mb: 2, display: "flex", flexDirection: "column", gap: 1 }}>
             <Box sx={{ display: "flex", justifyContent: "space-between",flexWrap: "wrap" }}>
             {contactInfo.map((item, index) => {
               if (item.type !== "phone") return null;
               return (
               <Box sx={{ display: "flex", flexDirection: "column"}}>
-                <Text1 key={`text-${item.type}-${index}`} sx={{ display: "flex", alignItems: "center", gap: 1, fontWeight: 600 }}>
+                <Text2 key={`text-${item.type}-${index}`} sx={{ display: "flex", alignItems: "center", gap: 1, fontWeight: 600 }}>
                   {item.title}
-                </Text1>
-                <Text1 key={`text-${item.type}-${index}`} sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                </Text2>
+                <Text2 key={`text-${item.type}-${index}`} sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                   {item.icon}
                   {item.text}
-                </Text1>
+                </Text2>
               </Box>
             )})}
           </Box>
             {contactInfo.map((item, index) => {
               if (item.type === "phone") return null;
               return (
-              <Text1 key={`text-${item.type}-${index}`} sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+              <Text2 key={`text-${item.type}-${index}`} sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                 {item.icon}
                 {item.text}
-              </Text1>
+              </Text2>
             )})}
           </Box>
           <GoogleMapCard
@@ -79,6 +79,7 @@ export const Contact: React.FC = () => {
             titleMap="Ubicación de Talleres Montreal SRL"
             titleCard="Nuestra ubicación"
             sx={{
+              marginTop: "2.5rem",
               maxWidth: {xs: "90vw", sm: "unset"},
               aspectRatio: { xs: "1", md: "16/9" },
             }}

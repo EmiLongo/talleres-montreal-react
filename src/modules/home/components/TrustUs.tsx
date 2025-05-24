@@ -117,18 +117,13 @@ export const TrustUs: React.FC = () => {
         alignItems: "center",
         justifyContent: "center",
         backgroundColor: "background.paper",
-        marginBottom: "4rem",
+        paddingBottom: {xs: "3rem", md:"3rem"},
       }}
     >
-      <SectionTitle
-        id="trust-us-title"
-        sx={{marginTop: { xs: "2rem", lg: "3rem", xl: "4rem" }}}
-      >
+      <SectionTitle id="trust-us-title">
         Empresas que Confían en Nosotros
       </SectionTitle>
-      <SectionSubTitle
-        sx={{ marginBottom: "2rem", }}
-      >
+      <SectionSubTitle>
         Brindamos servicios a las principales industrias de la región.
       </SectionSubTitle>
       <Carousel logos={clients} speed={isMobile ? 600 : isTablet ? 350 : 120} />

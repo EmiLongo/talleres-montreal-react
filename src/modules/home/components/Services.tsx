@@ -55,17 +55,17 @@ export const Services: React.FC = () => {
       backgroundColor: palette.primary[100],
       }}
     >
-      <SectionTitle id="services-title" sx={{ marginTop: {xs:"2rem", lg:"3rem", xl:"4rem"}}}>
+      <SectionTitle id="services-title" >
         Servicios Destacados
       </SectionTitle>
-      <SectionSubTitle>
+      <SectionSubTitle sx={{ marginBottom: {xs:"3rem", xl:"4rem"}}}>
       Nos especializamos en brindar soluciones industriales de calidad con personal altamente calificado.
       </SectionSubTitle>
       <Box
         sx={{
           display: "flex",
           // gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr", md: "1fr 1fr 1fr", xl: "1fr 1fr 1fr" },
-          gap: {xs: "1rem", sm: "2rem", md: "2rem"},
+          gap: "4rem",
           justifyContent: "center",
           flexWrap: "wrap",
           maxWidth: "1200px", 
@@ -78,10 +78,9 @@ export const Services: React.FC = () => {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              gap: "2rem",
+              gap: "1rem",
               width: {xs: "100%", sm: "45%", md: "30%"},
               maxWidth: {xs: "400px", md: "unset"},
-              marginTop: {xs: "unset", sm: "2rem"},
               // padding: {xs: "1rem", sm: "2rem", md: "2rem"},
             }}
           >
@@ -94,7 +93,7 @@ export const Services: React.FC = () => {
               width: "162px",
               aspectRatio: "1/1",
               borderRadius: "50%",
-              backgroundColor: "background.paper",
+              backgroundColor: "#fff",
             }}
             >
               <img src={service.icon} alt={service.title} width={"96px"} height={"96px"} />

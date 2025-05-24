@@ -58,7 +58,7 @@ export const Procedures: React.FC = () => {
       id="procedures"
       sx={{
       paddingX: {xs:"2rem", sm: "unset"},
-      paddingY: {xs:"2rem", lg:"4rem", xl:"5rem"},
+      paddingBottom: {xs:"2rem", lg:"4rem", xl:"5rem"},
       marginX: "auto",
       position: "relative",
       width: "100%",
