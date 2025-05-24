@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Paper, useTheme } from '@mui/material';
-import { Text1 } from '@/theme/textStyles';
+import { SubtitleXL } from '@/theme/textStyles';
 
 interface Panel {
   id: string;
@@ -21,20 +21,31 @@ const HorizontalAccordion: React.FC<HorizontalAccordionProps> = ({ panels, expan
   // const isMobile = theme.breakpoints.down("md");
 
   return (
-    <Box sx={{ height:{xs: '300px', lg: '350px'}, display:"flex",  }}>
-      {panels.map(({ id, title, image }) => (
+    <Box 
+    sx={{
+      height:{xs: 'unset', sm: '300px', lg: '350px'}, 
+      display:"flex", 
+      flexDirection:{xs:"column", sm:"row"}, 
+      alignItems:{xs: "center", sm: "unset"},
+      gap: {xs: 1, sm: "unset"},
+    }}>
+      {panels.slice().reverse().map(({ id, title, image }) => (
         <Paper
           key={id}
           elevation={3}
           sx={{
             position: 'relative',
-            width: expanded === id ? {xs: '300px', lg: '350px'} : {xs: '60px', lg: '80px'},
+            width: {xs: '300px', sm: expanded === id ? '300px': '60px', lg: expanded === id ? '350px' : '80px'},
+            height: {xs: expanded === id ? '300px': '60px', sm: '300px', lg: '350px'},
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: {xs: 'flex-start', sm: 'flex-end'},
+            alignItems: 'center',
             overflow: 'hidden',
             transition: 'all 0.3s ease',
             cursor: 'pointer',
             backgroundImage: `url(${image})`,
             backgroundSize: 'cover',
-            mr: 1
           }}
           onClick={() => setExpanded(id)}
         >
@@ -45,33 +56,35 @@ const HorizontalAccordion: React.FC<HorizontalAccordionProps> = ({ panels, expan
               left: 0,
               width: "100%",
               height: "100%",
-              backgroundColor: "rgba(0, 0, 0, 0.3)", // Overlay oscuro para mejorar la legibilidad
-              zIndex: 10,
+              backgroundColor: expanded === id ? 'transparent' : "rgba(0, 0, 0, 0.5)",
               display: 'flex',
               flexDirection: 'column',
-              justifyContent: 'flex-end',
-              alignItems: 'center',
-              paddingBottom: "1rem",
+              justifyContent: {xs: 'center', sm: 'flex-end'},
+              alignItems: {xs: 'flex-start', sm: 'center'},
+              paddingBottom: {xs: 0, sm: "1rem"},
+              transition: 'all 0.3s ease',
+              paddingLeft: {xs: "1rem", sm: "unset"},
             }}>
             <Box
               sx={{
                 p: 1,
-                writingMode: 'vertical-rl',
-                transform: expanded === id ? 'rotate(270deg)' : 'rotate(180deg)',
+                writingMode: {xs: 'horizontal-tb', md: 'vertical-rl'},
+                transform: {xs: expanded === id ? 'rotate(90deg)' : 'rotate(0deg)', md: expanded === id ? 'rotate(270deg)' : 'rotate(180deg)'},
                 whiteSpace: 'nowrap',
                 transition: 'all 0.3s ease',
                 display: 'flex',
                 alignItems: 'baseline',
+                justifyContent: {xs: 'flex-start', md: 'flex-end'},
               }}
             >
-              <Text1 sx={{ 
+              <SubtitleXL sx={{ 
                 color: expanded === id ? 'transparent' : palette.grey[50], 
                 transition: 'all 0.3s ease',
                 zIndex: 11,
-                transform: {xs: "scale(1)", lg: "scale(1.1)"} 
+                // transform: {xs: "scale(1.1)"} 
               }}>
                 {title}
-              </Text1>
+              </SubtitleXL>
             </Box>
           </Box>
         </Paper>
