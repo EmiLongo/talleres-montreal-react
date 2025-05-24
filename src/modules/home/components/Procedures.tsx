@@ -1,5 +1,5 @@
 // src/modules/home/components/Procedures.tsx
-import { Box, useTheme } from "@mui/material";
+import { Box } from "@mui/material";
 import React, { useState } from "react";
 import { Text1, Title1 } from "@theme/textStyles";
 import alesado from "@img/procedures/alesado.webp";
@@ -45,7 +45,7 @@ const procedures: Procedure[] = [
 ]
 
 export const Procedures: React.FC = () => {
-  const theme = useTheme();
+  // const theme = useTheme();
   // const { palette } = theme;
   const [expanded, setExpanded] = useState<string | null>(procedures[0].id || null);
   const handleExpanse = (id: string) => {
