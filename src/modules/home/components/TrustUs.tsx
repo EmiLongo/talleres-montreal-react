@@ -1,7 +1,6 @@
 // src/modules/home/components/TrustUs.tsx
 import { Box, useMediaQuery, useTheme } from "@mui/material";
 import React from "react";
-import { SubtitleXL, TitleXL } from "@theme/textStyles";
 import { Carousel } from "./Carousel";
 import CartoneraPuertoLogo from "@img/trust-us/cartonera-puerto.png";
 import CelulosaArgentinaLogo from "@img/trust-us/celulosa-argentina.png";
@@ -16,6 +15,7 @@ import SwiftArgentinaWebpLogo from "@img/trust-us/swift-argentina.webp";
 import VartecoQuimicaPuntanaLogo from "@img/trust-us/varteco-quimica-puntana.png";
 import VicentinLogo from "@img/trust-us/vicentin.jpg";
 import YeruvaLogo from "@img/trust-us/yeruva.png";
+import { SectionSubTitle, SectionTitle } from "./Styled";
 
 const clients = [
   {
@@ -120,30 +120,17 @@ export const TrustUs: React.FC = () => {
         marginBottom: "4rem",
       }}
     >
-      <TitleXL
+      <SectionTitle
         id="trust-us-title"
-        sx={{
-          paddingX: {xs:"2rem", sm:"unset"},
-          color: "primary.main",
-          marginTop: { xs: "2rem", lg: "3rem", xl: "4rem" },
-          marginBottom: "1rem",
-          textAlign: "center",
-        }}
+        sx={{marginTop: { xs: "2rem", lg: "3rem", xl: "4rem" }}}
       >
         Empresas que Confían en Nosotros
-      </TitleXL>
-      <SubtitleXL
-        sx={{
-          color: "primary.main",
-          textAlign: "center",
-          width: "100%",
-          maxWidth: "1100px",
-          paddingX: {xs:"2rem", sm:"unset"},
-          marginBottom: "2rem",
-        }}
+      </SectionTitle>
+      <SectionSubTitle
+        sx={{ marginBottom: "2rem", }}
       >
         Brindamos servicios a las principales industrias de la región.
-      </SubtitleXL>
+      </SectionSubTitle>
       <Carousel logos={clients} speed={isMobile ? 600 : isTablet ? 350 : 120} />
     </Box>
   );
