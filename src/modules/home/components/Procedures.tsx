@@ -46,7 +46,7 @@ const procedures: Procedure[] = [
 
 export const Procedures: React.FC = () => {
   const theme = useTheme();
-  const { palette } = theme;
+  // const { palette } = theme;
   const [expanded, setExpanded] = useState<string | null>(procedures[0].id || null);
   const handleExpanse = (id: string) => {
     setExpanded(id);
