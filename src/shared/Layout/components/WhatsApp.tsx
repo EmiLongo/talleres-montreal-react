@@ -1,10 +1,10 @@
 // src/shared/Layout/components/WhatsApp.tsx
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import { Box, Fab } from '@mui/material';
+import { Box, Fab, useTheme } from '@mui/material';
 import { useEffect, useRef, useState } from 'react';
 
 export const WhatsApp: React.FC = () => {
-
+  const { palette } = useTheme();
   const [bottomOffset, setBottomOffset] = useState(32); // en px, equivale a 2rem
   const iconRef = useRef<HTMLDivElement>(null);
 
@@ -58,12 +58,12 @@ export const WhatsApp: React.FC = () => {
           width: { xs: "4rem", md: "5rem", lg: "6rem" },
           height: { xs: "4rem", md: "5rem", lg: "6rem" },
           padding: "1rem",
-          backgroundColor: "#075E54", 
+          backgroundColor: palette.primary[600], 
           color: "white", 
           "&:hover": { backgroundColor: "#128C7E" } 
         }}
       >
-        <WhatsAppIcon sx={{ fontSize: { xs: "2rem", md: "3rem", lg: "4rem" } }}/>
+        <WhatsAppIcon sx={{ fontSize: { xs: "1.5rem", md: "2rem", lg: "2.5rem" } }}/>
       </Fab>
     </Box>
   )
