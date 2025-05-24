@@ -7,7 +7,7 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import { SubtitleXL, TitleXL } from "@theme/textStyles";
+import { SubtitleXL, Text1, TitleXL } from "@theme/textStyles";
 
 // Videos para desktop
 const desktopVideos = [
@@ -30,7 +30,7 @@ const mobileVideos = [
 // Estilos personalizados usando styled de MUI
 const HeroSection = styled(Box)(() => ({
   position: "relative",
-  height: "80vh",
+  height: "85vh",
   width: "100%",
   overflow: "hidden",
   display: "flex",
@@ -59,13 +59,11 @@ const Overlay = styled(Box)({
 });
 
 const CtaButton = styled(Button)(({ theme }) => ({
-  padding: theme.spacing(1.5, 4),
-  maxWidth: "300px",
+  padding: theme.spacing(1.5, 7),
   fontWeight: 600,
-  fontSize: "1rem",
-  backgroundColor: theme.palette.warning.main,
+  backgroundColor: "secondary.main",
   "&:hover": {
-    backgroundColor: theme.palette.warning.dark,
+    backgroundColor: "secondary.dark",
     transform: "translateY(-3px)",
     transition: "all 0.3s",
   },
@@ -273,14 +271,14 @@ export const Hero: React.FC = () => {
           paddingX: {xs:"2rem", lg:"3rem", xl:"4rem"},
         }}
       >
-        <TitleXL sx={{ color: "primary.light" }}>
+        <TitleXL sx={{ color: "background.paper" }}>
           MECANIZADOS Y MANTENIMIENTO INDUSTRIAL
         </TitleXL>
         <Box>
         <SubtitleXL
           sx={{
             fontSize: {xl: '1.5rem', lg: '1.375rem', md: '1.25rem', sm: '1.125rem', xs: '1rem'},
-            color: "primary.light",
+            color: "background.paper",
             maxWidth: "600px",
             margin: "0 auto",
           }}
@@ -291,7 +289,7 @@ export const Hero: React.FC = () => {
         <SubtitleXL
           sx={{
             fontSize: {xl: '1.5rem', lg: '1.375rem', md: '1.25rem', sm: '1.125rem', xs: '1rem'},
-            color: "primary.light",
+            color: "background.paper",
             maxWidth: "800px",
             margin: "0 auto",
           }}
@@ -303,9 +301,9 @@ export const Hero: React.FC = () => {
         <CtaButton
           variant="contained"
           color="warning"
-          href="#contacto"
+          href="#contact"
         >
-          SOLICITAR PRESUPUESTO
+          <Text1 sx={{ color: "text.secondary" }}>SOLICITAR PRESUPUESTO</Text1>
         </CtaButton>
       </Box>
     </HeroSection>
