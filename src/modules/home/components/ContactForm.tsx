@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { Box, TextField, Button, useTheme } from '@mui/material';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { InputError, SubtitleXL } from '@/theme/textStyles';
+import { InputError, Text2 } from '@/theme/textStyles';
 import emailjs from '@emailjs/browser';
 import { toast } from 'react-toastify';
 import { publicKey, serviceId, templateId } from '@/shared/utils/emailJS';
@@ -56,20 +56,17 @@ export const ContactForm: React.FC<ContactFormProps> = ({ sx = {} }) => {
   });
 
   return (
-    <Box id="contact-form" sx={{ paddingTop: {xs: 0, md: 6},paddingBottom: {xs: 6, md: 6}, color: 'white', ...sx }}>
-      <SubtitleXL sx={{ color: palette.primary[100], marginBottom: "1rem" }}>
-        Envíenos un Mensaje
-      </SubtitleXL>
+    <Box id="contact-form" sx={{ paddingTop: {xs: 0, md: 6}, paddingBottom: {xs: 6, md: 6}, color: 'white', ...sx }}>
       <Box 
         ref={formRef}
         component="form" 
         onSubmit={formik.handleSubmit} 
         noValidate
+        sx={{ display: 'flex', flexDirection: 'column', width: '100%', alignItems: 'center' }}
       >
         <TextField
           fullWidth
           label="Nombre y Apellido"
-          variant="filled"
           id="name"
           name="name"
           value={formik.values.name}
@@ -85,7 +82,6 @@ export const ContactForm: React.FC<ContactFormProps> = ({ sx = {} }) => {
         <TextField
           fullWidth
           label="Correo Electrónico"
-          variant="filled"
           id="email"
           name="email"
           type="email"
@@ -101,7 +97,6 @@ export const ContactForm: React.FC<ContactFormProps> = ({ sx = {} }) => {
         <TextField
           fullWidth
           label="Teléfono"
-          variant="filled"
           id="phone"
           name="phone"
           value={formik.values.phone}
@@ -116,7 +111,6 @@ export const ContactForm: React.FC<ContactFormProps> = ({ sx = {} }) => {
         <TextField
           fullWidth
           label="Empresa"
-          variant="filled"
           id="company"
           name="company"
           value={formik.values.company}
@@ -133,7 +127,6 @@ export const ContactForm: React.FC<ContactFormProps> = ({ sx = {} }) => {
           label="Mensaje"
           multiline
           rows={6}
-          variant="filled"
           id="message"
           name="message"
           value={formik.values.message}
@@ -147,19 +140,25 @@ export const ContactForm: React.FC<ContactFormProps> = ({ sx = {} }) => {
         </InputError>
         <Button 
           type="submit" 
-          variant="contained" 
-          color="secondary"
           disabled={formik.isSubmitting}
           sx={{
-            backgroundColor: theme.palette.warning.main,
+            width: "50%",
+            backgroundColor: palette.secondary.dark,
+            color: palette.grey[50],
             "&:hover": {
-              backgroundColor: theme.palette.warning.dark,
+              color: palette.grey[900],
+              backgroundColor: palette.secondary.main,
               transform: "translateY(-3px)",
               transition: "all 0.3s",
             },
           }}
         >
-          Enviar Mensaje
+          <Text2 sx={{ 
+            color: "inherit",
+            textTransform: "uppercase",
+          }}>
+            Enviar Mensaje
+          </Text2>
         </Button>
       </Box>
     </Box>
