@@ -76,11 +76,11 @@ export const Procedures: React.FC = () => {
       <SectionSubTitle sx={{ marginBottom: {xs: "2rem", lg: "3rem", xl: "4rem" }}}>
       Nos especializamos en brindar soluciones industriales de calidad con personal altamente calificado.
       </SectionSubTitle>
-      <Box sx={{ display: "flex", flexDirection: { xs: "column", sm: "row" }, gap: "2rem"}}>
+      <Box sx={{ display: "flex", flexDirection: { xs: "column", sm: "row" }, gap: "2rem", justifyContent: "center"}}>
         <HorizontalAccordion panels={procedures} expanded={expanded} setExpanded={handleExpanse} />
         <Box sx={{ width: {xs:"100%", sm:"30%"}, display: "flex", flexDirection: "column", justifyContent: "center"}}>
           {expanded && <>
-          <Title1 sx={{ mb: "1rem", textWrap: "wrap", textTransform: "capitalize",}}>
+          <Title1 sx={{ mb: "1rem", textWrap: "wrap", textTransform: "capitalize", textAlign: {xs: "center", sm: "left"}}}>
             {procedures.find(procedure => procedure.id === expanded)?.title}
           </Title1>
           <Text1 sx={{ textWrap: "wrap" }}>
