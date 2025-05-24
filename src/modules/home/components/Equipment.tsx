@@ -1,9 +1,11 @@
 // src/modules/home/components/Equipment.tsx
-import { Box } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 import React from "react";
-import { SubtitleXL, Title2, TitleXL } from "@theme/textStyles";
+import { Title2 } from "@theme/textStyles";
+import { SectionSubTitle, SectionTitle } from "./Styled";
 
 export const Equipment: React.FC = () => {
+  const { palette } = useTheme();
   const equipment = [
     {title: "Tornos Paralelos",},
     {title: "Alesadora",},
@@ -28,19 +30,15 @@ export const Equipment: React.FC = () => {
       flexDirection: "column",
       alignItems: "center",
       justifyContent: "center",
-      backgroundColor: "background.paper",
+      backgroundColor: palette.primary[100],
       }}
     >
-      <TitleXL id="equipment-title" sx={{ color: "primary.main", marginTop: {xs:"2rem", lg:"3rem", xl:"4rem"}, marginBottom: "1rem" }}>
+      <SectionTitle id="equipment-title" sx={{marginTop: {xs:"2rem", lg:"3rem", xl:"4rem"}}}>
         Nuestro Equipamiento
-      </TitleXL>
-      <SubtitleXL sx={{
-        color: "primary.main",
-        maxWidth: "1100px",
-        margin: "0 auto",
-      }}>
+      </SectionTitle>
+      <SectionSubTitle>
       Nos especializamos en brindar soluciones industriales de calidad con personal altamente calificado.
-      </SubtitleXL>
+      </SectionSubTitle>
       <Box
         sx={{
           display: "grid",
