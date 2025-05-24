@@ -3,53 +3,52 @@ import { createTheme, Theme } from "@mui/material";
 
 // hechas con https://m2.material.io/inline-tools/color/
 // el que dice elegido determinó la paleta
-export const grayColor = {
-  // contraste con texto negro
-  50: "#F3DFB4",
-  100: "#E8E8E8",
-  200: "#D9D9D9",
-  300: "#C9C9C9",
-  400: "#B5B5B5",
-  500: "#9E9E9E",
+export const greyColor = {
+  // contraste con texto negro  
+  50: "#F9F9F9",
+  100: "#F3F3F3",
+  200: "#EBEBEB",
+  300: "#DBDBDB",
+  400: "#B8B8B8",
   // a partir de aca contraste con texto blanco
-  600: "#8A8A8A",
-  700: "#747474",
-  800: "#5C5C5C",
-  850: "#494949",
-  900: "#323232",
+  500: "#989898",
+  600: "#707070",
+  700: "#5C5C5C",
+  800: "#3D3D3D",
+  900: "#1D1D1D",
   950: "#080808",
 };
 
 export const primaryColor = {
-  // contraste con texto negro
-  50: "#f3f6fc",
-  100: "#e5edf9",
-  200: "#c6d9f1",
-  300: "#93b9e6",
-  400: "#5995d7",
-  500: "#3478c3",
-  600: "#245da5",
-  700: "#1e4b86",
-  800: "#1d406f",
-  900: "#1d375d",
-  950: "#13243e",
+  // 50: "#f3f6fc",
+  100: "#DEE4F2",
+  200: "#C2D5FF",
+  // 300: "#93b9e6",
+  400: "#6695FF",
+  // hasta aca contraste con texto negro
+  // 500: "#3478c3",
   // a partir de aca contraste con texto blanco
+  600: "#0033A5",
+  // 700: "#1e4b86",
+  800: "#071859",
+  900: "#09041B",
+  // 950: "#13243e",
   // elegido
 };
 
 export const secondaryColor = {
 	// contraste con texto negro
-	50: "#e6f2ec",
-	100: "#c4dfcf",
-	200: "#a2cab2",
-	300: "#84b597",
-	400: "#73a585",
+	// 50: "#e6f2ec",
+	// 100: "#c4dfcf",
+	// 200: "#a2cab2",
+	// 300: "#84b597",
+	400: "#F36F02",
 	// a partir de aca contraste con texto blanco
-	500: "#689575",
-	600: "#60886b",
-	700: "#57785e",  // elegido
-	800: "#4e6853",
-	900: "#3e4c3e",
+	// 500: "#689575",
+	600: "#8E4101",
+	// 700: "#57785e",
+	// 800: "#4e6853",
+	// 900: "#3e4c3e",
 };
 
 export const accentColor = {
@@ -68,7 +67,6 @@ export const accentColor = {
 };
 
 export const errorColor = {
-	// contraste con texto negro
   50: "#ffeaed",
   100: "#ffcace",
   200: "#f19593",
@@ -80,6 +78,19 @@ export const errorColor = {
   700: "#d41720",
   800: "#c80a18",
   900: "#b90008",
+  // 50: "#FFE2EB",
+  // 100: "#FFB7CD",
+  // 200: "#FF86AB",
+	// // contraste con texto negro
+  // 300: "#FF4E89",
+  // 400: "#FF006F",
+  // 500: "#FD0054",
+  // 600: "#EC0053",
+  // 700: "#D70050",
+  // 800: "#C3004E",
+  // // a partir de aca contraste con texto blanco
+  // 900: "#9D004B",
+  // 950: "#700036",
 };
 
 export const customFonts = {
@@ -88,8 +99,8 @@ export const customFonts = {
     normal: 0.3,
   },
   family: {
-    oswald: "Alata, impact, arial, calibri, sans-serif",
-    catamaran: "Hind Madurai, open-sans, arial, calibri, sans-serif",
+    alata: "Alata, impact, arial, calibri, sans-serif",
+    hindMadurai: "Hind Madurai, open-sans, arial, calibri, sans-serif",
   },
 };
 
@@ -101,18 +112,18 @@ export const theme = createTheme({
       ...primaryColor,
     },
     secondary: {
-      main: secondaryColor[700], // Color verde para el texto "Disponibilidad"
-      light: secondaryColor[200],
+      main: secondaryColor[400], // Color naranja
+      dark: secondaryColor[600],
       ...secondaryColor,
     },
     background: {
       // default: "#18222986",
-      paper: "#f8f8ff",
+      paper: greyColor[50],
     },
     text: {
-      primary: primaryColor[950],
-      secondary: grayColor[950],
-      disabled: grayColor[400],
+      primary: primaryColor[800],
+      secondary: greyColor[950],
+      disabled: greyColor[400],
     },
     error: {
       main: errorColor[600],
@@ -120,7 +131,7 @@ export const theme = createTheme({
       ...errorColor,
     },
     grey: {
-      ...grayColor,
+      ...greyColor,
     },
   },
   typography: {
@@ -137,17 +148,16 @@ export const theme = createTheme({
         // sobreescribe estilos de botones
         root: {
           minHeight: '30px',
-          borderRadius: '8px',
-          // padding: ".5rem .7rem",
+          borderRadius: '4px',
           letterSpacing: customFonts.letter.wide,
           width: "fit-content",
-          fontFamily: customFonts.family.catamaran,
+          fontFamily: customFonts.family.hindMadurai,
           fontWeight: 500,
           textTransform: "uppercase",
         },
       },
     },
-    MuiTextField: {
+        MuiTextField: {
       defaultProps: {
         variant: "outlined",
       },
@@ -155,16 +165,17 @@ export const theme = createTheme({
     MuiOutlinedInput: {
       styleOverrides: {
         root: {
-          fontFamily: customFonts.family.catamaran,
-          color: grayColor[950],
+          fontFamily: customFonts.family.hindMadurai,
+          color: greyColor[950],
+          borderRadius: "4px",
           "& .MuiOutlinedInput-notchedOutline": {
-            borderColor: grayColor[600], // Color del borde
+            borderColor: greyColor[600],
           },
           "&:hover .MuiOutlinedInput-notchedOutline": {
-            borderColor: grayColor[700], // Color del borde al hacer hover
+            borderColor: greyColor[700],
           },
           "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-            borderColor: grayColor[800], // Color del borde cuando está enfocado
+            borderColor: primaryColor[600],
           },
         },
       },
@@ -172,16 +183,10 @@ export const theme = createTheme({
     MuiInputLabel: {
       styleOverrides: {
         root: {
-          fontFamily: customFonts.family.catamaran,
-          color: grayColor[800],
+          fontFamily: customFonts.family.hindMadurai,
+          color: greyColor[800],
           "&.Mui-focused": {
-            color: grayColor[800],
-          },
-          "&.MuiInputLabel-shrink": {
-            color: grayColor[800],
-          },
-          "&.MuiFormLabel-filled": {
-            color: grayColor[800],
+            color: primaryColor[600],
           },
         },
       },
@@ -192,28 +197,28 @@ export const theme = createTheme({
 
 
 export const defaultParagraph = (theme: Theme) => ({
-  fontFamily: customFonts.family.catamaran,
+  fontFamily: customFonts.family.hindMadurai,
   fontWeight: "normal",
   letterSpacing: customFonts.letter.normal,
-  color: theme.palette.text.secondary,
+  color: theme.palette.text.primary,
 });
 
 export const defaultCTA = (theme: Theme) => ({
-  fontFamily: customFonts.family.catamaran,
+  fontFamily: customFonts.family.hindMadurai,
   fontWeight: "normal",
   letterSpacing: customFonts.letter.wide,
-  color: theme.palette.text.secondary,
+  color: theme.palette.text.primary,
 });
 
 export const defaultTitle = (theme: Theme) => ({
-  fontFamily: customFonts.family.oswald,
+  fontFamily: customFonts.family.alata,
   letterSpacing: customFonts.letter.normal,
   fontWeight: 500,
-  color: theme.palette.text.secondary,
+  color: theme.palette.text.primary,
 });
 
 export const inputAdvice = (theme: Theme) => ({
-  fontFamily: customFonts.family.catamaran,
+  fontFamily: customFonts.family.hindMadurai,
   fontSize: "0.75rem", // 12px
   color: theme.palette.background.paper,
 });
