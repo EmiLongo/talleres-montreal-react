@@ -59,8 +59,8 @@ const Overlay = styled(Box)({
 });
 
 const CtaButton = styled(Button)(({ theme }) => ({
+  color: theme.palette.primary[900],
   padding: theme.spacing(1.5, 7),
-  fontWeight: 600,
   backgroundColor: "secondary.main",
   "&:hover": {
     backgroundColor: "secondary.dark",
@@ -301,7 +301,7 @@ export const Hero: React.FC = () => {
           color="warning"
           href="#contact"
         >
-          <Text1 sx={{ color: "text.secondary", fontWeight: "500", }}>SOLICITAR PRESUPUESTO</Text1>
+          <Text1 sx={{ color: "inherit", fontWeight: "500", }}>SOLICITAR PRESUPUESTO</Text1>
         </CtaButton>
       </Box>
     </HeroSection>
