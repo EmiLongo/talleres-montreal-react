@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Paper, useTheme } from '@mui/material';
-import { SubtitleXL } from '@/theme/textStyles';
+import { SubtitleXL, Text1, Title1 } from '@/theme/textStyles';
 
 interface Panel {
   id: string;
@@ -11,13 +11,17 @@ interface Panel {
 
 interface HorizontalAccordionProps {
   panels: Panel[];
-  expanded: string | null;
-  setExpanded: (id: string) => void;
 }
 
-const HorizontalAccordion: React.FC<HorizontalAccordionProps> = ({ panels, expanded, setExpanded }) => {
+const HorizontalAccordion: React.FC<HorizontalAccordionProps> = ({ panels }) => {
   const theme = useTheme();
   const { palette } = theme;
+
+  const [expanded, setExpanded] = useState<string | null>(panels[0].id || null);
+  const handleExpanse = (id: string) => {
+    setExpanded(id);
+  };
+  
 
   return (
     <Box 
@@ -26,10 +30,10 @@ const HorizontalAccordion: React.FC<HorizontalAccordionProps> = ({ panels, expan
       display:"flex", 
       flexDirection:{xs:"column", sm:"row"}, 
       alignItems:{xs: "center", sm: "unset"},
-      // gap: {xs: 1, sm: "unset"},
-      gap: 1,
+      gap: "3px",
     }}>
       {panels.slice().reverse().map(({ id, title, image }) => (
+        <>
         <Paper
           key={id}
           elevation={3}
@@ -47,7 +51,7 @@ const HorizontalAccordion: React.FC<HorizontalAccordionProps> = ({ panels, expan
             backgroundImage: `url(${image})`,
             backgroundSize: 'cover',
           }}
-          onClick={() => setExpanded(id)}
+          onClick={() => handleExpanse(id)}
         >
           <Box
             sx={{
@@ -88,6 +92,26 @@ const HorizontalAccordion: React.FC<HorizontalAccordionProps> = ({ panels, expan
             </Box>
           </Box>
         </Paper>
+        <Box sx={{ 
+          width: {xs: '300px', sm: expanded === id ? '300px': '1px', lg: expanded === id ? '350px' : '1px'},
+          height: {xs: expanded === id ? '200px': '1px', sm: '300px', lg: '350px'},
+          color: expanded === id ? "text.primary" : 'transparent',
+          display: "flex", 
+          flexDirection: "column", 
+          justifyContent: "center",
+          opacity: expanded === id ? 1 : 0,
+          transition: 'all 0.3s ease',
+          overflow: "hidden",
+          paddingLeft: {xs: "unset", sm: "0.5rem"},
+        }}>
+          <Title1 sx={{ color: 'inherit', mb: "1rem", textWrap: "wrap", textTransform: "capitalize", textAlign: {xs: "center", sm: "left"}}}>
+            {panels.find(panel => panel.id === expanded)?.title}
+          </Title1>
+          <Text1 sx={{ color: 'inherit', textWrap: "wrap" }}>
+            {panels.find(panel => panel.id === expanded)?.description}
+          </Text1>
+        </Box>
+        </>
       ))}
     </Box>
   );
