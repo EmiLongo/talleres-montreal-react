@@ -1,6 +1,6 @@
 // src/modules/home/components/Contact.tsx
 import React from "react";
-import { Box, Container } from "@mui/material";
+import { Box, Container, useTheme } from "@mui/material";
 import { Text2, Title2 } from "@/theme/textStyles";
 import { GoogleMapCard } from "./GoogleMap";
 import { ContactForm } from "./ContactForm";
@@ -9,25 +9,25 @@ import { SectionSubTitle, SectionTitle } from "./Styled";
 
 
 export const Contact: React.FC = () => {
-
+  const { palette } = useTheme();
   return (
     <Box
       component="section"
       id="contact"
       sx={{ 
         paddingBottom: {xs: "4rem", xl:"5rem"},
-        backgroundColor: "background.paper", 
-        color: "white",
+        backgroundColor: palette.primary[800], 
+        color: "background.paper",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
       }}
     >
-      <SectionTitle id="contact-title">
+      <SectionTitle id="contact-title" sx={{ color: "inherit"}}> 
         Contacto
       </SectionTitle>
-      <SectionSubTitle>
+      <SectionSubTitle sx={{ color: "inherit"}}>
         ¿Tienes alguna pregunta específica? Contáctanos, estamos para ayudarte.
       </SectionSubTitle>
       <Container maxWidth="lg"
@@ -46,7 +46,7 @@ export const Contact: React.FC = () => {
           maxWidth: { xs: "unset", md: "40vw" },
           width: { xs: "min(90vw, 400px)", md: "unset" },
         }}>
-          <Title2 sx={{marginBottom: "1rem" }}>
+          <Title2 sx={{marginBottom: "1rem", color: "inherit" }}>
             Información de Contacto
           </Title2>
           <Box sx={{ mb: 2, display: "flex", flexDirection: "column", gap: 1 }}>
@@ -58,10 +58,10 @@ export const Contact: React.FC = () => {
               key={`text-${item.type}-${index}`}
               sx={{ display: "flex", flexDirection: "column"}}
               >
-                <Text2 sx={{ display: "flex", alignItems: "center", gap: 1, fontWeight: 600 }}>
+                <Text2 sx={{ display: "flex", alignItems: "center", gap: 1, fontWeight: 600, color: "inherit" }}>
                   {item.title}
                 </Text2>
-                <Text2 sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                <Text2 sx={{ display: "flex", alignItems: "center", gap: 1, color: "inherit" }}>
                   {item.icon}
                   {item.text}
                 </Text2>
@@ -71,7 +71,7 @@ export const Contact: React.FC = () => {
             {contactInfo.map((item, index) => {
               if (item.type === "phone") return null;
               return (
-              <Text2 key={`text-${item.type}-${index}`} sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+              <Text2 key={`text-${item.type}-${index}`} sx={{ display: "flex", alignItems: "center", gap: 1, color: "inherit" }}>
                 {item.icon}
                 {item.text}
               </Text2>
