@@ -23,16 +23,45 @@ import {
   Title2,
 } from "@/theme/textStyles";
 
-export const contactInfo = [
-  { icon: <WhatsApp sx={{ fontSize: "1.5rem" }}/>, title: "Dpto Técnico:", text: "341-3389977", type: "phone" },
-  { icon: <WhatsApp sx={{ fontSize: "1.5rem" }}/>, title: "Administración:", text: "3476-619576", type: "phone" },
-  { icon: <LocalPhoneOutlined sx={{ fontSize: "1.5rem" }}/>, title: "Teléfono Fijo:", text: "3476-224447", type: "phone" },
-  { icon: <MailOutlineOutlinedIcon sx={{ fontSize: "1.5rem" }}/>, title: "", text: " talleresmontrealsrl@gmail.com", type: "email" },
+export interface IContactInfo {
+  icon: React.ReactNode;
+  title: string;
+  text: string;
+  type: string;
+  url: string;
+}
+
+export const contactInfo : IContactInfo[] = [
+  { icon: <WhatsApp sx={{ fontSize: "1.5rem", color: "secondary.main" }}/>, 
+    title: "Dpto Técnico:", 
+    text: "341-3389977", 
+    type: "phone",
+    url: "https://wa.me/5493413389977?text=Hola,%20me%20gustar%C3%ADa%20saber%20m%C3%A1s%20sobre%20los%20servicios%20de%20Talleres%20Montreal."
+  },
+  { icon: <WhatsApp sx={{ fontSize: "1.5rem", color: "secondary.main" }}/>, 
+    title: "Administración:", 
+    text: "3476-619576", 
+    type: "phone",
+    url: "https://wa.me/5493476619576?text=Hola,%20me%20gustar%C3%ADa%20saber%20m%C3%A1s%20sobre%20los%20servicios%20de%20Talleres%20Montreal.",
+  },
+  { icon: <LocalPhoneOutlined sx={{ fontSize: "1.5rem", color: "secondary.main" }}/>, 
+    title: "Teléfono Fijo:", 
+    text: "3476-224447", 
+    type: "phone",
+    url: "",
+  },
+  { icon: <MailOutlineOutlinedIcon sx={{ fontSize: "1.5rem", color: "secondary.main" }}/>, 
+    title: "", 
+    text: "talleresmontrealsrl@gmail.com", 
+    type: "Email",
+    url: "",
+  },
   {
-    icon: <FmdGoodOutlined sx={{ fontSize: "1.5rem" }}/>,
+    icon: <FmdGoodOutlined sx={{ fontSize: "1.5rem", color: "secondary.main" }}/>,
     title: "",
     text: " Av José Márquez 856, San Lorenzo, Santa Fe",
-    type: "address",
+    type: "Dirección",
+    url: "",
   },
 ];
 export const Footer: React.FC = () => {
