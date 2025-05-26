@@ -54,11 +54,14 @@ export const Contact: React.FC = () => {
             {contactInfo.map((item, index) => {
               if (item.type !== "phone") return null;
               return (
-              <Box sx={{ display: "flex", flexDirection: "column"}}>
-                <Text2 key={`text-${item.type}-${index}`} sx={{ display: "flex", alignItems: "center", gap: 1, fontWeight: 600 }}>
+              <Box
+              key={`text-${item.type}-${index}`}
+              sx={{ display: "flex", flexDirection: "column"}}
+              >
+                <Text2 sx={{ display: "flex", alignItems: "center", gap: 1, fontWeight: 600 }}>
                   {item.title}
                 </Text2>
-                <Text2 key={`text-${item.type}-${index}`} sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                <Text2 sx={{ display: "flex", alignItems: "center", gap: 1 }}>
                   {item.icon}
                   {item.text}
                 </Text2>
