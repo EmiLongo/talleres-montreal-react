@@ -64,8 +64,6 @@ const CtaButton = styled(Button)(({ theme }) => ({
   backgroundColor: "secondary.main",
   "&:hover": {
     backgroundColor: "secondary.dark",
-    transform: "translateY(-3px)",
-    transition: "all 0.3s",
   },
 }));
 
@@ -303,7 +301,7 @@ export const Hero: React.FC = () => {
           color="warning"
           href="#contact"
         >
-          <Text1 sx={{ color: "text.secondary" }}>SOLICITAR PRESUPUESTO</Text1>
+          <Text1 sx={{ color: "text.secondary", fontWeight: "500", }}>SOLICITAR PRESUPUESTO</Text1>
         </CtaButton>
       </Box>
     </HeroSection>
