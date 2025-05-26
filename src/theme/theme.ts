@@ -30,7 +30,7 @@ export const primaryColor = {
   // a partir de aca contraste con texto blanco
   600: "#0033A5",
   // 700: "#1e4b86",
-  800: "#071859",
+  800: "#051242",
   900: "#09041B",
   // 950: "#13243e",
   // elegido
@@ -42,7 +42,7 @@ export const secondaryColor = {
 	// 100: "#c4dfcf",
 	// 200: "#a2cab2",
 	// 300: "#84b597",
-	400: "#F36F02",
+	400: "#FD7F16",
 	// a partir de aca contraste con texto blanco
 	// 500: "#689575",
 	600: "#8E4101",
