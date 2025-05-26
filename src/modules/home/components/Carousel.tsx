@@ -21,7 +21,6 @@ export const Carousel: React.FC<CarouselProps> = ({
   sx,
 }) => {
   const animationDuration = Object.keys(logos).length * (200 / speed); // ajustamos duración basada en cantidad
-
   const [isPaused, setIsPaused] = useState(false);
 
   const handleTouchStart = () => setIsPaused(true);
@@ -35,7 +34,6 @@ export const Carousel: React.FC<CarouselProps> = ({
     <Box
       sx={{
         overflow: "hidden",
-        width: "100%",
         backgroundColor: "background.paper",
         py: 2,
         ...sx,
@@ -44,11 +42,10 @@ export const Carousel: React.FC<CarouselProps> = ({
       <Box
         sx={{
           display: 'flex',
-          animation: `scrollAlt ${animationDuration}s linear infinite`,
-          animationDirection: 'alternate',
-          animationIterationCount: 'infinite',
+          width: 'max-content',
+          animation: `scroll ${animationDuration}s linear infinite`,
           animationPlayState: isPaused ? 'paused' : 'running',
-          '@keyframes scrollAlt': {
+          '@keyframes scroll': {
             '0%': { transform: 'translateX(0%)' },
             '100%': { transform: 'translateX(-50%)' },
           },
