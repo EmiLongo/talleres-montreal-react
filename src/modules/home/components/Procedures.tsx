@@ -1,7 +1,6 @@
 // src/modules/home/components/Procedures.tsx
 import { Box } from "@mui/material";
-import React, { useState } from "react";
-import { Text1, Title1 } from "@theme/textStyles";
+import React from "react";
 import alesado from "@img/procedures/alesado.webp";
 import fresado from "@img/procedures/fresado.webp";
 // import reparacion from "@img/procedures/reparacion.webp";
