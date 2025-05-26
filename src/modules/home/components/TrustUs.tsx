@@ -13,7 +13,7 @@ import RenopackLogo from "@img/trust-us/renopack.png";
 import RespatLogo from "@img/trust-us/respat.png";
 import SwiftArgentinaWebpLogo from "@img/trust-us/swift-argentina.webp";
 import VartecoQuimicaPuntanaLogo from "@img/trust-us/varteco-quimica-puntana.png";
-import VicentinLogo from "@img/trust-us/vicentin.jpg";
+import VicentinLogo from "@img/trust-us/vicentin.png";
 import YeruvaLogo from "@img/trust-us/yeruva.png";
 import { SectionSubTitle, SectionTitle } from "./Styled";
 
