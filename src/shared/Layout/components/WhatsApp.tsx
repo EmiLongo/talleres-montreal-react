@@ -60,7 +60,7 @@ export const WhatsApp: React.FC = () => {
           padding: "1rem",
           backgroundColor: palette.primary[600], 
           color: "white", 
-          "&:hover": { backgroundColor: "#128C7E" } 
+          "&:hover": { backgroundColor: palette.primary[800] } 
         }}
       >
         <WhatsAppIcon sx={{ fontSize: { xs: "1.5rem", md: "2rem", lg: "2.5rem" } }}/>
