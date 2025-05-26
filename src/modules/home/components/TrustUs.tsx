@@ -100,9 +100,9 @@ const clients = [
 
 export const TrustUs: React.FC = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-  const isTablet = useMediaQuery(theme.breakpoints.down("lg"));
-  
+  const isMobile: boolean = useMediaQuery(theme.breakpoints.down("md"));
+  const isTablet: boolean = useMediaQuery(theme.breakpoints.between("md", "lg"));
+  const isLaptop: boolean = useMediaQuery(theme.breakpoints.between("lg", "xl"));
 
   return (
     <Box
@@ -114,7 +114,7 @@ export const TrustUs: React.FC = () => {
         overflow: "hidden",
         display: "flex",
         flexDirection: "column",
-        alignItems: "center",
+        // alignItems: "center",
         justifyContent: "center",
         backgroundColor: "background.paper",
         paddingBottom: {xs: "3rem", md:"3rem"},
@@ -123,10 +123,10 @@ export const TrustUs: React.FC = () => {
       <SectionTitle id="trust-us-title">
         Empresas que Confían en Nosotros
       </SectionTitle>
-      <SectionSubTitle>
+      <SectionSubTitle sx={{ marginX: 'auto'}}>
         Brindamos servicios a las principales industrias de la región.
       </SectionSubTitle>
-      <Carousel logos={clients} speed={isMobile ? 600 : isTablet ? 350 : 120} />
+      <Carousel logos={clients} speed={isMobile ? 100 : isTablet ? 80 : isLaptop ? 70 : 60} />
     </Box>
   );
 };
