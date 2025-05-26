@@ -159,7 +159,7 @@ export const theme = createTheme({
     },
         MuiTextField: {
       defaultProps: {
-        variant: "outlined",
+        variant: "filled",
       },
     },
     MuiOutlinedInput: {
