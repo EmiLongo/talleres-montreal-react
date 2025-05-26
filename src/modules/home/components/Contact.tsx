@@ -4,12 +4,27 @@ import { Box, Container, useTheme } from "@mui/material";
 import { Text2, Title2 } from "@/theme/textStyles";
 import { GoogleMapCard } from "./GoogleMap";
 import { ContactForm } from "./ContactForm";
-import { contactInfo } from "@/shared/Layout/components/Footer";
+import { contactInfo, IContactInfo } from "@/shared/Layout/components/Footer";
 import { SectionSubTitle, SectionTitle } from "./Styled";
+import { toast } from "react-toastify";
+
 
 
 export const Contact: React.FC = () => {
   const { palette } = useTheme();
+
+  const handleClick = (item : IContactInfo) : void => {
+    if(item.url === ""){
+      navigator.clipboard.writeText(item.text).then(() => {
+        toast.success(`${item.type === "phone" ? item.title : item.type} copiado al portapapeles`)
+      }).catch((err) => {
+        toast.error("Error copiando al portapapeles:", err);
+      });
+    } else {
+      window.open(item.url, "_blank" , "noopener,noreferrer");
+    }
+  };
+
   return (
     <Box
       component="section"
@@ -61,20 +76,37 @@ export const Contact: React.FC = () => {
                 <Text2 sx={{ display: "flex", alignItems: "center", gap: 1, fontWeight: 600, color: "inherit" }}>
                   {item.title}
                 </Text2>
-                <Text2 sx={{ display: "flex", alignItems: "center", gap: 1, color: "inherit" }}>
-                  {item.icon}
-                  {item.text}
-                </Text2>
+                <Box component={item.url === "" ? "span" : "a"} 
+                href={item.url} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                onClick={() => handleClick(item)}
+                >
+                  <Text2 sx={{ display: "flex", alignItems: "center", gap: 1, color: "inherit" }}>
+                    {item.icon}
+                    {item.text}
+                  </Text2>
+                </Box>
               </Box>
             )})}
           </Box>
             {contactInfo.map((item, index) => {
               if (item.type === "phone") return null;
               return (
-              <Text2 key={`text-${item.type}-${index}`} sx={{ display: "flex", alignItems: "center", gap: 1, color: "inherit" }}>
-                {item.icon}
-                {item.text}
-              </Text2>
+                <Text2 
+                key={`text-${item.type}-${index}`} 
+                sx={{ 
+                  display: "flex", 
+                  alignItems: "center",
+                  gap: 1, 
+                  color: "inherit",
+                  cursor: "pointer",
+                }}
+                onClick={() => handleClick(item)}
+                >
+                  {item.icon}
+                  {item.text}
+                </Text2>
             )})}
           </Box>
           <GoogleMapCard
