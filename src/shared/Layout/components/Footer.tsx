@@ -10,9 +10,10 @@ import {
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import WhatsApp from "@mui/icons-material/WhatsApp";
-import PhoneIcon from "@mui/icons-material/Phone";
-import EmailIcon from "@mui/icons-material/Email";
-import LocationPinIcon from "@mui/icons-material/LocationPin";
+import LocalPhoneOutlined from "@mui/icons-material/LocalPhoneOutlined";
+
+import FmdGoodOutlined from '@mui/icons-material/FmdGoodOutlined';
+import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined';
 import ShareIcon from "@mui/icons-material/Share";
 import inpulseLogo from "@img/inpulse_design_logo_blanco.svg";
 import talleresMontrealLogoContraste from "@img/talleres-montreal-logo-horizontal-contraste.svg";
@@ -23,12 +24,12 @@ import {
 } from "@/theme/textStyles";
 
 export const contactInfo = [
-  { icon: <WhatsApp sx={{ fontSize: "2rem" }}/>, title: "Dpto Técnico:", text: "341-3389977", type: "phone" },
-  { icon: <WhatsApp sx={{ fontSize: "2rem" }}/>, title: "Administración:", text: "3476-619576", type: "phone" },
-  { icon: <PhoneIcon sx={{ fontSize: "2rem" }}/>, title: "Teléfono Fijo:", text: "3476-224447", type: "phone" },
-  { icon: <EmailIcon sx={{ fontSize: "2rem" }}/>, title: "", text: " talleresmontrealsrl@gmail.com", type: "email" },
+  { icon: <WhatsApp sx={{ fontSize: "1.5rem" }}/>, title: "Dpto Técnico:", text: "341-3389977", type: "phone" },
+  { icon: <WhatsApp sx={{ fontSize: "1.5rem" }}/>, title: "Administración:", text: "3476-619576", type: "phone" },
+  { icon: <LocalPhoneOutlined sx={{ fontSize: "1.5rem" }}/>, title: "Teléfono Fijo:", text: "3476-224447", type: "phone" },
+  { icon: <MailOutlineOutlinedIcon sx={{ fontSize: "1.5rem" }}/>, title: "", text: " talleresmontrealsrl@gmail.com", type: "email" },
   {
-    icon: <LocationPinIcon sx={{ fontSize: "2rem" }}/>,
+    icon: <FmdGoodOutlined sx={{ fontSize: "1.5rem" }}/>,
     title: "",
     text: " Av José Márquez 856, San Lorenzo, Santa Fe",
     type: "address",
@@ -39,7 +40,7 @@ export const Footer: React.FC = () => {
   const { palette } = theme;
   // Estilos personalizados
   const StyledFooter = styled("footer")({
-    backgroundColor: palette.primary[800],
+    backgroundColor: palette.primary[900],
     color: palette.primary.light,
     paddingTop: "2rem",
     paddingBottom: "1rem",
