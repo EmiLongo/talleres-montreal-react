@@ -1,22 +1,52 @@
 // src/modules/home/components/Equipment.tsx
 import { Box, useTheme } from "@mui/material";
 import React from "react";
-import { Title2 } from "@theme/textStyles";
+import { Title3 } from "@theme/textStyles";
 import { SectionSubTitle, SectionTitle } from "./Styled";
+import tornos from "@img/equipment/torno.webp";
+import alesadora from "@img/equipment/alesadora.jpg";
+import limadoras from "@img/equipment/limadora.jpg";
+import fresadora from "@img/equipment/fresa.webp";
+import perforadoraPie from "@img/equipment/taladro-pie.avif";
+import perforadoraRadial from "@img/equipment/taladro-radial.jpg";
+import prensaHidraulica from "@img/equipment/prensa_hidraulica.jpg";
+import cortadoraMetales from "@img/equipment/cortadora-metales.jpg";
+import cortePlasma from "@img/equipment/corten-plasma.jpg";
+import soldadora from "@img/equipment/soldadora.jpg";
 
 export const Equipment: React.FC = () => {
   const { palette } = useTheme();
   const equipment = [
-    {title: "Tornos Paralelos",},
-    {title: "Alesadora",},
-    {title: "Limadoras",},
-    {title: "Fresadora",},
-    {title: "Perforadora Radial",},
-    {title: "Perforadoras de Pie",},
-    {title: "Prensa Hidráulica",},
-    {title: "Cortadora de Metales",},
-    {title: "Corte Plasma",},
-    {title: "Soldadoras",},
+    {title: "Tornos Paralelos",
+    img: tornos,
+    },
+    {title: "Alesadora",
+    img: alesadora,
+    },
+    {title: "Limadoras",
+    img: limadoras,
+    },
+    {title: "Fresadora",
+    img: fresadora,
+    },
+    {title: "Perforadora Radial",
+    img: perforadoraRadial,
+    },
+    {title: "Perforadoras de Pie",
+    img: perforadoraPie,
+    },
+    {title: "Prensa Hidráulica",
+    img: prensaHidraulica,
+    },
+    {title: "Cortadora de Metales",
+    img: cortadoraMetales,
+    },
+    {title: "Corte Plasma",
+    img: cortePlasma,
+    },
+    {title: "Soldadoras",
+    img: soldadora,
+    },
   ]
   return (
     <Box
@@ -53,24 +83,23 @@ export const Equipment: React.FC = () => {
           <Box
             key={`equip-${index}`}
             sx={{
+              height: "130px",
               display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
+              alignItems: "end",
               justifyContent: "center",
               gap: "1rem",
-              // marginBottom: "1rem",
-              padding: {xs: "0.5rem 1rem", sm: "1rem 2rem", md: "1rem 2rem"},
-              backgroundColor: "rgb(163, 164, 236)",
-              boxShadow: "0 8px 32px 0 rgba( 31, 38, 135, 0.37 )",
-              backdropFilter: "blur( 6px )",
-              WebkitBackdropFilter: "blur( 6px )",
+              paddingBottom: "0.5rem",
+              backgroundImage: `url(${equip.img})` ,
+              backgroundSize: '100% auto',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
               borderRadius: "10px",
               border: "1px solid rgba( 255, 255, 255, 0.18 )",
             }}
           >
-            <Title2 sx={{ textAlign: "center", color: "primary.main", textWrap: "wrap" }}>
+            <Title3 sx={{ textAlign: "center", color: "background.paper", textWrap: "wrap", textTransform: "none" }}>
               {equip.title}
-            </Title2>
+            </Title3>
           </Box>
           ))
         }
