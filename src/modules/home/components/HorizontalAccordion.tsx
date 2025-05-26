@@ -18,7 +18,6 @@ interface HorizontalAccordionProps {
 const HorizontalAccordion: React.FC<HorizontalAccordionProps> = ({ panels, expanded, setExpanded }) => {
   const theme = useTheme();
   const { palette } = theme;
-  // const isMobile = theme.breakpoints.down("md");
 
   return (
     <Box 
@@ -27,7 +26,8 @@ const HorizontalAccordion: React.FC<HorizontalAccordionProps> = ({ panels, expan
       display:"flex", 
       flexDirection:{xs:"column", sm:"row"}, 
       alignItems:{xs: "center", sm: "unset"},
-      gap: {xs: 1, sm: "unset"},
+      // gap: {xs: 1, sm: "unset"},
+      gap: 1,
     }}>
       {panels.slice().reverse().map(({ id, title, image }) => (
         <Paper
@@ -56,7 +56,7 @@ const HorizontalAccordion: React.FC<HorizontalAccordionProps> = ({ panels, expan
               left: 0,
               width: "100%",
               height: "100%",
-              backgroundColor: expanded === id ? 'transparent' : "rgba(0, 0, 0, 0.5)",
+              backgroundColor: expanded === id ? 'transparent' : "rgba(0, 0, 0, 0.7)",
               display: 'flex',
               flexDirection: 'column',
               justifyContent: {xs: 'center', sm: 'flex-end'},
