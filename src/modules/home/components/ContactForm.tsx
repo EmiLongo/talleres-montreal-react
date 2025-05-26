@@ -74,9 +74,9 @@ export const ContactForm: React.FC<ContactFormProps> = ({ sx = {} }) => {
           onBlur={formik.handleBlur}
           error={formik.touched.name && Boolean(formik.errors.name)}
           // helperText={formik.touched.name && formik.errors.name}
-          sx={{backgroundColor: 'white', borderRadius: 1 }}
+          sx={{backgroundColor: 'background.paper', borderRadius: 1 }}
         />
-        <InputError sx={{ mb: 2 }}>
+        <InputError sx={{ mb: 2, color: palette.error[400] }}>
           {formik.touched.name && formik.errors.name}
         </InputError>
         <TextField
@@ -89,9 +89,9 @@ export const ContactForm: React.FC<ContactFormProps> = ({ sx = {} }) => {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           error={formik.touched.email && Boolean(formik.errors.email)}
-          sx={{ backgroundColor: 'white', borderRadius: 1 }}
+          sx={{ backgroundColor: 'background.paper', borderRadius: 1 }}
         />
-        <InputError sx={{ mb: 2 }}>
+        <InputError sx={{ mb: 2, color: palette.error[400] }}>
           {formik.touched.email && formik.errors.email}
         </InputError>
         <TextField
@@ -103,9 +103,9 @@ export const ContactForm: React.FC<ContactFormProps> = ({ sx = {} }) => {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           error={formik.touched.phone && Boolean(formik.errors.phone)}
-          sx={{ backgroundColor: 'white', borderRadius: 1 }}
+          sx={{ backgroundColor: 'background.paper', borderRadius: 1 }}
         />
-        <InputError sx={{ mb: 2 }}>
+        <InputError sx={{ mb: 2, color: palette.error[400] }}>
           {formik.touched.phone && formik.errors.phone}
         </InputError>
         <TextField
@@ -117,9 +117,9 @@ export const ContactForm: React.FC<ContactFormProps> = ({ sx = {} }) => {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           error={formik.touched.company && Boolean(formik.errors.company)}
-          sx={{ backgroundColor: 'white', borderRadius: 1 }}
+          sx={{ backgroundColor: 'background.paper', borderRadius: 1 }}
         />
-        <InputError sx={{ mb: 2 }}>
+        <InputError sx={{ mb: 2, color: palette.error[400] }}>
           {formik.touched.company && formik.errors.company}
         </InputError>
         <TextField
@@ -133,9 +133,9 @@ export const ContactForm: React.FC<ContactFormProps> = ({ sx = {} }) => {
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
           error={formik.touched.message && Boolean(formik.errors.message)}
-          sx={{ backgroundColor: 'white', borderRadius: 1 }}
+          sx={{ backgroundColor: 'background.paper', borderRadius: 1 }}
         />
-        <InputError sx={{ mb: 2 }}>
+        <InputError sx={{ mb: 2, color: palette.error[400] }}>
           {formik.touched.message && formik.errors.message}
         </InputError>
         <Button 
@@ -143,18 +143,16 @@ export const ContactForm: React.FC<ContactFormProps> = ({ sx = {} }) => {
           disabled={formik.isSubmitting}
           sx={{
             width: "50%",
-            backgroundColor: palette.secondary.dark,
-            color: palette.grey[50],
+            color: theme.palette.primary[900],
+            backgroundColor: "secondary.main",
             "&:hover": {
-              color: palette.grey[900],
-              backgroundColor: palette.secondary.main,
-              transform: "translateY(-3px)",
-              transition: "all 0.3s",
+              backgroundColor: "secondary.dark",
             },
           }}
         >
           <Text2 sx={{ 
             color: "inherit",
+            fontWeight: 500,
             textTransform: "uppercase",
           }}>
             Enviar Mensaje
