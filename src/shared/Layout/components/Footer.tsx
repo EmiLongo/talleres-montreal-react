@@ -181,7 +181,7 @@ export const Footer: React.FC = () => {
             </Box>
           </Box>
             <Box id="footerRight" sx={{ display: "flex", flexDirection: "column", justifyContent: "center"}}>
-              <Title2 sx={{ color: palette.primary[100], textAlign: "center", textTransform: "none" }}>Nuestra Web:</Title2>
+              <Title2 sx={{ color: palette.primary[100], textAlign: "center", textTransform: "none", marginBottom: {xs: "1rem", sm: "unset"} }}>Nuestra Web:</Title2>
               <Box>
                 <FooterList>
                   <FooterListItem id="footerListItem-home">
