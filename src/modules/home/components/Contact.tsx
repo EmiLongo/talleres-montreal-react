@@ -28,7 +28,6 @@ export const Contact: React.FC = () => {
   return (
     <Box
       component="section"
-      id="contact"
       sx={{ 
         paddingBottom: {xs: "4rem", xl:"5rem"},
         backgroundColor: palette.primary[800], 
