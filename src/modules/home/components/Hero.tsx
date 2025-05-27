@@ -224,7 +224,7 @@ export const Hero: React.FC = () => {
   }, [currentVideoSrc, currentVideoIndex]);
 
   return (
-    <HeroSection>
+    <HeroSection id="hero">
       {/* Video de fondo */}
       {currentVideoSrc && (
         <VideoBackground
