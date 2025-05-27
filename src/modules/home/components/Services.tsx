@@ -42,7 +42,6 @@ export const Services: React.FC = () => {
   return (
     <Box
       component="section"
-      id="services"
       sx={{
       paddingX: {xs:"2rem", lg:"3rem", xl:"4rem"},
       paddingBottom: {xs:"3rem", lg:"5rem", xl:"6rem"},
@@ -96,7 +95,15 @@ export const Services: React.FC = () => {
               backgroundColor: "#fff",
             }}
             >
-              <img src={service.icon} alt={service.title} width={"96px"} height={"96px"} />
+              <Box 
+                component={"img"} 
+                src={service.icon} 
+                alt={service.title} 
+                width={"96px"} 
+                height={"96px"} 
+                loading="lazy"
+                decoding="async"
+              />
             </Box>
             <Box>
               <Title1 sx={{ textAlign: "center", mb: "1rem", textWrap: "wrap", textTransform: "capitalize" }}>
@@ -110,6 +117,7 @@ export const Services: React.FC = () => {
           ))
         }
       </Box>
+      <Box component={"span"} id="procedures" />
     </Box>
   );
 };
