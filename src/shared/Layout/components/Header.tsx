@@ -14,8 +14,10 @@ import {
 } from '@mui/material';
 import logoTextHorizontal from '@img/talleres-montreal-logo-horizontal.svg';
 import logoTextVertical from '@img/talleres-montreal-logo-vertical.svg';
+import inpulseLogo from "@img/inpulse_design_logo_negro_color.svg";
+
 import { Menu as MenuIcon, Close as CloseIcon } from '@mui/icons-material';
-import { Title2 } from '@theme/textStyles';
+import { Text3, Title2 } from '@theme/textStyles';
 
 export const infoItems = [
   // { text: 'Inicio', path: '#home' },
@@ -30,18 +32,27 @@ export const Header: React.FC = () => {
   const { palette } = theme;
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const [mobileOpen, setMobileOpen] = useState(false);
-  // const { cartItems } = useCart();
-  // Asume que tienes un contexto para el carrito
   
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
   
+  const handleLogoClick = () => {
+    window.location.href = '#hero';
+  };
 
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', position: 'relative' }}>
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center', position: 'relative', height: '100%' }}>
       <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mt: "3rem", mb: "2rem" }}>
-        <Box component={"img"} src={logoTextVertical} alt="Logo Talleres Montreal" height="100px" />
+        <Box 
+          component={"img"} 
+          src={logoTextVertical} 
+          alt="Logo Talleres Montreal" 
+          height="100px" 
+          onClick={handleLogoClick}
+          decoding="async"
+          loading="lazy"
+        />
       </Box>
       <Box
         sx={{ position: 'absolute', top: "1rem", right: "1rem" }}
@@ -60,6 +71,32 @@ export const Header: React.FC = () => {
           </Box>
         ))}
       </List>
+      <Box
+        component={"a"}
+        href="https://inpulse.design"
+        target="_blank"
+        rel="noopener noreferrer"
+        sx={{
+          width: "100%",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "0.25rem",
+          position: 'absolute', bottom: "1rem" 
+        }}
+      >
+        <Box
+          component={"img"}
+          src={inpulseLogo}
+          alt="Logo Inpulse Design"
+          width={100}
+          decoding="async"
+          loading="lazy"
+        />
+        <Text3 sx={{ color: "inherit",textAlign: "center" }}>
+          Desarrollado por
+        </Text3>
+      </Box>
     </Box>
   );
 
@@ -67,7 +104,7 @@ export const Header: React.FC = () => {
     <>
       {/* <Box sx={{ height: "70px" }} id="home"/> */}
       <AppBar 
-      id="home"
+      id="navbar"
       position="fixed" 
       color="default" 
       elevation={1} 
@@ -99,6 +136,7 @@ export const Header: React.FC = () => {
                   src={logoTextHorizontal}
                   alt="Logo Talleres Montreal"
                   height="40px"
+                  onClick={handleLogoClick}
                   />
                 </Box>
               </>
@@ -110,6 +148,7 @@ export const Header: React.FC = () => {
                   src={logoTextHorizontal}
                   alt="Logo Talleres Montreal"
                   height="40px"
+                  onClick={handleLogoClick}
                 />
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: {xs: '3rem', lg: '4rem', xl: '5rem'} }}>
                   {infoItems.map((item) => (
