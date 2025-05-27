@@ -135,40 +135,6 @@ export const Footer: React.FC = () => {
             gap: { xs: 4 },
           }}
         >
-          {/* <Box
-            id="footerLeft"
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 2,
-            }}
-          >
-            <Title2
-              sx={{ color: palette.primary[100], textTransform: "uppercase" }}
-            >
-              Información de Contacto
-            </Title2>
-            <Box
-              sx={{ mb: 2, display: "flex", flexDirection: "column", gap: 1 }}
-            >
-              {contactInfo.map((item, index) => (
-                <Text2
-                  key={index}
-                  sx={{
-                    color: palette.primary[100],
-                    display: "flex",
-                    alignItems: "center",
-                    gap: 1,
-                  }}
-                >
-                  {item.icon}
-                  {item.text}
-                </Text2>
-              ))}
-            </Box>
-          </Box> */}
-          
-
           <Box
             id="footerLeft"
             sx={{
@@ -190,6 +156,8 @@ export const Footer: React.FC = () => {
                 src={talleresMontrealLogoContraste}
                 alt="Talleres Montreal Blanco y Negro"
                 height={70}
+                decoding="async"
+                loading="lazy"
               />
               <Box
                 id="shareURL"
@@ -217,7 +185,7 @@ export const Footer: React.FC = () => {
               <Box>
                 <FooterList>
                   <FooterListItem id="footerListItem-home">
-                    <FooterLink href="#home">
+                    <FooterLink href="#hero">
                       <Text2 sx={{ color: "inherit" }}>Home</Text2>
                     </FooterLink>
                   </FooterListItem>
@@ -278,6 +246,8 @@ export const Footer: React.FC = () => {
               src={inpulseLogo}
               alt="Logo Inpulse Design"
               width={100}
+              decoding="async"
+              loading="lazy"
             />
           </Box>
         </Box>
