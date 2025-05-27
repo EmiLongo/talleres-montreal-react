@@ -229,7 +229,7 @@ export const Footer: React.FC = () => {
           </Text2>
           <Box
             component={"a"}
-            href="https://inpulse.design"
+            href="https://inpulse.com.ar"
             target="_blank"
             rel="noopener noreferrer"
             sx={{
