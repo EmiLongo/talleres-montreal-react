@@ -1,5 +1,5 @@
 // src/modules/home/components/Equipment.tsx
-import { alpha, Box, useTheme } from "@mui/material";
+import { Box, useTheme } from "@mui/material";
 import React from "react";
 import { Title3 } from "@theme/textStyles";
 import { SectionSubTitle, SectionTitle } from "./Styled";
@@ -51,9 +51,8 @@ export const Equipment: React.FC = () => {
   return (
     <Box
       component="section"
-      id="equipment"
       sx={{
-      paddingX: {xs:"2rem", lg:"3rem", xl:"4rem"},
+      paddingX: {xs:"1rem", lg:"3rem", xl:"4rem"},
       paddingBottom: {xs:"2rem", lg:"4rem", xl:"5rem"},
       position: "relative",
       width: "100%",
@@ -73,43 +72,58 @@ export const Equipment: React.FC = () => {
       <Box
         sx={{
           display: "grid",
-          gridTemplateColumns: { xs: "1fr 1fr", md: "1fr 1fr 1fr", lg: "1fr 1fr 1fr 1fr" },
+          gridTemplateColumns: { xs: "1fr 1fr", sm: "1fr 1fr 1fr", md: "1fr 1fr 1fr 1fr 1fr" },
           gap: {xs: "1rem", sm: "2rem", md: "2rem", lg: "3rem", xl: "4rem"},
           paddingX: {xs: "1rem", sm: "2rem", md: "2rem", lg: "3rem", xl: "4rem"},
           paddingY: {xs: "2rem", lg: "2rem"},
         }}
       >
         {equipment.map((equip, index) => (
-          <Box
-            key={`equip-${index}`}
+          <Box key={`equip-${index}`}
             sx={{
-              height: "130px",
-              display: "flex",
-              alignItems: "end",
-              justifyContent: "center",
-              backgroundImage: `url(${equip.img})` ,
-              backgroundSize: '100% auto',
-              backgroundPosition: 'center',
-              backgroundRepeat: 'no-repeat',
               borderRadius: "10px",
-              border: "1px solid rgba( 255, 255, 255, 0.18 )",
+              border: `3px solid ${palette.primary[400]}`,
               overflow: "hidden",
+              aspectRatio: "1/1",
+              display: "flex",
+              flexDirection: "column",
+
             }}
           >
-            <Box sx={{ width: "100%" }}>
+            <Box
+              sx={{
+                height: "66.66%",
+                display: "flex",
+                alignItems: "end",
+                justifyContent: "center",
+                borderBottomLeftRadius: "10px",
+                borderBottomRightRadius: "10px",
+                overflow: "hidden",
+              }}
+            >
+              <Box
+                component={"img"}
+                src={equip.img}
+                loading="lazy"
+                decoding="async"
+                sx={{
+                  width: "100%",
+                  height: "auto",
+                  objectFit: "cover",
+                }}
+                alt={equip.title}
+              />
+            </Box>
+            <Box sx={{ width: "100%", height: "33.33%", display: "flex", alignItems: "center", justifyContent: "center", }}>
               <Title3 sx={{ 
                 textAlign: "center", 
-                color: "background.paper", 
+                color: "text.primary", 
                 textWrap: "wrap", 
                 textTransform: "none", 
                 width: "100%", 
-                padding: "1rem 1rem 0.5rem 1rem",
-                margin: "0 auto" ,
-                background: `linear-gradient(
-                180deg,
-                transparent 0%,
-                ${alpha("#080808", 0.3)} 20%,
-                ${alpha("#080808", 0.7)} 100%)`,
+                background: "background.paper",
+                paddingX: {xs: "1rem", md: "", lg: "2.5rem"},
+                lineHeight: "1.2",
               }}>
                 {equip.title}
               </Title3>
@@ -118,6 +132,7 @@ export const Equipment: React.FC = () => {
           ))
         }
       </Box>
+      <Box component={"span"} id="contact" />
     </Box>
   );
 };
