@@ -48,7 +48,6 @@ export const Procedures: React.FC = () => {
   return (
     <Box
       component="section"
-      id="procedures"
       sx={{
       paddingX: {xs:"2rem", sm: "unset"},
       paddingBottom: {xs:"2rem", lg:"4rem", xl:"5rem"},
@@ -68,10 +67,11 @@ export const Procedures: React.FC = () => {
       <SectionSubTitle sx={{ marginBottom: {xs: "2rem", lg: "3rem", xl: "4rem" }}}>
       Nos especializamos en brindar soluciones industriales de calidad con personal altamente calificado.
       </SectionSubTitle>
-      <Box sx={{ display: "flex", flexDirection: { xs: "column", sm: "row" }, gap: "2rem", justifyContent: "center", maxWidth: "1200px",}}>
+      <Box sx={{ display: "flex", flexDirection: { xs: "column", md: "row" }, gap: "2rem", justifyContent: "center", maxWidth: "1200px",}}>
         <HorizontalAccordion panels={procedures} />
 
       </Box>
+      <Box component={"span"} id="equipment" />
     </Box>
   );
 };
