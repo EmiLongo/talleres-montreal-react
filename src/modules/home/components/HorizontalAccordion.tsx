@@ -26,10 +26,10 @@ const HorizontalAccordion: React.FC<HorizontalAccordionProps> = ({ panels }) => 
   return (
     <Box 
     sx={{
-      height:{xs: 'unset', sm: '300px', lg: '350px'}, 
+      height:{xs: 'unset', md: '300px', lg: '350px'}, 
       display:"flex", 
-      flexDirection:{xs:"column", sm:"row"}, 
-      alignItems:{xs: "center", sm: "unset"},
+      flexDirection:{xs:"column", md:"row"}, 
+      alignItems:{xs: "center", md: "unset"},
       gap: "3px",
     }}>
       {panels.slice().reverse().map(({ id, title, image }) => (
@@ -39,11 +39,11 @@ const HorizontalAccordion: React.FC<HorizontalAccordionProps> = ({ panels }) => 
           elevation={3}
           sx={{
             position: 'relative',
-            width: {xs: '300px', sm: expanded === id ? '300px': '60px', lg: expanded === id ? '350px' : '80px'},
-            height: {xs: expanded === id ? '300px': '60px', sm: '300px', lg: '350px'},
+            width: {xs: '300px', md: expanded === id ? '300px': '60px', lg: expanded === id ? '350px' : '80px'},
+            height: {xs: expanded === id ? '300px': '60px', md: '300px', lg: '350px'},
             display: 'flex',
             flexDirection: 'column',
-            justifyContent: {xs: 'flex-start', sm: 'flex-end'},
+            justifyContent: {xs: 'flex-start', md: 'flex-end'},
             alignItems: 'center',
             overflow: 'hidden',
             transition: 'all 0.3s ease',
@@ -63,11 +63,11 @@ const HorizontalAccordion: React.FC<HorizontalAccordionProps> = ({ panels }) => 
               backgroundColor: expanded === id ? 'transparent' : "rgba(0, 0, 0, 0.7)",
               display: 'flex',
               flexDirection: 'column',
-              justifyContent: {xs: 'center', sm: 'flex-end'},
-              alignItems: {xs: 'flex-start', sm: 'center'},
-              paddingBottom: {xs: 0, sm: "1rem"},
+              justifyContent: {xs: 'center', md: 'flex-end'},
+              alignItems: {xs: 'flex-start', md: 'center'},
+              paddingBottom: {xs: 0, md: "1rem"},
               transition: 'all 0.3s ease',
-              paddingLeft: {xs: "1rem", sm: "unset"},
+              paddingLeft: {xs: "1rem", md: "unset"},
             }}>
             <Box
               sx={{
@@ -93,8 +93,8 @@ const HorizontalAccordion: React.FC<HorizontalAccordionProps> = ({ panels }) => 
           </Box>
         </Paper>
         <Box sx={{ 
-          width: {xs: '300px', sm: expanded === id ? '300px': '1px', lg: expanded === id ? '350px' : '1px'},
-          height: {xs: expanded === id ? '200px': '1px', sm: '300px', lg: '350px'},
+          width: {xs: '300px', md: expanded === id ? '300px': '1px', lg: expanded === id ? '350px' : '1px'},
+          height: {xs: expanded === id ? '200px': '1px', md: '300px', lg: '350px'},
           color: expanded === id ? "text.primary" : 'transparent',
           display: "flex", 
           flexDirection: "column", 
@@ -102,9 +102,9 @@ const HorizontalAccordion: React.FC<HorizontalAccordionProps> = ({ panels }) => 
           opacity: expanded === id ? 1 : 0,
           transition: 'all 0.3s ease',
           overflow: "hidden",
-          paddingLeft: {xs: "unset", sm: "0.5rem"},
+          paddingLeft: {xs: "unset", md: "0.5rem"},
         }}>
-          <Title1 sx={{ color: 'inherit', mb: "1rem", textWrap: "wrap", textTransform: "capitalize", textAlign: {xs: "center", sm: "left"}}}>
+          <Title1 sx={{ color: 'inherit', mb: "1rem", textWrap: "wrap", textTransform: "capitalize", textAlign: {xs: "center", md: "left"}}}>
             {panels.find(panel => panel.id === expanded)?.title}
           </Title1>
           <Text1 sx={{ color: 'inherit', textWrap: "wrap" }}>
