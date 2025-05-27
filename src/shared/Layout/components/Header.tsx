@@ -73,7 +73,7 @@ export const Header: React.FC = () => {
       </List>
       <Box
         component={"a"}
-        href="https://inpulse.design"
+        href="https://inpulse.com.ar"
         target="_blank"
         rel="noopener noreferrer"
         sx={{
