@@ -70,7 +70,7 @@ export const Contact: React.FC = () => {
               return (
               <Box
               key={`text-${item.type}-${index}`}
-              sx={{ display: "flex", flexDirection: "column"}}
+              sx={{ display: "flex", flexDirection: "column", cursor: "pointer",}}
               >
                 <Text2 sx={{ display: "flex", alignItems: "center", gap: 1, fontWeight: 600, color: "inherit" }}>
                   {item.title}
