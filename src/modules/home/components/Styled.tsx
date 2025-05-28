@@ -1,4 +1,4 @@
-import { SubtitleXL, TitleXL } from "@/theme/textStyles";
+import { Text1, Title1 } from "@/theme/textStyles";
 import React from "react";
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
 }
 export const SectionTitle: React.FC<Props> = ({ children, sx, id }) => {
   return (
-    <TitleXL
+    <Title1
       id={id}
       sx={{
         marginTop: {xs:"3rem", lg:"3rem"},
@@ -16,13 +16,13 @@ export const SectionTitle: React.FC<Props> = ({ children, sx, id }) => {
         textAlign: "center",
       ...sx }}>
       { children }
-    </TitleXL>
+    </Title1>
   )
 };
 
 export const SectionSubTitle: React.FC<Props> = ({ children, sx, id }) => {
   return (
-    <SubtitleXL
+    <Text1
     id={id}
     sx={{
       textAlign: "center", 
@@ -33,6 +33,6 @@ export const SectionSubTitle: React.FC<Props> = ({ children, sx, id }) => {
       ...sx}}
     >
       { children }
-    </SubtitleXL>
+    </Text1>
   )
 }
