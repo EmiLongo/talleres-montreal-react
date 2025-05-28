@@ -52,7 +52,7 @@ export const Equipment: React.FC = () => {
     <Box
       component="section"
       sx={{
-      paddingX: {xs:"1rem", lg:"3rem", xl:"4rem"},
+      paddingX: {xs:"1rem", lg:"1.5rem", xl:"3.5rem"},
       paddingBottom: {xs:"2rem", lg:"4rem", xl:"5rem"},
       position: "relative",
       width: "100%",
@@ -74,8 +74,10 @@ export const Equipment: React.FC = () => {
           display: "grid",
           gridTemplateColumns: { xs: "1fr 1fr", sm: "1fr 1fr 1fr", md: "1fr 1fr 1fr 1fr 1fr" },
           gap: {xs: "1rem", sm: "2rem", md: "2rem", lg: "3rem", xl: "4rem"},
-          paddingX: {xs: "1rem", sm: "2rem", md: "2rem", lg: "3rem", xl: "4rem"},
+          // paddingX: {xs: "1rem", sm: "2rem", md: "2rem", lg: "3rem", xl: "4rem"},
           paddingY: {xs: "2rem", lg: "2rem"},
+          maxWidth: "1280px",
+          marginX: "auto",
         }}
       >
         {equipment.map((equip, index) => (
@@ -122,7 +124,7 @@ export const Equipment: React.FC = () => {
                 textTransform: "none", 
                 width: "100%", 
                 background: "background.paper",
-                paddingX: {xs: "1rem", md: "", lg: "2.5rem"},
+                paddingX: {xs: "1rem", md: "", lg: "0.5rem"},
                 lineHeight: "1.2",
               }}>
                 {equip.title}
