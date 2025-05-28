@@ -56,13 +56,25 @@ export const ContactForm: React.FC<ContactFormProps> = ({ sx = {} }) => {
   });
 
   return (
-    <Box id="contact-form" sx={{ color: 'white', ...sx }}>
+    <Box id="contact-form" sx={{ 
+      color: 'white',
+      display: 'flex', 
+      flexDirection: 'column', 
+      alignItems: 'center', 
+      justifyContent: 'space-between',      
+      ...sx , 
+    }}
+    >
       <Box 
         ref={formRef}
         component="form" 
         onSubmit={formik.handleSubmit} 
         noValidate
-        sx={{ display: 'flex', flexDirection: 'column', width: '100%', alignItems: 'center' }}
+        sx={{ 
+          display: 'flex', 
+          flexDirection: 'column', 
+          width: '100%', 
+        }}
       >
         <TextField
           fullWidth
@@ -76,7 +88,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ sx = {} }) => {
           // helperText={formik.touched.name && formik.errors.name}
           sx={{backgroundColor: 'background.paper', borderRadius: 1 }}
         />
-        <InputError sx={{ mb: 2, color: palette.error[400] }}>
+        <InputError sx={{ mb: 2, color: palette.error[400], paddingLeft: "12px" }}>
           {formik.touched.name && formik.errors.name}
         </InputError>
         <TextField
@@ -91,7 +103,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ sx = {} }) => {
           error={formik.touched.email && Boolean(formik.errors.email)}
           sx={{ backgroundColor: 'background.paper', borderRadius: 1 }}
         />
-        <InputError sx={{ mb: 2, color: palette.error[400] }}>
+        <InputError sx={{ mb: 2, color: palette.error[400], paddingLeft: "12px" }}>
           {formik.touched.email && formik.errors.email}
         </InputError>
         <TextField
@@ -105,7 +117,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ sx = {} }) => {
           error={formik.touched.phone && Boolean(formik.errors.phone)}
           sx={{ backgroundColor: 'background.paper', borderRadius: 1 }}
         />
-        <InputError sx={{ mb: 2, color: palette.error[400] }}>
+        <InputError sx={{ mb: 2, color: palette.error[400], paddingLeft: "12px" }}>
           {formik.touched.phone && formik.errors.phone}
         </InputError>
         <TextField
@@ -119,7 +131,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ sx = {} }) => {
           error={formik.touched.company && Boolean(formik.errors.company)}
           sx={{ backgroundColor: 'background.paper', borderRadius: 1 }}
         />
-        <InputError sx={{ mb: 2, color: palette.error[400] }}>
+        <InputError sx={{ mb: 2, color: palette.error[400], paddingLeft: "12px" }}>
           {formik.touched.company && formik.errors.company}
         </InputError>
         <TextField
@@ -135,30 +147,30 @@ export const ContactForm: React.FC<ContactFormProps> = ({ sx = {} }) => {
           error={formik.touched.message && Boolean(formik.errors.message)}
           sx={{ backgroundColor: 'background.paper', borderRadius: 1 }}
         />
-        <InputError sx={{ mb: 2, color: palette.error[400] }}>
+        <InputError sx={{ mb: 2, color: palette.error[400], paddingLeft: "12px" }}>
           {formik.touched.message && formik.errors.message}
         </InputError>
-        <Button 
-          type="submit" 
-          disabled={formik.isSubmitting}
-          sx={{
-            width: "50%",
-            color: theme.palette.primary[900],
-            backgroundColor: "secondary.main",
-            "&:hover": {
-              backgroundColor: "secondary.dark",
-            },
-          }}
-        >
-          <Text2 sx={{ 
-            color: "inherit",
-            fontWeight: 500,
-            textTransform: "uppercase",
-          }}>
-            Enviar Mensaje
-          </Text2>
-        </Button>
       </Box>
+      <Button 
+        type="submit" 
+        disabled={formik.isSubmitting}
+        sx={{
+          width: "50%",
+          color: theme.palette.primary[900],
+          backgroundColor: "secondary.main",
+          "&:hover": {
+            backgroundColor: "secondary.dark",
+          },
+        }}
+      >
+        <Text2 sx={{ 
+          color: "inherit",
+          fontWeight: 500,
+          textTransform: "uppercase",
+        }}>
+          Enviar Mensaje
+        </Text2>
+      </Button>
     </Box>
   );
 };
