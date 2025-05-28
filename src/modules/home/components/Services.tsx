@@ -43,7 +43,7 @@ export const Services: React.FC = () => {
     <Box
       component="section"
       sx={{
-      paddingX: {xs:"2rem", lg:"3rem", xl:"4rem"},
+      paddingX: {xs:"2rem", md: "unset"},
       paddingBottom: {xs:"3rem", lg:"5rem", xl:"6rem"},
       position: "relative",
       width: "100%",
@@ -67,7 +67,7 @@ export const Services: React.FC = () => {
           gap: "4rem",
           justifyContent: "center",
           flexWrap: "wrap",
-          maxWidth: "1200px", 
+          maxWidth: "1280px", 
         }}
       >
         {services.map((service, index) => (
