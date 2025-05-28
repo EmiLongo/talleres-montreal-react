@@ -67,17 +67,18 @@ export const accentColor = {
 };
 
 export const errorColor = {
-  50: "#ffeaed",
-  100: "#ffcace",
-  200: "#f19593",
-  300: "#e86b69",
-  400: "#f14643",
+  50: "#FEF2F3",
+  100: "#FDE3E4",
+  200: "#FDCBCE",
+  300: "#FAA7AB",
+  400: "#F57F85",
 	// a partir de aca contraste con texto blanco
-  500: "#f53224",
-  600: "#e62525", // elegido
-  700: "#d41720",
-  800: "#c80a18",
-  900: "#b90008",
+  500: "#EB4850",
+  600: "#D72B34", // elegido
+  700: "#A91E25",
+  800: "#961E24",
+  900: "#961E24",
+  950: "#430C0F",
   // 50: "#FFE2EB",
   // 100: "#FFB7CD",
   // 200: "#FF86AB",
@@ -126,8 +127,8 @@ export const theme = createTheme({
       disabled: greyColor[400],
     },
     error: {
-      main: errorColor[600],
-      light: errorColor[200],
+      main: errorColor[800],
+      light: errorColor[400],
       ...errorColor,
     },
     grey: {
@@ -177,6 +178,9 @@ export const theme = createTheme({
           "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
             borderColor: primaryColor[600],
           },
+          "&.Mui-error .MuiOutlinedInput-notchedOutline": {
+            borderColor: errorColor[700],
+          },
         },
       },
     },
@@ -187,6 +191,9 @@ export const theme = createTheme({
           color: greyColor[800],
           "&.Mui-focused": {
             color: primaryColor[600],
+          },
+          "&.Mui-error": {
+            color: errorColor[700],
           },
         },
       },
@@ -201,6 +208,7 @@ export const defaultParagraph = (theme: Theme) => ({
   fontWeight: "normal",
   letterSpacing: customFonts.letter.normal,
   color: theme.palette.text.primary,
+  lineHeight: 1.3,
 });
 
 export const defaultCTA = (theme: Theme) => ({
@@ -215,6 +223,7 @@ export const defaultTitle = (theme: Theme) => ({
   letterSpacing: customFonts.letter.normal,
   fontWeight: 500,
   color: theme.palette.text.primary,
+  // lineHeight: 1.2,
 });
 
 export const inputAdvice = (theme: Theme) => ({
