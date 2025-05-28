@@ -1,7 +1,7 @@
 // src/modules/home/components/Equipment.tsx
 import { Box, useTheme } from "@mui/material";
 import React from "react";
-import { Title3 } from "@theme/textStyles";
+import { Title2 } from "@theme/textStyles";
 import { SectionSubTitle, SectionTitle } from "./Styled";
 import tornos from "@img/equipment/torno.png";
 import alesadora from "@img/equipment/alesadora.png";
@@ -115,7 +115,7 @@ export const Equipment: React.FC = () => {
               />
             </Box>
             <Box sx={{ width: "100%", height: "33.33%", display: "flex", alignItems: "center", justifyContent: "center", }}>
-              <Title3 sx={{ 
+              <Title2 sx={{ 
                 textAlign: "center", 
                 color: "text.primary", 
                 textWrap: "wrap", 
@@ -126,7 +126,7 @@ export const Equipment: React.FC = () => {
                 lineHeight: "1.2",
               }}>
                 {equip.title}
-              </Title3>
+              </Title2>
             </Box>
           </Box>
           ))
