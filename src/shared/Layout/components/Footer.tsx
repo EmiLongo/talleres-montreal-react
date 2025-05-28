@@ -14,7 +14,7 @@ import LocalPhoneOutlined from "@mui/icons-material/LocalPhoneOutlined";
 
 import FmdGoodOutlined from '@mui/icons-material/FmdGoodOutlined';
 import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined';
-import ShareIcon from "@mui/icons-material/Share";
+import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import inpulseLogo from "@img/inpulse_design_logo_blanco.svg";
 import talleresMontrealLogoContraste from "@img/talleres-montreal-logo-horizontal-contraste.svg";
 import { infoItems } from "./Header";
@@ -169,7 +169,7 @@ export const Footer: React.FC = () => {
                   alignItems: "center",
                 }}
               >
-                <ShareIcon
+                <ShareOutlinedIcon
                   width={24}
                   height={24}
                   sx={{ verticalAlign: "middle", marginRight: 1 }}
