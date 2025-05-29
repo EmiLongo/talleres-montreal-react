@@ -32,10 +32,10 @@ const HorizontalAccordion: React.FC<HorizontalAccordionProps> = ({ panels }) => 
       alignItems:{xs: "center", md: "unset"},
       gap: "3px",
     }}>
-      {panels.slice().reverse().map(({ id, title, image }) => (
+      {panels.slice().reverse().map(({ id, title, image, description }) => (
         <>
         <Paper
-          key={id}
+          key={`photo${id}`}
           elevation={3}
           sx={{
             position: 'relative',
@@ -92,7 +92,9 @@ const HorizontalAccordion: React.FC<HorizontalAccordionProps> = ({ panels }) => 
             </Box>
           </Box>
         </Paper>
-        <Box sx={{ 
+        <Box 
+        key={`text${id}`}
+        sx={{ 
           width: {xs: '300px', md: expanded === id ? '300px': '1px', lg: expanded === id ? '350px' : '1px'},
           height: {xs: expanded === id ? '200px': '1px', md: '300px', lg: '350px'},
           color: expanded === id ? "text.primary" : 'transparent',
@@ -105,10 +107,10 @@ const HorizontalAccordion: React.FC<HorizontalAccordionProps> = ({ panels }) => 
           paddingLeft: {xs: "unset", md: "0.5rem"},
         }}>
           <Title1 sx={{ color: 'inherit', mb: "1rem", textWrap: "wrap", textTransform: "capitalize", textAlign: {xs: "center", md: "left"}}}>
-            {panels.find(panel => panel.id === expanded)?.title}
+            {title}
           </Title1>
           <Text1 sx={{ color: 'inherit', textWrap: "wrap" }}>
-            {panels.find(panel => panel.id === expanded)?.description}
+            {description}
           </Text1>
         </Box>
         </>
