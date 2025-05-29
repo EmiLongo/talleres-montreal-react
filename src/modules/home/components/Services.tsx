@@ -8,8 +8,32 @@ import mecanizadoPrecision from "@img/services/mecanizado_precision.gif";
 import modeladoComplejo from "@img/services/modelado_complejo.gif";
 import reparacionFabricacion from "@img/services/reparacion_fabricacion.gif";
 import transporte from "@img/services/transporte.gif";
+import favourite from "@img/services/favourite.svg";
 
 const services = [
+  {
+    title: "Asesoramiento Técnico",
+    description: "Determinación de materiales, calidad de ajuste y tratamiento térmico para sus proyectos.",
+    icon: asesoramientoTecnico,
+    isFavourite: true,
+  },
+  {
+    title: "Modelado Complejo",
+    description: "Fabricacion de modelos para crear piezas en fundicion con formas irregulares o detalles complejos.",
+    icon: modeladoComplejo,
+    isFavourite: true,
+  },
+  {
+    title: "Servicio de Transporte",
+    description: "Ofrecemos entrega de trabajos y retiro de muestras o piezas a reparar.",
+    icon: transporte,
+    isFavourite: true,
+  },
+  {
+    title: "Relevamiento y Elaboración de Planos",
+    description: "Registramos medidas, estructuras y condiciones existentes y elaboramos planos técnicos detallados.",
+    icon: mecanizadoPrecision,
+  },
   {
     title: "Mecanizado de Precisión",
     description: "Mecanizado de piezas de alta precisión y calidad en amplia variedad de materiales.",
@@ -17,23 +41,8 @@ const services = [
   },
   {
     title: "Reparación y Fabricación",
-    description: "Reparación y fabricación de equipos y repuestos industriales según sus necesidades.",
+    description: "Reparación de equipos y fabricación de componentes industriales según sus necesidades.",
     icon: reparacionFabricacion,
-  },
-  {
-    title: "Asesoramiento Técnico",
-    description: "Determinación de materiales, calidad de ajuste y tratamiento térmico para sus proyectos.",
-    icon: asesoramientoTecnico,
-  },
-  {
-    title: "Modelado Complejo",
-    description: "Fabricacion de modelos para crear piezas en fundicion con formas irregulares o detalles complejos.",
-    icon: modeladoComplejo,
-  },
-  {
-    title: "Servicio de Transporte",
-    description: "Ofrecemos entrega de trabajos y retiro de muestras o piezas a reparar.",
-    icon: transporte,
   },
 ]
 export const Services: React.FC = () => {
@@ -55,7 +64,7 @@ export const Services: React.FC = () => {
       }}
     >
       <SectionTitle id="services-title" >
-        Servicios Destacados
+        SERVICIOS DESTACADOS
       </SectionTitle>
       <SectionSubTitle sx={{ marginBottom: {xs:"3rem", xl:"4rem"}}}>
       Nos especializamos en brindar soluciones industriales de calidad con personal altamente calificado.
@@ -85,6 +94,7 @@ export const Services: React.FC = () => {
           >
             <Box
             sx={{
+              position: "relative",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
@@ -92,9 +102,13 @@ export const Services: React.FC = () => {
               width: "162px",
               aspectRatio: "1/1",
               borderRadius: "50%",
+              border: service.isFavourite ? `2px solid ${palette.primary.main}` : "none",
               backgroundColor: "#fff",
             }}
             >
+              {service.isFavourite && <Box component={"img"} src={favourite} alt={service.title} width={"42px"} height={"42px"} loading="lazy" decoding="async" 
+                sx={{position: "absolute", top: "4px", right: "4px",}}
+                />}
               <Box 
                 component={"img"} 
                 src={service.icon} 
