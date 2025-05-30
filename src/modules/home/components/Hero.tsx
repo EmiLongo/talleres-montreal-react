@@ -58,15 +58,6 @@ const Overlay = styled(Box)({
   zIndex: 1,
 });
 
-const CtaButton = styled(Button)(({ theme }) => ({
-  color: theme.palette.primary[900],
-  padding: theme.spacing(1.5, 7),
-  backgroundColor: "secondary.main",
-  "&:hover": {
-    backgroundColor: "secondary.dark",
-  },
-}));
-
 export const Hero: React.FC = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
@@ -296,13 +287,20 @@ export const Hero: React.FC = () => {
         </SubtitleXL>
 
         </Box>
-        <CtaButton
+        <Button
+        sx={{
+          color: theme.palette.primary[900],
+          padding: {xs: theme.spacing(1.5, 2), sm: theme.spacing(1.5, 7)},
+          backgroundColor: "secondary.main",
+          "&:hover": {
+            backgroundColor: "secondary.dark",
+          },
+        }}
           variant="contained"
-          color="warning"
           href="#contact"
         >
           <Text1 sx={{ color: "inherit", fontWeight: "500", }}>SOLICITAR PRESUPUESTO</Text1>
-        </CtaButton>
+        </Button>
       </Box>
     </HeroSection>
   );
