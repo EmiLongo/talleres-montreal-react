@@ -22,6 +22,7 @@ import {
   Text2,
   Title2,
 } from "@/theme/textStyles";
+import { toast } from "react-toastify";
 
 export interface IContactInfo {
   icon: React.ReactNode;
@@ -77,12 +78,14 @@ export const Footer: React.FC = () => {
 
   const FooterList = styled(List)(({ theme }) => ({
   display: "flex",
+  flexDirection: "column",
   listStyleType: "none",
   margin: 0,
   padding: 0,
-  gap: "1.5rem",
+  // gap: "1.5rem",
   flexWrap: "wrap",
   [theme.breakpoints.up('md')]: {
+    flexDirection: "row",
     gap: "2rem",
   },
   }));
@@ -117,20 +120,19 @@ export const Footer: React.FC = () => {
       // Fallback para navegadores que no soportan Web Share API
       navigator.clipboard
         .writeText(window.location.href)
-        .then(() => alert("¡URL copiada al portapapeles!"))
-        .catch(() => alert("No se pudo copiar la URL"));
+        .then(() => toast.success("¡URL copiada al portapapeles!"))
+        .catch(() => toast.error("No se pudo copiar la URL"));
     }
   };
 
   return (
-    <StyledFooter id="footer">
-      <Container maxWidth="lg"
-      >
+    <StyledFooter id="footer" sx={{ paddingX: {xs: "1rem", md: "2rem", lg: "unset"},}}>
+      <Container maxWidth="lg">
         <Box
           id="footerContainer"
           sx={{
             display: "flex",
-            justifyContent: {xs: "center", md: "space-between"},
+            justifyContent: {xs: "space-around", md: "space-between"},
             flexWrap: "wrap",
             gap: { xs: 4 },
           }}
@@ -155,9 +157,11 @@ export const Footer: React.FC = () => {
                 component={"img"}
                 src={talleresMontrealLogoContraste}
                 alt="Talleres Montreal Blanco y Negro"
-                height={70}
                 decoding="async"
                 loading="lazy"
+                sx={{
+                  height: {xs: "40px", md: "70px"},
+                }}
               />
               <Box
                 id="shareURL"
