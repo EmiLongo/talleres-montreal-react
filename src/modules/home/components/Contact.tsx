@@ -64,7 +64,7 @@ export const Contact: React.FC = () => {
         <Box
           sx={{
             maxWidth: { xs: "unset", md: "40vw" },
-            width: { xs: "min(90vw, 400px)", md: "40vw" },
+            width: { xs: "min(85vw, 400px)", md: "40vw" },
             // height: { xs: "unset", md: "100%" },
             display: "flex",
             flexDirection: "column",
@@ -88,6 +88,7 @@ export const Contact: React.FC = () => {
                   display: "flex",
                   justifyContent: "space-between",
                   flexWrap: "wrap",
+                  gap: "1rem",
                 }}
               >
                 {contactInfo.map((item, index) => {
@@ -96,10 +97,12 @@ export const Contact: React.FC = () => {
                     <Box
                       key={`text-${item.type}-${index}`}
                       sx={{
+                        // width: {xs: "unset", sm: "45%", md:"unset"},
                         display: "flex",
                         flexDirection: "column",
                         cursor: "pointer",
-                        gap: "0.2rem",
+                        gap: {xs:"0.2rem",},
+                        flexWrap: "wrap",
                       }}
                     >
                       <Text2
@@ -171,7 +174,7 @@ export const Contact: React.FC = () => {
         <ContactForm
           sx={{
             maxWidth: { xs: "unset", md: "40vw" },
-            width: { xs: "min(90vw, 400px)", md: "40vw" },
+            width: { xs: "min(85vw, 400px)", md: "40vw" },
           }}
         />
       </Container>
