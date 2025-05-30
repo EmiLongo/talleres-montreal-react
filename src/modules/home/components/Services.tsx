@@ -178,7 +178,7 @@ export const Services: React.FC = () => {
       ))}
       </Box>
 
-      <Box component={"span"} id="procedures" />
+      <Box component={"span"} id="services" />
     </Box>
   );
 };

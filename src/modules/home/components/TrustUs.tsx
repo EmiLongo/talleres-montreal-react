@@ -127,7 +127,7 @@ export const TrustUs: React.FC = () => {
         Brindamos servicios a las principales industrias de la región.
       </SectionSubTitle>
       <Carousel logos={clients} speed={isMobile ? 100 : isTablet ? 80 : isLaptop ? 70 : 60} />
-      <Box component={"span"} id="services" />
+      <Box component={"span"} id="whatwedo" />
     </Box>
   );
 };
