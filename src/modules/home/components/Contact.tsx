@@ -116,25 +116,31 @@ export const Contact: React.FC = () => {
                       >
                         {item.title}
                       </Text2>
-                      <Box
-                        component={item.url === "" ? "span" : "a"}
-                        href={item.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={() => handleClick(item)}
-                      >
-                        <Text2
-                          sx={{
-                            display: "flex",
-                            alignItems: "center",
-                            gap: 1,
-                            color: "inherit",
-                          }}
+                      {item.url !== "" ? (
+                        <Box
+                          component="a"
+                          href={item.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() => handleClick(item)}
                         >
-                          {item.icon}
-                          {item.text}
-                        </Text2>
-                      </Box>
+                          <Text2 sx={{ display: "flex", alignItems: "center", gap: 1, color: "inherit" }}>
+                            {item.icon}
+                            {item.text}
+                          </Text2>
+                        </Box>
+                      ) : (
+                        <Box
+                          component="span"
+                          onClick={() => handleClick(item)}
+                          sx={{ cursor: "pointer" }}
+                        >
+                          <Text2 sx={{ display: "flex", alignItems: "center", gap: 1, color: "inherit" }}>
+                            {item.icon}
+                            {item.text}
+                          </Text2>
+                        </Box>
+                      )}
                     </Box>
                   );
                 })}
