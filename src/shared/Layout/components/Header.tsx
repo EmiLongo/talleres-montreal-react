@@ -121,7 +121,7 @@ export const Header: React.FC = () => {
             {isMobile ? (
               // versión móvil
               <>
-                <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center' }}>
+                <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center',  paddingX: { xs: '1rem',} }}>
                   <IconButton
                     color="inherit"
                     aria-label="open drawer"
@@ -142,7 +142,7 @@ export const Header: React.FC = () => {
               </>
             ) : (
               // versión escritorio
-              <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingX: { xs: '1rem', sm: '3rem', md: '4rem', lg: '5rem', xl: 'unset'} }}>
+              <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingX: { xs: '2rem', sm: '3rem', md: '4rem', lg: '5rem', xl: '8rem'} }}>
                 <Box 
                   component={"img"}
                   src={logoTextHorizontal}
