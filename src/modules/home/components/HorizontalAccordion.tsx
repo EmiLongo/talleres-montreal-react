@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Paper, useTheme } from '@mui/material';
+import { Box, Paper, useMediaQuery, useTheme } from '@mui/material';
 import { SubtitleXL, Text1, Title1 } from '@/theme/textStyles';
 
 interface Panel {
@@ -16,8 +16,12 @@ interface HorizontalAccordionProps {
 const HorizontalAccordion: React.FC<HorizontalAccordionProps> = ({ panels }) => {
   const theme = useTheme();
   const { palette } = theme;
+  const isTablet = useMediaQuery(theme.breakpoints.between("md", 1050));
 
   const [expanded, setExpanded] = useState<string | null>(panels[0].id || null);
+  // const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
+  // const expanseWidth = isDesktop ? 350 : 300;
+  // const collapsedWidth = (100% - 2 * expanseWidth) / (panels.length - 1);    calculado a mano con esa formula
   const handleExpanse = (id: string) => {
     setExpanded(id);
   };
@@ -30,16 +34,16 @@ const HorizontalAccordion: React.FC<HorizontalAccordionProps> = ({ panels }) => 
       display:"flex", 
       flexDirection:{xs:"column", md:"row"}, 
       alignItems:{xs: "center", md: "unset"},
-      gap: "3px",
+      gap: isTablet ? "1px" : "3px",
     }}>
-      {panels.slice().reverse().map(({ id, title, image, description }) => (
+      {panels.map(({ id, title, image, description }) => (
         <>
         <Paper
           key={`photo${id}`}
           elevation={3}
           sx={{
             position: 'relative',
-            width: {xs: '300px', md: expanded === id ? '300px': '60px', lg: expanded === id ? '350px' : '80px'},
+            width: {xs: '300px', md: expanded === id ? isTablet ? '250px' : '300px': isTablet ? '50px' : '60px', lg: expanded === id ? '350px' : '80px', xl: expanded === id ? '350px' : '110px'},
             height: {xs: expanded === id ? '300px': '60px', md: '300px', lg: '350px'},
             display: 'flex',
             flexDirection: 'column',
@@ -50,6 +54,7 @@ const HorizontalAccordion: React.FC<HorizontalAccordionProps> = ({ panels }) => 
             cursor: 'pointer',
             backgroundImage: `url(${image})`,
             backgroundSize: 'cover',
+            backgroundPosition: 'center',
           }}
           onClick={() => handleExpanse(id)}
         >
@@ -106,7 +111,13 @@ const HorizontalAccordion: React.FC<HorizontalAccordionProps> = ({ panels }) => 
           overflow: "hidden",
           paddingLeft: {xs: "unset", md: "0.5rem"},
         }}>
-          <Title1 sx={{ color: 'inherit', mb: "1rem", textWrap: "wrap", textTransform: "capitalize", textAlign: {xs: "center", md: "left"}}}>
+          <Title1 sx={{ 
+            color: 'inherit', 
+            mb: "1rem", 
+            textWrap: "wrap", 
+            textTransform: "capitalize", 
+            textAlign: {xs: "center", md: "left"},
+          }}>
             {title}
           </Title1>
           <Text1 sx={{ color: 'inherit', textWrap: "wrap" }}>
