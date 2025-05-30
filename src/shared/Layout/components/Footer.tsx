@@ -199,7 +199,7 @@ export const Footer: React.FC = () => {
                       id={`footerListItem-${item.text}`}
                     >
                       <FooterLink href={item.path}>
-                        <Text2 sx={{ color: "inherit" }}>{item.text}</Text2>
+                        <Text2 sx={{ color: "inherit", textAlign: "center" }}>{item.text}</Text2>
                       </FooterLink>
                     </FooterListItem>
                   ))}
