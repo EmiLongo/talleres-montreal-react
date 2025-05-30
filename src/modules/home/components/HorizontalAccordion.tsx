@@ -1,3 +1,4 @@
+//  src/modules/home/components/HorizontalAccordion.tsx
 import React, { useState } from 'react';
 import { Box, Paper, useMediaQuery, useTheme } from '@mui/material';
 import { SubtitleXL, Text1, Title1 } from '@/theme/textStyles';
@@ -19,9 +20,6 @@ const HorizontalAccordion: React.FC<HorizontalAccordionProps> = ({ panels }) => 
   const isTablet = useMediaQuery(theme.breakpoints.between("md", 1050));
 
   const [expanded, setExpanded] = useState<string | null>(panels[0].id || null);
-  // const isDesktop = useMediaQuery(theme.breakpoints.up('lg'));
-  // const expanseWidth = isDesktop ? 350 : 300;
-  // const collapsedWidth = (100% - 2 * expanseWidth) / (panels.length - 1);    calculado a mano con esa formula
   const handleExpanse = (id: string) => {
     setExpanded(id);
   };
@@ -37,7 +35,7 @@ const HorizontalAccordion: React.FC<HorizontalAccordionProps> = ({ panels }) => 
       gap: isTablet ? "1px" : "3px",
     }}>
       {panels.map(({ id, title, image, description }) => (
-        <>
+        <React.Fragment key={`accordion-${id}`}>
         <Paper
           key={`photo${id}`}
           elevation={3}
@@ -124,7 +122,7 @@ const HorizontalAccordion: React.FC<HorizontalAccordionProps> = ({ panels }) => 
             {description}
           </Text1>
         </Box>
-        </>
+        </ React.Fragment>
       ))}
     </Box>
   );
