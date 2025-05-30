@@ -2,7 +2,7 @@
 import { Box, useTheme } from "@mui/material";
 import React from "react";
 import { Title2 } from "@theme/textStyles";
-import { SectionSubTitle, SectionTitle } from "./Styled";
+import { SectionTitle } from "./Styled";
 import tornos from "@img/equipment/torno.png";
 import alesadora from "@img/equipment/alesadora.png";
 import limadoras from "@img/equipment/limadora.png";
@@ -13,6 +13,7 @@ import prensaHidraulica from "@img/equipment/prensa-hidraulica.png";
 import cortadoraMetales from "@img/equipment/cortadora-metales.png";
 import cortePlasma from "@img/equipment/corte-plasma.png";
 import soldadora from "@img/equipment/soldadora.png";
+import { Paper } from "@mui/material";
 
 export const Equipment: React.FC = () => {
   const { palette } = useTheme();
@@ -52,7 +53,7 @@ export const Equipment: React.FC = () => {
     <Box
       component="section"
       sx={{
-      paddingX: {xs:"1rem", lg:"1.5rem", xl:"3.5rem"},
+      paddingX: {xs:"2rem", sm:"3rem", md:"1.5rem", lg:"1.5rem", xl:"3.5rem"},
       paddingBottom: {xs:"2rem", lg:"4rem", xl:"5rem"},
       position: "relative",
       width: "100%",
@@ -66,14 +67,14 @@ export const Equipment: React.FC = () => {
       <SectionTitle id="equipment-title">
       Nuestro Equipamiento
       </SectionTitle>
-      <SectionSubTitle>
+      {/* <SectionSubTitle>
       Nos especializamos en brindar soluciones industriales de calidad con personal altamente calificado.
-      </SectionSubTitle>
+      </SectionSubTitle> */}
       <Box
         sx={{
           display: "grid",
           gridTemplateColumns: { xs: "1fr 1fr", sm: "1fr 1fr 1fr", md: "1fr 1fr 1fr 1fr 1fr" },
-          gap: {xs: "1rem", sm: "2rem", md: "2rem", lg: "3rem", xl: "4rem"},
+          gap: {xs: "1rem", sm: "2rem", md: "1rem", lg: "2rem", xl: "2rem"},
           // paddingX: {xs: "1rem", sm: "2rem", md: "2rem", lg: "3rem", xl: "4rem"},
           paddingY: {xs: "2rem", lg: "2rem"},
           maxWidth: "1280px",
@@ -81,10 +82,10 @@ export const Equipment: React.FC = () => {
         }}
       >
         {equipment.map((equip, index) => (
-          <Box key={`equip-${index}`}
+          <Paper key={`equip-${index}`}
+            elevation={3}
             sx={{
               borderRadius: "10px",
-              border: `3px solid ${palette.primary[400]}`,
               overflow: "hidden",
               aspectRatio: "1/1",
               display: "flex",
@@ -98,8 +99,6 @@ export const Equipment: React.FC = () => {
                 display: "flex",
                 alignItems: "end",
                 justifyContent: "center",
-                borderBottomLeftRadius: "10px",
-                borderBottomRightRadius: "10px",
                 overflow: "hidden",
               }}
             >
@@ -126,11 +125,12 @@ export const Equipment: React.FC = () => {
                 background: "background.paper",
                 paddingX: {xs: "1rem", md: "", lg: "0.5rem"},
                 lineHeight: "1.2",
+                transform: {xs: "scale(90%)", md: "unset"},
               }}>
                 {equip.title}
               </Title2>
             </Box>
-          </Box>
+          </Paper>
           ))
         }
       </Box>
