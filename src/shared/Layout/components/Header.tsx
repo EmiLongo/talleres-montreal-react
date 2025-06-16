@@ -151,7 +151,7 @@ export const Header: React.FC = () => {
                   height="40px"
                   onClick={handleLogoClick}
                 />
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: {xs: '3rem', lg: '4rem', xl: '5rem'} }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: {xs: '3rem', lg: '3rem', xl: '4rem'} }}>
                   {infoItems.map((item) => (
                     <Box
                       key={item.text}
