@@ -141,7 +141,7 @@ export const Services: React.FC = () => {
       }}
     >
       <SectionTitle id="services-title" >
-        ¿QUÉ OFRECEMOS?
+        ¿QUÉ HACEMOS?
       </SectionTitle>
       <SectionSubTitle sx={{ marginBottom: {xs:"3rem", xl:"4rem"}}}>
       Nos especializamos en brindar soluciones industriales de calidad, con maquinaria moderna y personal altamente capacitado que garantizan la excelencia en cada proyecto.
