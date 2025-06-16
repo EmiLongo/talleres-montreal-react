@@ -1,0 +1,60 @@
+import { Box } from '@mui/material'
+import React from 'react'
+import { SectionSubTitle, SectionTitle } from './Styled'
+import { Title1, TitleXL } from '@/theme/textStyles'
+
+const infoAboutUs = [{
+  title: "+ De 30",
+  subtitle: "Años",
+  isSubtBig: true,
+},
+{
+  title: "+ 600",
+  subtitle: "Clientes",
+  isSubtBig: false,
+},
+{
+  title: "+ 10000",
+  subtitle: "Proyectos",
+  isSubtBig: false,
+}]
+export const AboutUs: React.FC = () => {
+  return (
+    <Box component="section"
+    id='about-us-container'
+    sx={{
+      paddingBottom: "3rem",
+      backgroundColor: "background.paper",
+    }}
+    >
+      <Box sx={{
+        maxWidth: "1280px",
+        marginX: "auto",
+      }}>
+        <SectionTitle id="about-us-title">
+          ¿QUIÉNES SOMOS?
+        </SectionTitle>
+        <SectionSubTitle sx={{ marginX: 'auto'}}>
+          En Talleres Montreal SRL somos una empresa con más de 30 años de trayectoria y un fuerte compromiso con la calidad para brindar soluciones precisas y confiables a las principales industrias de la región.
+        </SectionSubTitle>
+        <Box sx={{
+          display: "flex",
+          flexDirection: {xs: 'column', md: 'row'},
+          justifyContent: {xs: "unset", md:"space-around"},
+          alignItems: {xs: "center", md: "unset"},
+          gap:{xs: "3rem", md: 0}
+        }}>
+          {infoAboutUs.map(item => (
+            <Box key={`aboutUs-${item.subtitle}`}>
+            <TitleXL sx={{textTransform: "none", transform: "scale(1.7)"}}>{item.title}</TitleXL>
+            {item.isSubtBig
+            ? <TitleXL sx={{textTransform: "none", transform: "scale(1.7)", marginTop: ".5rem", textAlign: "right"}}>{item.subtitle}</TitleXL>
+            : <Title1 sx={{textTransform: "none", transform: "scale(1.2)"}}>{item.subtitle}</Title1>
+            }
+            </Box>
+          ))}
+        </Box>
+      </Box>
+    </Box>
+  )
+}
