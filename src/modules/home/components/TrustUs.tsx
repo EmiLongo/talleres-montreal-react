@@ -111,6 +111,8 @@ export const TrustUs: React.FC = () => {
         justifyContent: "center",
         backgroundColor: "background.paper",
         paddingBottom: {xs: "3rem", md:"3rem"},
+        paddingTop: {xs: 0, md:"3rem"},
+
       }}
     >
       <SectionTitle id="trust-us-title">
