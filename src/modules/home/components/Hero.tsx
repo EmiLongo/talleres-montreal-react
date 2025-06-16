@@ -302,6 +302,7 @@ export const Hero: React.FC = () => {
           <Text1 sx={{ color: "inherit", fontWeight: "500", }}>SOLICITAR PRESUPUESTO</Text1>
         </Button>
       </Box>
+      <span id="about-us" style={{position: 'absolute', bottom: "4rem"}}/>
     </HeroSection>
   );
 };
