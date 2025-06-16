@@ -10,7 +10,6 @@ import MolinoCaniuelasLogo from "@img/trust-us/molino-caniuelas.png";
 import NouryonChemicalsArgentinaLogo from "@img/trust-us/nouryon-chemicals-argentina.svg";
 import PeitelLogo from "@img/trust-us/peitel.png";
 import RenopackLogo from "@img/trust-us/renopack.png";
-import RespatLogo from "@img/trust-us/respat.png";
 import SwiftArgentinaWebpLogo from "@img/trust-us/swift-argentina.webp";
 import VartecoQuimicaPuntanaLogo from "@img/trust-us/varteco-quimica-puntana.png";
 import VicentinLogo from "@img/trust-us/vicentin.png";
@@ -83,12 +82,6 @@ const clients = [
     isWhite: false,
     url: "https://www.yeruva.com.ar/",
     img: YeruvaLogo,
-  },
-  {
-    title: "Respat SRL",
-    isWhite: true,
-    url: "https://www.soldadurasrespat.com.ar/",
-    img: RespatLogo,
   },
   {
     title: "Swift Argentina SA",
