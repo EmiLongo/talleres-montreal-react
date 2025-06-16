@@ -1,4 +1,4 @@
-import { Box } from '@mui/material'
+import { Box, useTheme } from '@mui/material'
 import React from 'react'
 import { SectionSubTitle, SectionTitle } from './Styled'
 import { Title1, TitleXL } from '@/theme/textStyles'
@@ -19,19 +19,20 @@ const infoAboutUs = [{
   isSubtBig: false,
 }]
 export const AboutUs: React.FC = () => {
+  const { palette } = useTheme();
   return (
     <Box component="section"
     id='about-us-container'
     sx={{
-      paddingBottom: "3rem",
-      backgroundColor: "background.paper",
+      paddingY: "3rem",
+      backgroundColor: palette.primary[100],
     }}
     >
       <Box sx={{
-        maxWidth: "1280px",
+        maxWidth: "min(1280px, 95%)",
         marginX: "auto",
       }}>
-        <SectionTitle id="about-us-title">
+        <SectionTitle id="about-us-title" sx={{marginTop: 0}}>
           ¿QUIÉNES SOMOS?
         </SectionTitle>
         <SectionSubTitle sx={{ marginX: 'auto'}}>
