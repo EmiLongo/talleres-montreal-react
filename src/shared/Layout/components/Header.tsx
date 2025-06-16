@@ -21,7 +21,8 @@ import { Text3, Title2 } from '@theme/textStyles';
 
 export const infoItems = [
   // { text: 'Inicio', path: '#home' },
-  { text: 'Que hacemos', path: '#whatwedo' },
+  { text: 'Quiénes Somos', path: '#about-us' },
+  { text: 'Qué Hacemos', path: '#whatwedo' },
   { text: 'Servicios', path: '#services' },
   { text: 'Equipamiento', path: '#equipment' },
   { text: 'Contacto', path: '#contact' },
