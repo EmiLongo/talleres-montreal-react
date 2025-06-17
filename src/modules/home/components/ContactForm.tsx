@@ -156,7 +156,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ sx = {} }) => {
       </Box>
       <Button 
         onClick={() => formik.handleSubmit()}
-        disabled={!formik.isValid || formik.isSubmitting}
+        disabled={formik.isSubmitting}
         sx={{
           width: "50%",
           color: theme.palette.primary[900],
