@@ -7,6 +7,7 @@ import {
   Link,
   useTheme,
   Divider,
+  useMediaQuery,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import WhatsApp from "@mui/icons-material/WhatsApp";
@@ -15,6 +16,7 @@ import LocalPhoneOutlined from "@mui/icons-material/LocalPhoneOutlined";
 import FmdGoodOutlined from '@mui/icons-material/FmdGoodOutlined';
 import MailOutlineOutlinedIcon from '@mui/icons-material/MailOutlineOutlined';
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
+import ScheduleIcon from '@mui/icons-material/Schedule';
 import inpulseLogo from "@img/inpulse_design_logo_blanco.svg";
 import talleresMontrealLogoContraste from "@img/talleres-montreal-logo-horizontal-contraste.svg";
 import { infoItems } from "./Header";
@@ -64,10 +66,18 @@ export const contactInfo : IContactInfo[] = [
     type: "Dirección",
     url: "",
   },
+  {
+    icon: <ScheduleIcon sx={{ fontSize: "1.5rem", color: "secondary.main" }}/>,
+    title: "",
+    text: "Lunes a Viernes de 6:00 a 15:00hs",
+    type: "Horario de Atención",
+    url: "",
+  },
 ];
 export const Footer: React.FC = () => {
   const theme = useTheme();
   const { palette } = theme;
+  const isTablet = useMediaQuery(theme.breakpoints.between("md", 1000));
   // Estilos personalizados
   const StyledFooter = styled("footer")({
     backgroundColor: palette.primary[900],
@@ -84,19 +94,19 @@ export const Footer: React.FC = () => {
   padding: 0,
   // gap: "1.5rem",
   flexWrap: "wrap",
-  [theme.breakpoints.up('md')]: {
+  [theme.breakpoints.up(1000)]: {
     flexDirection: "row",
-    gap: "2rem",
+    // gap: "1rem",
   },
   }));
 
-  const FooterListItem = styled(ListItem)(({ theme }) => ({
+  const FooterListItem = styled(ListItem)(() => ({
     flex: 1,
       margin: 0,
     paddingRight: "0.5rem",
-    [theme.breakpoints.up('md')]: {
-      paddingRight: "1rem",
-    },
+    // [theme.breakpoints.up('md')]: {
+    //   paddingRight: "1rem",
+    // },
   }));
 
   const FooterLink = styled(Link)({
@@ -132,7 +142,7 @@ export const Footer: React.FC = () => {
           id="footerContainer"
           sx={{
             display: "flex",
-            justifyContent: {xs: "space-around", md: "space-between"},
+            justifyContent: {xs: "space-around", md: isTablet ? "space-around" : "space-between"},
             flexWrap: "wrap",
             gap: { xs: 4 },
           }}
@@ -160,7 +170,7 @@ export const Footer: React.FC = () => {
                 decoding="async"
                 loading="lazy"
                 sx={{
-                  height: {xs: "40px", md: "70px"},
+                  height: {xs: "40px", md: "50px", lg: "70px"},
                 }}
               />
               <Box
@@ -184,28 +194,28 @@ export const Footer: React.FC = () => {
               </Box>
             </Box>
           </Box>
-            <Box id="footerRight" sx={{ display: "flex", flexDirection: "column", justifyContent: "center"}}>
-              <Title2 sx={{ color: palette.primary[100], textAlign: "center", textTransform: "none", marginBottom: {xs: "1rem", sm: "unset"} }}>Nuestra Web:</Title2>
-              <Box>
-                <FooterList>
-                  <FooterListItem id="footerListItem-home">
-                    <FooterLink href="#hero">
-                      <Text2 sx={{ color: "inherit" }}>Home</Text2>
+          <Box id="footerRight" sx={{ display: "flex", flexDirection: "column", justifyContent: "center"}}>
+            <Title2 sx={{ color: palette.primary[100], textAlign: "center", textTransform: "none", marginBottom: {xs: "1rem", sm: "unset"} }}>Nuestra Web:</Title2>
+            <Box>
+              <FooterList>
+                <FooterListItem id="footerListItem-home">
+                  <FooterLink href="#hero">
+                    <Text2 sx={{ color: "inherit" }}>Home</Text2>
+                  </FooterLink>
+                </FooterListItem>
+                {infoItems.map((item) => (
+                  <FooterListItem
+                    key={item.text}
+                    id={`footerListItem-${item.text}`}
+                  >
+                    <FooterLink href={item.path}>
+                      <Text2 sx={{ color: "inherit", textAlign: "center" }}>{item.text}</Text2>
                     </FooterLink>
                   </FooterListItem>
-                  {infoItems.map((item) => (
-                    <FooterListItem
-                      key={item.text}
-                      id={`footerListItem-${item.text}`}
-                    >
-                      <FooterLink href={item.path}>
-                        <Text2 sx={{ color: "inherit", textAlign: "center" }}>{item.text}</Text2>
-                      </FooterLink>
-                    </FooterListItem>
-                  ))}
-                </FooterList>
-              </Box>
+                ))}
+              </FooterList>
             </Box>
+          </Box>
         </Box>
         <Divider
         component="hr"
