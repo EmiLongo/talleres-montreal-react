@@ -1,3 +1,3 @@
-export const serviceId = "service_igcvylo";
-export const templateId = "template_w7nzb8q";
-export const publicKey = "IZPv8SPUtmzmcpZVH";
+export const serviceId = "service_s1s4zfz";
+export const templateId = "template_vjspdnk";
+export const publicKey = "q4eONCmE-0sl-aE08";
