@@ -9,12 +9,12 @@ const infoAboutUs = [{
   isSubtBig: true,
 },
 {
-  title: "+ 600",
+  title: "+ 200",
   subtitle: "Clientes",
   isSubtBig: false,
 },
 {
-  title: "+ 10000",
+  title: "+ 15000",
   subtitle: "Proyectos",
   isSubtBig: false,
 }]
