@@ -143,7 +143,14 @@ export const Header: React.FC = () => {
               </>
             ) : (
               // versión escritorio
-              <Box sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingX: { xs: '2rem', sm: '3rem', md: '4rem', lg: '5rem', xl: '8rem'} }}>
+              <Box sx={{ 
+                flexGrow: 1, 
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: 'space-between', 
+                paddingX: { xs: '2rem', sm: '3rem', md: '4rem', lg: '5rem', xl: '8rem'},
+                gap: "2rem"
+              }}>
                 <Box 
                   component={"img"}
                   src={logoTextHorizontal}
@@ -151,7 +158,7 @@ export const Header: React.FC = () => {
                   height="40px"
                   onClick={handleLogoClick}
                 />
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: {xs: '3rem', lg: '3rem', xl: '4rem'} }}>
+                <Box sx={{ display: 'flex', alignItems: 'center', gap: {xs: '3rem', md: '1rem', lg: '3rem', xl: '4rem'} }}>
                   {infoItems.map((item) => (
                     <Box
                       key={item.text}
@@ -165,6 +172,8 @@ export const Header: React.FC = () => {
                           color: palette.primary[600],
                         },
                         textTransform: 'none',
+                        lineHeight: '1.1',
+                        transform: {xs: 'scale(1)', md: 'scale(0.9)', lg: 'scale(1)'},
                       }}>{item.text}</Title2>
                     </Box>
                   ))}
