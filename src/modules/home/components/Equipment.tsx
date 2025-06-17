@@ -3,20 +3,48 @@ import React from "react";
 import { Box, useMediaQuery, useTheme } from "@mui/material";
 import { Text3, Title2 } from "@theme/textStyles";
 import { SectionTitle } from "./Styled";
-import torno1 from "@img/equipment/12-torno_paralelo-hidrocopiador.webp";
-import torno2 from "@img/equipment/13-torno_paralelo-1000.webp";
-import torno3 from "@img/equipment/14-torno_paralelo-1070.webp";
-import alesadora from "@img/equipment/1-alesadora.webp";
-import limadoras from "@img/equipment/7-limadora.webp";
-import fresadora from "@img/equipment/5-fresadora.webp";
-import cepillo from "@img/equipment/2-cepillo_hidráulico.webp";
-import perforadoraPie from "@img/equipment/9-perforadora_pie.webp";
-import perforadoraRadial from "@img/equipment/8-perforadora_radial.webp";
-import prensaHidraulica from "@img/equipment/10-prensa_hidráulica.webp";
-import cortadoraMetales from "@img/equipment/3-cortadora_metales.webp";
-import cortePlasma from "@img/equipment/4-cortadora_plasma.webp";
-import soldadora from "@img/equipment/11-soldadoras.webp";
-import fundidora from "@img/equipment/6-fundidora.webp";
+import torno1Webp from "@img/equipment/12-torno_paralelo-hidrocopiador.webp";
+import torno2Webp from "@img/equipment/13-torno_paralelo-1000.webp";
+import torno3Webp from "@img/equipment/14-torno_paralelo-1070.webp";
+import alesadoraWebp from "@img/equipment/1-alesadora.webp";
+import limadorasWebp from "@img/equipment/7-limadora.webp";
+import fresadoraWebp from "@img/equipment/5-fresadora.webp";
+import cepilloWebp from "@img/equipment/2-cepillo_hidráulico.webp";
+import perforadoraPieWebp from "@img/equipment/9-perforadora_pie.webp";
+import perforadoraRadialWebp from "@img/equipment/8-perforadora_radial.webp";
+import prensaHidraulicaWebp from "@img/equipment/10-prensa_hidráulica.webp";
+import cortadoraMetalesWebp from "@img/equipment/3-cortadora_metales.webp";
+import cortePlasmaWebp from "@img/equipment/4-cortadora_plasma.webp";
+import soldadoraWebp from "@img/equipment/11-soldadoras.webp";
+import fundidoraWebp from "@img/equipment/6-fundidora.webp";
+import torno1Jpg from "@img/equipment/12-torno_paralelo-hidrocopiador.jpg";
+import torno2Jpg from "@img/equipment/13-torno_paralelo-1000.jpg";
+import torno3Jpg from "@img/equipment/14-torno_paralelo-1070.jpg";
+import alesadoraJpg from "@img/equipment/1-alesadora.jpg";
+import limadorasJpg from "@img/equipment/7-limadora.jpg";
+import fresadoraJpg from "@img/equipment/5-fresadora.jpg";
+import cepilloJpg from "@img/equipment/2-cepillo_hidráulico.jpg";
+import perforadoraPieJpg from "@img/equipment/9-perforadora_pie.jpg";
+import perforadoraRadialJpg from "@img/equipment/8-perforadora_radial.jpg";
+import prensaHidraulicaJpg from "@img/equipment/10-prensa_hidráulica.jpg";
+import cortadoraMetalesJpg from "@img/equipment/3-cortadora_metales.jpg";
+import cortePlasmaJpg from "@img/equipment/4-cortadora_plasma.jpg";
+import soldadoraJpg from "@img/equipment/11-soldadoras.jpg";
+import fundidoraJpg from "@img/equipment/6-fundidora.jpg";
+import torno1Avif from "@img/equipment/12-torno_paralelo-hidrocopiador.avif";
+import torno2Avif from "@img/equipment/13-torno_paralelo-1000.avif";
+import torno3Avif from "@img/equipment/14-torno_paralelo-1070.avif";
+import alesadoraAvif from "@img/equipment/1-alesadora.avif";
+import limadorasAvif from "@img/equipment/7-limadora.avif";
+import fresadoraAvif from "@img/equipment/5-fresadora.avif";
+import cepilloAvif from "@img/equipment/2-cepillo_hidráulico.avif";
+import perforadoraPieAvif from "@img/equipment/9-perforadora_pie.avif";
+import perforadoraRadialAvif from "@img/equipment/8-perforadora_radial.avif";
+import prensaHidraulicaAvif from "@img/equipment/10-prensa_hidráulica.avif";
+import cortadoraMetalesAvif from "@img/equipment/3-cortadora_metales.avif";
+import cortePlasmaAvif from "@img/equipment/4-cortadora_plasma.avif";
+import soldadoraAvif from "@img/equipment/11-soldadoras.avif";
+import fundidoraAvif from "@img/equipment/6-fundidora.avif";
 import { Paper } from "@mui/material";
 
 export const Equipment: React.FC = () => {
@@ -26,59 +54,59 @@ export const Equipment: React.FC = () => {
   const equipment = [
     {title: "Torno Paralelo",
     description: "con hidrocopiador, diám 400mm, largo 1000mm",
-    img: torno1,
+    img: [torno1Webp, torno1Avif, torno1Jpg]
     },
     {title: "Torno Paralelo",
     description: "diám 1000mm, largo 4060mm",
-    img: torno2,
+    img: [torno2Webp, torno2Avif, torno2Jpg]
     },
     {title: "Torno Paralelo",
     description: "diám 1070mm, largo 3000mm",
-    img: torno3,
+    img: [torno3Webp, torno3Avif, torno3Jpg]
     },
     {title: "Alesadora",
     description: "diám husillo 70mm",
-    img: alesadora,
+    img: [alesadoraWebp, alesadoraAvif, alesadoraJpg]
     },
     {title: "Limadoras",
     description: "largo carrera 600mm",
-    img: limadoras,
+    img: [limadorasWebp, limadorasAvif, limadorasJpg]
     },
     {title: "Fresadora",
     description: "",
-    img: fresadora,
+    img: [fresadoraWebp, fresadoraAvif, fresadoraJpg]
     },
     {title: "Cepillo Hidráulico",
     description: "",
-    img: cepillo,
+    img: [cepilloWebp, cepilloAvif, cepilloJpg]
     },
     {title: "Perforadora Radial",
     description: "largo bandera 1500mm",
-    img: perforadoraRadial,
+    img: [perforadoraRadialWebp, perforadoraRadialAvif, perforadoraRadialJpg]
     },
     {title: "Perforadoras de Pie",
     description: "",
-    img: perforadoraPie,
+    img: [perforadoraPieWebp, perforadoraPieAvif, perforadoraPieJpg]
     },
     {title: "Prensa Hidráulica",
     description: "",
-    img: prensaHidraulica,
+    img: [prensaHidraulicaWebp, prensaHidraulicaAvif, prensaHidraulicaJpg]
     },
     {title: "Cortadora de Metales",
     description: "",
-    img: cortadoraMetales,
+    img: [cortadoraMetalesWebp, cortadoraMetalesAvif, cortadoraMetalesJpg]
     },
     {title: "Corte Plasma",
     description: "",
-    img: cortePlasma,
+    img: [cortePlasmaWebp, cortePlasmaAvif, cortePlasmaJpg]
     },
     {title: "Soldadoras",
     description: "",
-    img: soldadora,
+    img: [soldadoraWebp, soldadoraAvif, soldadoraJpg]
     },
     {title: "Fundidora",
     description: "",
-    img: fundidora,
+    img: [fundidoraWebp, fundidoraAvif, fundidoraJpg]
     },
   ]
   return (
@@ -134,18 +162,27 @@ export const Equipment: React.FC = () => {
                 overflow: "hidden",
               }}
             >
-              <Box
-                component={"img"}
-                src={equip.img}
-                loading="lazy"
-                decoding="async"
-                sx={{
-                  width: "100%",
-                  height: "auto",
-                  objectFit: "cover",
-                }}
-                alt={equip.title}
-              />
+              <Box component="picture"
+              sx={{
+                width: "100%",
+                height: "auto",
+                objectFit: "cover",
+              }}>
+                <source srcSet={equip.img[0]} type="image/avif" />
+                <source srcSet={equip.img[1]} type="image/webp" />
+                <Box
+                  component="img"
+                  src={equip.img[2]}
+                  alt={equip.title}
+                  loading="lazy"
+                  decoding="async"
+                  sx={{
+                    width: "100%",
+                    height: "auto",
+                    objectFit: "cover",
+                  }}
+                />
+              </Box>
             </Box>
             <Box sx={{ 
               width: "100%", 
