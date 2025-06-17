@@ -54,59 +54,59 @@ export const Equipment: React.FC = () => {
   const equipment = [
     {title: "Torno Paralelo",
     description: "con hidrocopiador, diám 400mm, largo 1000mm",
-    img: [torno1Webp, torno1Avif, torno1Jpg]
+    img: [torno1Avif, torno1Webp, torno1Jpg]
     },
     {title: "Torno Paralelo",
     description: "diám 1000mm, largo 4060mm",
-    img: [torno2Webp, torno2Avif, torno2Jpg]
+    img: [torno2Avif, torno2Webp, torno2Jpg]
     },
     {title: "Torno Paralelo",
     description: "diám 1070mm, largo 3000mm",
-    img: [torno3Webp, torno3Avif, torno3Jpg]
+    img: [torno3Avif, torno3Webp, torno3Jpg]
     },
     {title: "Alesadora",
     description: "diám husillo 70mm",
-    img: [alesadoraWebp, alesadoraAvif, alesadoraJpg]
+    img: [alesadoraAvif, alesadoraWebp, alesadoraJpg]
     },
     {title: "Limadoras",
     description: "largo carrera 600mm",
-    img: [limadorasWebp, limadorasAvif, limadorasJpg]
+    img: [limadorasAvif, limadorasWebp, limadorasJpg]
     },
     {title: "Fresadora",
     description: "",
-    img: [fresadoraWebp, fresadoraAvif, fresadoraJpg]
+    img: [fresadoraAvif, fresadoraWebp, fresadoraJpg]
     },
     {title: "Cepillo Hidráulico",
     description: "",
-    img: [cepilloWebp, cepilloAvif, cepilloJpg]
+    img: [cepilloAvif, cepilloWebp, cepilloJpg]
     },
     {title: "Perforadora Radial",
     description: "largo bandera 1500mm",
-    img: [perforadoraRadialWebp, perforadoraRadialAvif, perforadoraRadialJpg]
+    img: [perforadoraRadialAvif, perforadoraRadialWebp, perforadoraRadialJpg]
     },
     {title: "Perforadoras de Pie",
     description: "",
-    img: [perforadoraPieWebp, perforadoraPieAvif, perforadoraPieJpg]
+    img: [perforadoraPieAvif, perforadoraPieWebp, perforadoraPieJpg]
     },
     {title: "Prensa Hidráulica",
     description: "",
-    img: [prensaHidraulicaWebp, prensaHidraulicaAvif, prensaHidraulicaJpg]
+    img: [prensaHidraulicaAvif, prensaHidraulicaWebp, prensaHidraulicaJpg]
     },
     {title: "Cortadora de Metales",
     description: "",
-    img: [cortadoraMetalesWebp, cortadoraMetalesAvif, cortadoraMetalesJpg]
+    img: [cortadoraMetalesAvif, cortadoraMetalesWebp, cortadoraMetalesJpg]
     },
     {title: "Corte Plasma",
     description: "",
-    img: [cortePlasmaWebp, cortePlasmaAvif, cortePlasmaJpg]
+    img: [cortePlasmaAvif, cortePlasmaWebp, cortePlasmaJpg]
     },
     {title: "Soldadoras",
     description: "",
-    img: [soldadoraWebp, soldadoraAvif, soldadoraJpg]
+    img: [soldadoraAvif, soldadoraWebp, soldadoraJpg]
     },
     {title: "Fundidora",
     description: "",
-    img: [fundidoraWebp, fundidoraAvif, fundidoraJpg]
+    img: [fundidoraAvif, fundidoraWebp, fundidoraJpg]
     },
   ]
   return (
