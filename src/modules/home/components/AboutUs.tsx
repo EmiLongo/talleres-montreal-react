@@ -47,10 +47,10 @@ export const AboutUs: React.FC = () => {
         }}>
           {infoAboutUs.map(item => (
             <Box key={`aboutUs-${item.subtitle}`}>
-            <TitleXL sx={{textTransform: "none", transform: "scale(1.7)"}}>{item.title}</TitleXL>
+            <TitleXL sx={{textTransform: "none", transform: "scale(1.7)", textAlign: "center"}}>{item.title}</TitleXL>
             {item.isSubtBig
             ? <TitleXL sx={{textTransform: "none", transform: "scale(1.7)", marginTop: ".5rem", textAlign: "right"}}>{item.subtitle}</TitleXL>
-            : <Title1 sx={{textTransform: "none", transform: "scale(1.2)"}}>{item.subtitle}</Title1>
+            : <Title1 sx={{textTransform: "none", transform: "scale(1.2)", textAlign: "center"}}>{item.subtitle}</Title1>
             }
             </Box>
           ))}
