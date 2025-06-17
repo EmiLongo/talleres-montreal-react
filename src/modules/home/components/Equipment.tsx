@@ -1,6 +1,6 @@
 // src/modules/home/components/Equipment.tsx
 import React from "react";
-import { Box, useTheme } from "@mui/material";
+import { Box, useMediaQuery, useTheme } from "@mui/material";
 import { Text3, Title2 } from "@theme/textStyles";
 import { SectionTitle } from "./Styled";
 import torno1 from "@img/equipment/12-torno_paralelo-hidrocopiador.webp";
@@ -20,7 +20,9 @@ import fundidora from "@img/equipment/6-fundidora.webp";
 import { Paper } from "@mui/material";
 
 export const Equipment: React.FC = () => {
-  const { palette } = useTheme();
+  const theme = useTheme();
+  const isMini = useMediaQuery(theme.breakpoints.down(400));
+  const  { palette } = theme;
   const equipment = [
     {title: "Torno Paralelo",
     description: "con hidrocopiador, diám 400mm, largo 1000mm",
@@ -152,18 +154,18 @@ export const Equipment: React.FC = () => {
               flexDirection: "column ", 
               alignItems: "center", 
               justifyContent: "center", 
-              gap: {xs:"3px", md:"5px", lg:"7px"} 
+              gap: {xs: isMini ? "1px" : "3px", md:"5px", lg:"7px"} 
             }}>
               <Title2 sx={{ 
                 textAlign: "center", 
                 color: "text.primary", 
-                textWrap: "wrap", 
+                // textWrap: "wrap", 
                 textTransform: "none", 
                 width: "100%", 
                 background: "background.paper",
-                paddingX: {xs: "1rem", md: "", lg: "0.5rem"},
+                paddingX: {xs: "", lg: "0.5rem"},
                 lineHeight: "0.9",
-                transform: {xs: "scale(90%)", md: "unset"},
+                transform: {xs: isMini ? "scale(80%)" : "scale(90%)", md: "unset"},
               }}>
                 {equip.title}
               </Title2>
@@ -174,7 +176,7 @@ export const Equipment: React.FC = () => {
                 textTransform: "none", 
                 width: "100%", 
                 background: "background.paper",
-                paddingX: {xs: "1rem", md: "", lg: "0.5rem"},
+                paddingX: {xs:  "", lg: "0.5rem"},
                 lineHeight: "0.9",
                 transform: {xs: "scale(75%)", md: "scale(85%)"},
               }}>
