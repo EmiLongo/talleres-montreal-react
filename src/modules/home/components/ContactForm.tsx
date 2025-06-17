@@ -1,3 +1,4 @@
+// src/modules/home/components/ContactForm.tsx
 import React, { useRef } from 'react';
 import { Box, TextField, Button, useTheme } from '@mui/material';
 import { useFormik } from 'formik';
@@ -56,7 +57,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({ sx = {} }) => {
   });
 
   return (
-    <Box id="contact-form" sx={{ 
+    <Box 
+    sx={{ 
       color: 'white',
       display: 'flex', 
       flexDirection: 'column', 
@@ -66,6 +68,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ sx = {} }) => {
     }}
     >
       <Box 
+        id="contact-form" 
         ref={formRef}
         component="form" 
         onSubmit={formik.handleSubmit} 
@@ -152,8 +155,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({ sx = {} }) => {
         </InputError>
       </Box>
       <Button 
-        type="submit" 
-        disabled={formik.isSubmitting}
+        onClick={() => formik.handleSubmit()}
+        disabled={!formik.isValid || formik.isSubmitting}
         sx={{
           width: "50%",
           color: theme.palette.primary[900],
@@ -168,7 +171,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({ sx = {} }) => {
           fontWeight: 500,
           textTransform: "uppercase",
         }}>
-          Enviar Mensaje
+          {formik.isSubmitting ? "...enviando" : "Enviar Mensaje"}
         </Text2>
       </Button>
     </Box>
