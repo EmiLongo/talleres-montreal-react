@@ -1,20 +1,20 @@
 import { Box, useTheme } from '@mui/material'
 import React from 'react'
 import { SectionSubTitle, SectionTitle } from './Styled'
-import { Title1, TitleXL } from '@/theme/textStyles'
+import { Text1, TitleXL } from '@/theme/textStyles'
 
 const infoAboutUs = [{
-  title: "+ De 30",
+  title: "+30",
   subtitle: "Años",
-  isSubtBig: true,
+  isSubtBig: false,
 },
 {
-  title: "+ 200",
+  title: "+200",
   subtitle: "Clientes",
   isSubtBig: false,
 },
 {
-  title: "+ 15000",
+  title: "+15.000",
   subtitle: "Proyectos",
   isSubtBig: false,
 }]
@@ -47,10 +47,10 @@ export const AboutUs: React.FC = () => {
         }}>
           {infoAboutUs.map(item => (
             <Box key={`aboutUs-${item.subtitle}`}>
-            <TitleXL sx={{textTransform: "none", transform: "scale(1.7)", textAlign: "center"}}>{item.title}</TitleXL>
+            <TitleXL sx={{textTransform: "none", transform: "scale(1.7)", textAlign: "center", color: palette.primary[600], marginBottom: ".5rem"}}>{item.title}</TitleXL>
             {item.isSubtBig
             ? <TitleXL sx={{textTransform: "none", transform: "scale(1.7)", marginTop: ".5rem", textAlign: "right"}}>{item.subtitle}</TitleXL>
-            : <Title1 sx={{textTransform: "none", transform: "scale(1.2)", textAlign: "center"}}>{item.subtitle}</Title1>
+            : <Text1 sx={{textTransform: "none", transform: "scale(1.4)", textAlign: "center", fontWeight: 400}}>{item.subtitle}</Text1>
             }
             </Box>
           ))}
